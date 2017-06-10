@@ -1,0 +1,114 @@
+Proyecto que comemos:
+
+  Idea:
+
+    - Una aplicación que pueda ser una consulta de recetas, lista de ingredientes, costo de la receta, búsqueda por ingredientes, precio, calorías, carbohidratos, proteínas. con base de datos en SQL y front en C# form, que regrese búsquedas de ingrediente para comprar, informe de perfiles para un seguimiento alimenticio.
+
+  Partes:
+
+    Recetas:
+      [ ] Link  de imagen de la receta.
+      [ ] Texto de la receta.
+      [ ] Tipo de recetas. @Homnívoro-Vegetariano-Vegano.
+      [ ] Ingredientes, cantidad.
+      [ ] Costo total aproximado. @Seleccionar la cantidad de personas.
+      [ ] Indices total Calorías,Proteínas, carbohidratos, grasas. @CPCG
+
+    Ingredientes:
+      [ ] Costo por unidad.
+      [ ] @CPCG
+      [ ] Tipo de ingrediente @gramos-unidad-litros
+
+    Perfiles:
+      [ ] Nombre
+      [ ] Avatar
+      [ ] Consumo de @CPCG*  en calendario.
+
+    Lugares de compra:
+      [ ] Nombre
+      [ ] Ingredientes
+      [ ] Dirección
+
+    Busquedas:
+      [ ] Por Receta.
+      [ ] Por Perfil.
+      [ ] Por Tipos.
+      [ ] Por Costo.
+      [ ] Por Ingredientes preexistentes.
+      [ ] Por Prioridad de @CPCG
+      [ ] Búsqueda Random que no se comió en la semana.
+      [ ] Lista de compras y en donde comprar cada cosa.
+      [ ] La receta mas adecuada a los ingredientes que tenes.
+      [ ] La receta mas adecuada a los ingredientes que tenes, y los que no tenes los mas baratos.
+
+  Tablas SQL:
+    Armar el DEER para ver las características de cada tabla.
+
+    [ ] @Recetas
+          -+Nombre receta
+          - URLTexto
+          - URLImagen
+          - Tipo
+          - Tiempo_Aprox
+          -+IDigredientes
+
+    [ ] @IngredientesXReceta
+          -*Receta
+          - Cantidad
+          -*Ingrediente
+
+    [ ] @Ingredientes
+          -*Nombre Ingrediente
+          - Tipo (Gramo,Unidad,Litro)
+          - Calorías
+          - Proteínas
+          - Carbohidratos
+          - Grasas
+          - Cantidad de venta
+          - Costo de la cantidad
+
+    [ ] @IngredientesXComercio
+          -*Ingrediente
+          -*Comercio
+
+    [ ] @Comercio
+          -*Nombre
+          -Dirección
+
+    [ ] @DiaDeIngesta
+          -*Receta1
+          -*Receta2
+          -*Receta3
+          -*Receta4
+          - DiaSemana (lunes,martes..)
+          - Fecha
+          -*Calendario
+
+    [ ] @CalendarioSemanal
+          -*DiaDeIngesta1
+          -*DiaDeIngesta2
+          -*DiaDeIngesta3
+          -*DiaDeIngesta4
+          -*DiaDeIngesta5
+          -*DiaDeIngesta6
+          -*DiaDeIngesta7
+          - Peso Semanal
+          -*Perfil
+
+    [ ] @Perfiles
+          -*Nombre
+          -URLAvatar
+          -Peso Actual
+
+
+  Validaciones:
+    Ver bien los forms a usar.
+
+
+   
+
+
+
+
+       
+
