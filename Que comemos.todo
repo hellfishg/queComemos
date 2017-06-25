@@ -1,18 +1,23 @@
-Proyecto que comemos:
+Proyecto queComemos:
 
   Idea:
 
-    - Una aplicación que pueda ser una consulta de recetas, lista de ingredientes, costo de la receta, búsqueda por ingredientes, precio, calorías, carbohidratos, proteínas. con base de datos en SQL y front en C# form, que regrese búsquedas de ingrediente para comprar, informe de perfiles para un seguimiento alimenticio.
+    - Aplicación para registrar recetas , ingredientes y comercios. Búsqueda de recetas, Búsquedas de costos de compras, tiempo de cocción, búsqueda de ingredientes acordes para cocinar. Ademas un perfil que gestione las comidas semanales para realizar, un seguimiento nutricional y poder decidir la próxima comida.
+
+    - Base de datos SQL y front en C# form.
+
+
 
   Partes:
 
     Recetas:
       [ ] Link  de imagen de la receta.
       [ ] Texto de la receta.
-      [ ] Tipo de recetas. @Homnívoro-Vegetariano-Vegano.
+      [ ] Tipo de recetas. @Homnívoro-Vegetariano-Vegano-Celiaco.
       [ ] Ingredientes, cantidad.
+      [ ] Tiempo aprox. de preparación.
       [ ] Costo total aproximado. @Seleccionar la cantidad de personas.
-      [ ] Indices total Calorías,Proteínas, carbohidratos, grasas. @CPCG
+      [ ] Indices total Calorías,Proteínas, carbohidratos, grasas. @CPCG 
 
     Ingredientes:
       [ ] Costo por unidad.
@@ -42,65 +47,123 @@ Proyecto que comemos:
       [ ] La receta mas adecuada a los ingredientes que tenes, y los que no tenes los mas baratos.
 
   Tablas SQL:
-    Armar el DEER para ver las características de cada tabla.
+    DER para ver las relaciones de cada tabla.
 
     [ ] @Recetas
-          -+Nombre receta
-          - URLTexto
+          -*IdReceta
+          - Nombre
+          - Descripción
           - URLImagen
-          - Tipo
           - Tiempo_Aprox
-          -+IDigredientes
+          -+IdTipo
 
-    [ ] @IngredientesXReceta
-          -*Receta
+    [ ] @RecetaIngrediente
+          -+IdReceta
           - Cantidad
-          -*Ingrediente
+          -+IdIngrediente
 
     [ ] @Ingredientes
-          -*Nombre Ingrediente
-          - Tipo (Gramo,Unidad,Litro)
+          -*IdIngrediente
+          - Nombre
+          -+IdTipo 
           - Calorías
           - Proteínas
           - Carbohidratos
           - Grasas
-          - Cantidad de venta
-          - Costo de la cantidad
-
-    [ ] @IngredientesXComercio
-          -*Ingrediente
-          -*Comercio
+          - Unidad de medida (Gramo,Unidad,Litro)
+          
+    [ ] @IngredienteComercio
+          -+IdComercio
+          -+IdIngrediente
+          - Costo
 
     [ ] @Comercio
-          -*Nombre
-          -Dirección
+          -*IdComercio
+          - Nombre
+          - Dirección
+          - Horario
+          - Teléfono
 
-    [ ] @DiaDeIngesta
-          -*Receta1
-          -*Receta2
-          -*Receta3
-          -*Receta4
-          - DiaSemana (lunes,martes..)
+    [ ] @RecetaFecha
+          -*IdFecha  (dateTime)
+          -+IdReceta
+          -+IdPerfil
+
+    [ ] @PesoHistorico
+          -*IdPerfil
           - Fecha
-          -*Calendario
-
-    [ ] @CalendarioSemanal
-          -*DiaDeIngesta1
-          -*DiaDeIngesta2
-          -*DiaDeIngesta3
-          -*DiaDeIngesta4
-          -*DiaDeIngesta5
-          -*DiaDeIngesta6
-          -*DiaDeIngesta7
-          - Peso Semanal
-          -*Perfil
+          - Peso
 
     [ ] @Perfiles
-          -*Nombre
-          -URLAvatar
-          -Peso Actual
+          -*IdPerfil
+          - Nombre
+          - URLAvatar
 
 
+  VENTANAS:
+
+        RECETAS:
+          [ ] Ver Receta por lista de num. (Pasar recetas y ya)
+          [ ] @BUSQUEDA
+                [ ] Nombre Receta.
+                [ ] Tipo (vegana-celiaca)
+                [ ] Costo (aprox)
+                [ ] CPCG
+                [ ] Tiempo de cocción aprox.
+          [ ] @EDITAR BORRAR
+
+        LISTA DE COMPRA:
+          [ ] Por Receta
+          [ ] @CON INGREDIENTE
+                [ ] Por Receta mas cerca de los ingrediente.
+                [ ] Por Receta de coste menor cerca de los ingrediente.
+
+          * Exportar a perfil la receta en día de hoy.
+          * Ver Por donde sacar la salida (txt ?)
+
+        PERFIL:
+
+          [ ] @CREAR
+                [ ] Nombre
+                [ ] Foto
+                [ ] Tipo de comida (ver si podemos bloquear los otros tipos)
+                [ ] Peso Actual
+                [ ] Seguridad (pass)
+
+          [ ] @LOGIN (puede no tener pass)
+                [ ] @Ver Perfil
+                [ ] peso actual. (que se pueda modificar acá)
+                [ ] Estadísticas de la semana
+                      [ ] recetas semanales.
+                      [ ] indices CPCG.
+
+                [ ] @BUSQUEDA
+                      [ ] Random vs Semana.
+                      [ ] Costo vs Semana.
+                      [ ] CPCG vs Semana.
+                      [ ] Tipo vs Semana.
+                      [ ] @INGRESAR COMIDA
+                            [ ] Por Día.
+                            [ ] Actual.
+                            [ ] @LISTA DE COMPRA.
+
+                [ ] @MODIFICAR PERFIL
+                      [ ] PASS (protegido)
+                      [ ] BORRAR
+
+        CARGAR DATOS:
+
+          [ ] @RECETAS
+                [ ] Cargar
+          [ ] @INGREDIENTES
+                [ ] Cargar
+          [ ] @COMERCIO
+                [ ] Cargar
+          [ ] @EDITAR BORRAR
+                [ ] Receta
+                [ ] Ingrediente
+                [ ] Comercio
+ 
   Validaciones:
     Ver bien los forms a usar.
 
