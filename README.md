@@ -2,7 +2,10 @@ Proyecto queComemos:
 
   Idea:
 
-    - Aplicación para registrar recetas , ingredientes y comercios. Búsqueda de recetas, Búsquedas de costos de compras, tiempo de cocción, búsqueda de ingredientes acordes para cocinar. Ademas un perfil que gestione las comidas semanales para realizar, un seguimiento nutricional y poder decidir la próxima comida.
+    - Aplicación para registrar recetas , ingredientes y comercios. Búsqueda de recetas,
+    Búsquedas de costos de compras, tiempo de cocción, búsqueda de ingredientes acordes
+    para cocinar. Ademas un perfil que gestione las comidas semanales para realizar, un
+    seguimiento nutricional y poder decidir la próxima comida.
 
     - Base de datos SQL y front en C# form.
 
