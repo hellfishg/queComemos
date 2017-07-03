@@ -1,1 +1,10 @@
 C:\Dropbox\Compartir\UTN\QueComemos\QueComemos\QueComemos\bin\Debug\QueComemos.exe.config
+C:\Dropbox\Compartir\UTN\QueComemos\QueComemos\QueComemos\bin\Debug\QueComemos.exe
+C:\Dropbox\Compartir\UTN\QueComemos\QueComemos\QueComemos\bin\Debug\QueComemos.pdb
+C:\Dropbox\Compartir\UTN\QueComemos\QueComemos\QueComemos\obj\Debug\QueComemos.csprojResolveAssemblyReference.cache
+C:\Dropbox\Compartir\UTN\QueComemos\QueComemos\QueComemos\obj\Debug\QueComemos.Properties.Resources.resources
+C:\Dropbox\Compartir\UTN\QueComemos\QueComemos\QueComemos\obj\Debug\QueComemos.csproj.GenerateResource.Cache
+C:\Dropbox\Compartir\UTN\QueComemos\QueComemos\QueComemos\obj\Debug\QueComemos.exe
+C:\Dropbox\Compartir\UTN\QueComemos\QueComemos\QueComemos\obj\Debug\QueComemos.pdb
+C:\Dropbox\Compartir\UTN\QueComemos\QueComemos\QueComemos\obj\Debug\QueComemos.MenuPrincipal.resources
+C:\Dropbox\Compartir\UTN\QueComemos\QueComemos\QueComemos\obj\Debug\QueComemos.RECETA.resources

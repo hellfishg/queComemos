@@ -9,9 +9,15 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace QueComemos {
-    public partial class Form1 : Form {
-        public Form1() {
+    public partial class RECETA : Form {
+        public RECETA() {
             InitializeComponent();
         }
+
+        private void label11_Click(object sender, EventArgs e) {
+
+        }
+
+   
     }
 }
