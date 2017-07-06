@@ -2,12 +2,11 @@ Proyecto queComemos:
 
   Idea:
 
-    - Aplicación para registrar recetas , ingredientes y comercios. Búsqueda de recetas,
-    Búsquedas de costos de compras, tiempo de cocción, búsqueda de ingredientes acordes
-    para cocinar. Ademas un perfil que gestione las comidas semanales para realizar, un
-    seguimiento nutricional y poder decidir la próxima comida.
+    - Aplicación para registrar recetas , ingredientes y comercios. Búsqueda de recetas, Búsquedas de costos de compras, tiempo de cocción, búsqueda de ingredientes acordes para cocinar. Ademas un perfil que gestione las comidas semanales para realizar, un seguimiento nutricional y poder decidir la próxima comida.
 
     - Base de datos SQL y front en C# form.
+
+    - Proyecto en gihub: https://github.com/hellfishg/queComemos
 
 
 
@@ -58,7 +57,9 @@ Proyecto queComemos:
           - Descripción
           - URLImagen
           - Tiempo_Aprox
-          -+IdTipo
+          - Porcion
+          -+IdTipo 1
+          -+IdTipo 2
 
     [ ] @RecetaIngrediente
           -+IdReceta
@@ -68,7 +69,9 @@ Proyecto queComemos:
     [ ] @Ingredientes
           -*IdIngrediente
           - Nombre
-          -+IdTipo 
+          -+IdTipo 1
+          -+IdTipo 2
+          - Cantidad
           - Calorías
           - Proteínas
           - Carbohidratos
@@ -79,6 +82,10 @@ Proyecto queComemos:
           -+IdComercio
           -+IdIngrediente
           - Costo
+
+    [ ] @Tipos
+          -*IdTipo
+          - Nombre
 
     [ ] @Comercio
           -*IdComercio
@@ -93,7 +100,8 @@ Proyecto queComemos:
           -+IdPerfil
 
     [ ] @PesoHistorico
-          -*IdPerfil
+          -*IdPesoH
+          -+IdPerfil
           - Fecha
           - Peso
 
@@ -113,6 +121,7 @@ Proyecto queComemos:
                 [ ] Costo (aprox)
                 [ ] CPCG
                 [ ] Tiempo de cocción aprox.
+                [ ] Porcion
           [ ] @EDITAR BORRAR
 
         LISTA DE COMPRA:
@@ -166,8 +175,37 @@ Proyecto queComemos:
                 [ ] Receta
                 [ ] Ingrediente
                 [ ] Comercio
+
+
+  BUSQUEDAS:
+
+    [ ] @Busqueda RECETA
+          [ ] Por Nombre FILTRO
+          [ ] Por Tipo FILTRO
+          [ ] Por Comercios FILTRO
+          [ ] Ingredientes que no queres que tenga FILTRO
+          [ ] Por Costo mayor menor ORDENDA
+          [ ] Por Tiempo Aprox de coccion ORDENADA
+          [ ] Por indice (CPCG) menor o mayor FILTRO/ORDENADA
+
+    [ ] @Busqueda COMPRAS
+          [ ] Seleccionar los ingredientes que tenes en la heladera FILTRO
+          [ ] @Busqueda RECETA
+
+    [ ] @Busqueda PERFIL
+          [ ] @Busqueda RECETA
+          [ ] Que no comiste en la semana FILTRO
+
+
  
   Validaciones:
     Ver bien los forms a usar.
 
+
+   
+
+
+
+
+       
 

@@ -1,5 +1,5 @@
 CREATE DATABASE queComemos
-on ( NAME='queComemos_dat',FILENAME='C:\Dropbox\Compartir\UTN\QueComemos\Base de Datos\queComemos.dbo')
+on ( NAME='queComemos_dat',FILENAME='C:\HellDocs\queComemos\Base de datos\queComemos.dbo')
 GO
 -----------------------------------------------------
 USE queComemos
@@ -152,8 +152,8 @@ GO
 
 ----Perfiles
 INSERT INTO Perfiles (Nombre,UrlAvatar)
-SELECT 'Hellfishg','C:\Dropbox\Compartir\UTN\QueComemos\Imagenes Crudas\nurgle.jpg' UNION
-SELECT 'Mina', 'C:\Dropbox\Compartir\UTN\QueComemos\Imagenes Crudas\nurgle.jpg' 
+SELECT 'Hellfishg','C:\HellDocs\queComemos\Imagenes Raw\nurgle.jpg' UNION
+SELECT 'Mina', 'C:\HellDocs\queComemos\Imagenes Raw\nurgle.jpg' 
 GO
 -----------------------------------------------------------------------------------------
 ----Ingredientes
