@@ -46,6 +46,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="BUSCAR_COMERCIO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BUSCAR_COMERCIO.Designer.cs">
+      <DependentUpon>BUSCAR_COMERCIO.cs</DependentUpon>
+    </Compile>
+    <Compile Include="BUSQUEDA_RECETAS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="BUSQUEDA_RECETAS.Designer.cs">
+      <DependentUpon>BUSQUEDA_RECETAS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CARGAR_COMERCIO.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CARGAR_COMERCIO.Designer.cs">
+      <DependentUpon>CARGAR_COMERCIO.cs</DependentUpon>
+    </Compile>
     <Compile Include="CARGAR_INGREDIENTES.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -57,6 +75,18 @@
     </Compile>
     <Compile Include="CARGAR_RECETAS.Designer.cs">
       <DependentUpon>CARGAR_RECETAS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="COMERCIOS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="COMERCIOS.Designer.cs">
+      <DependentUpon>COMERCIOS.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LISTA_DE_COMPRAS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LISTA_DE_COMPRAS.Designer.cs">
+      <DependentUpon>LISTA_DE_COMPRAS.cs</DependentUpon>
     </Compile>
     <Compile Include="MAIN.cs">
       <SubType>Form</SubType>
@@ -84,11 +114,26 @@
     <Compile Include="RECETA.Designer.cs">
       <DependentUpon>RECETA.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="BUSCAR_COMERCIO.resx">
+      <DependentUpon>BUSCAR_COMERCIO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="BUSQUEDA_RECETAS.resx">
+      <DependentUpon>BUSQUEDA_RECETAS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CARGAR_COMERCIO.resx">
+      <DependentUpon>CARGAR_COMERCIO.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="CARGAR_INGREDIENTES.resx">
       <DependentUpon>CARGAR_INGREDIENTES.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CARGAR_RECETAS.resx">
       <DependentUpon>CARGAR_RECETAS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="COMERCIOS.resx">
+      <DependentUpon>COMERCIOS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LISTA_DE_COMPRAS.resx">
+      <DependentUpon>LISTA_DE_COMPRAS.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="MAIN.resx">
       <DependentUpon>MAIN.cs</DependentUpon>

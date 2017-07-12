@@ -9,13 +9,9 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace QueComemos {
-    public partial class PERFIL : Form {
-        public PERFIL() {
+    public partial class BUSCAR_COMERCIO : Form {
+        public BUSCAR_COMERCIO() {
             InitializeComponent();
-        }
-
-        private void button1_Click(object sender, EventArgs e) {
-
         }
     }
 }
