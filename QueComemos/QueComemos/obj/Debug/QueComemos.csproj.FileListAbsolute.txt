@@ -8,3 +8,6 @@ C:\Dropbox\Compartir\UTN\QueComemos\QueComemos\QueComemos\obj\Debug\QueComemos.e
 C:\Dropbox\Compartir\UTN\QueComemos\QueComemos\QueComemos\obj\Debug\QueComemos.pdb
 C:\Dropbox\Compartir\UTN\QueComemos\QueComemos\QueComemos\obj\Debug\QueComemos.MenuPrincipal.resources
 C:\Dropbox\Compartir\UTN\QueComemos\QueComemos\QueComemos\obj\Debug\QueComemos.RECETA.resources
+C:\HellDocs\queComemos\QueComemos\QueComemos\bin\Debug\QueComemos.exe.config
+C:\HellDocs\queComemos\QueComemos\QueComemos\obj\Debug\QueComemos.exe
+C:\HellDocs\queComemos\QueComemos\QueComemos\obj\Debug\QueComemos.pdb

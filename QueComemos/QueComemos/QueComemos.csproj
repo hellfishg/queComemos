@@ -46,11 +46,29 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CARGAR_INGREDIENTES.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CARGAR_INGREDIENTES.Designer.cs">
+      <DependentUpon>CARGAR_INGREDIENTES.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CARGAR_RECETAS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CARGAR_RECETAS.Designer.cs">
+      <DependentUpon>CARGAR_RECETAS.cs</DependentUpon>
+    </Compile>
     <Compile Include="MAIN.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="MAIN.Designer.cs">
       <DependentUpon>MAIN.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MAIN_CARGAR.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MAIN_CARGAR.Designer.cs">
+      <DependentUpon>MAIN_CARGAR.cs</DependentUpon>
     </Compile>
     <Compile Include="PERFIL.cs">
       <SubType>Form</SubType>
@@ -66,8 +84,17 @@
     <Compile Include="RECETA.Designer.cs">
       <DependentUpon>RECETA.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="CARGAR_INGREDIENTES.resx">
+      <DependentUpon>CARGAR_INGREDIENTES.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CARGAR_RECETAS.resx">
+      <DependentUpon>CARGAR_RECETAS.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="MAIN.resx">
       <DependentUpon>MAIN.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MAIN_CARGAR.resx">
+      <DependentUpon>MAIN_CARGAR.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="PERFIL.resx">
       <DependentUpon>PERFIL.cs</DependentUpon>
