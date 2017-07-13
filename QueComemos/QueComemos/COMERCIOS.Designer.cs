@@ -63,9 +63,9 @@
             // groupBox3
             // 
             this.groupBox3.Controls.Add(this.dataGridView1);
-            this.groupBox3.Location = new System.Drawing.Point(40, 386);
+            this.groupBox3.Location = new System.Drawing.Point(40, 371);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(391, 210);
+            this.groupBox3.Size = new System.Drawing.Size(391, 192);
             this.groupBox3.TabIndex = 25;
             this.groupBox3.TabStop = false;
             this.groupBox3.Text = "Ingredientes y/o recetas";
@@ -75,7 +75,7 @@
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(7, 20);
             this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(378, 184);
+            this.dataGridView1.Size = new System.Drawing.Size(378, 163);
             this.dataGridView1.TabIndex = 0;
             // 
             // groupBox2
@@ -83,7 +83,7 @@
             this.groupBox2.Controls.Add(this.richTextBox1);
             this.groupBox2.Location = new System.Drawing.Point(40, 280);
             this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(391, 100);
+            this.groupBox2.Size = new System.Drawing.Size(391, 85);
             this.groupBox2.TabIndex = 27;
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "HORARIOS";
@@ -92,7 +92,7 @@
             // 
             this.richTextBox1.Location = new System.Drawing.Point(6, 20);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(379, 74);
+            this.richTextBox1.Size = new System.Drawing.Size(379, 55);
             this.richTextBox1.TabIndex = 0;
             this.richTextBox1.Text = "";
             // 
@@ -252,18 +252,19 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(186, 613);
+            this.button1.Location = new System.Drawing.Point(186, 569);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(90, 36);
             this.button1.TabIndex = 32;
             this.button1.Text = "BUSCAR COMERCIO";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // COMERCIOS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(475, 678);
+            this.ClientSize = new System.Drawing.Size(475, 626);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button3);

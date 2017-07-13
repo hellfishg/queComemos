@@ -86,6 +86,7 @@ Nombre VARCHAR (50) NOT NULL,
 Direccion VARCHAR (50) NULL,
 Horario VARCHAR (max) NULL,
 Telefono VARCHAR (20) NULL,
+Dias NCHAR (7) NULL DEFAULT 'lmijvsd',
 CONSTRAINT PK_COM PRIMARY KEY (IdComercio_C)
 )
 GO
@@ -141,11 +142,11 @@ ADD CONSTRAINT FK_PH FOREIGN KEY (IdPerfil_PH) REFERENCES Perfiles (IdPerfil_P)
 GO
 -----------------------------------------------------------------------------------------
 INSERT INTO Tipos (Nombre)
+SELECT '' UNION
+SELECT 'Celiaco' UNION
 SELECT 'Omnivoro' UNION
 SELECT 'Vegano' UNION
-SELECT 'Vegetariano' UNION
-SELECT 'Celiaco' UNION
-SELECT '' 
+SELECT 'Vegetariano'
 GO
 -----------------------------------------------------------------------------------------
 --CARGA DE DATOS--
@@ -156,31 +157,32 @@ SELECT 'Hellfishg','C:\HellDocs\queComemos\Imagenes Raw\nurgle.jpg' UNION
 SELECT 'Mina', 'C:\HellDocs\queComemos\Imagenes Raw\nurgle.jpg' 
 GO
 -----------------------------------------------------------------------------------------
-----Ingredientes
-INSERT INTO Ingredientes (IdTipo1_Ing,IdTipo2_Ing, Nombre,Cantidad, Calorias ,Proteinas ,
+--Ingredientes
+INSERT INTO Ingredientes (IdTipo1_Ing, IdTipo2_Ing, Nombre, Cantidad, Calorias ,Proteinas ,
 Carbohidratos ,Grasas, Unidad_De_Medida)
-SELECT 2 , 4 ,'Tomate', 100 , 22.17 , 0.88 , 3.50 , 0.21 , 'Gramos' UNION
-SELECT 2 , 4 ,'Cebolla',100 , 31.85 , 1.19 , 5.30 , 0.25 , 'Gramos' UNION
-SELECT 2 , 4 , 'Ajo' , 1 , 3.57 , 0.13 , 0.73 , 0.0 , 'Unidades' UNION
-SELECT 2 , 4 , 'Papa' , 1 , 147.18 , 4.68 , 29.60 , 0.22 , 'Unidades' UNION
-SELECT 1 , 4 , 'Pollo', 1,2,3,4,5, 'Unidades' UNION
-SELECT 2 , 4 , 'Calabaza', 1,2,3,4,5, 'Unidades' UNION
-SELECT 2 , 4 , 'Berenjena', 1,2,3,4,5, 'Unidades' UNION
-SELECT 1 , 4 , 'Queso', 1,2,3,4,5, 'Gramos' UNION
-SELECT 1 , 4 , 'Leche', 1,2,3,4,5, 'Litros' UNION
-SELECT 2 , 5 , 'Arroz', 1,2,3,4,5, 'Gramos' UNION
-SELECT 2 , 5 , 'Galletitas', 1,2,3,4,5, 'Gramos'
+SELECT 4 , 2 ,'Tomate', 100 , 22.17 , 0.88 , 3.50 , 0.21 , 'Gramos' UNION
+SELECT 4 , 2 ,'Cebolla',100 , 31.85 , 1.19 , 5.30 , 0.25 , 'Gramos' UNION
+SELECT 4 , 2 , 'Ajo' , 1 , 3.57 , 0.13 , 0.73 , 0.0 , 'Unidades' UNION
+SELECT 4 , 2 , 'Papa' , 1 , 147.18 , 4.68 , 29.60 , 0.22 , 'Unidades' UNION
+SELECT 3 , 2 , 'Pollo', 1,2,3,4,5, 'Unidades' UNION
+SELECT 4 , 2 , 'Calabaza', 1,2,3,4,5, 'Unidades' UNION
+SELECT 4 , 2 , 'Berenjena', 1,2,3,4,5, 'Unidades' UNION
+SELECT 5 , 2 , 'Queso', 1,2,3,4,5, 'Gramos' UNION
+SELECT 5 , 2 , 'Leche', 1,2,3,4,5, 'Litros' UNION
+SELECT 4 , 2 , 'Arroz', 1,2,3,4,5, 'Gramos' UNION
+SELECT 3 , 1 , 'Galletitas', 1,2,3,4,5, 'Gramos'
 GO
 -----------------------------------------------------------------------------------------
-INSERT INTO Comercios (Nombre, Direccion, Horario, Telefono)
-SELECT 'Super Nuevo Estilo' ,'San Lorenzo 12343', '09:00 a 14:00', '4-713-3456' UNION
-SELECT 'Super Coto' ,'Balbin 3900', '09:00 a 21:00', '4-713-7456' UNION
-SELECT 'Pizzeria Simoqueña' ,'Matheu 3600', '18:00 a 23:30', '4-713-7856'
+--Comercios
+INSERT INTO Comercios (Nombre, Direccion, Horario, Telefono, Dias)
+SELECT 'Super Nuevo Estilo' ,'San Lorenzo 12343', '09:00 a 14:00', '4-713-3456', 'lmijvs' UNION
+SELECT 'Super Coto' ,'Balbin 3900', '09:00 a 21:00', '4-713-7456', 'lmijvsd' UNION
+SELECT 'Pizzeria Simoqueña' ,'Matheu 3600', '18:00 a 23:30', '4-713-7856', 'mijvsd'
 GO
 -----------------------------------------------------------------------------------------
 
 
-GO
+
 -----------------------------------------------------------------------------------------
 
 
