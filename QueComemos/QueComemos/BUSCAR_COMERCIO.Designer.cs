@@ -24,8 +24,9 @@
         /// </summary>
         private void InitializeComponent() {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
-            this.checkBox1 = new System.Windows.Forms.CheckBox();
+            this.button3 = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.checkBox7 = new System.Windows.Forms.CheckBox();
             this.checkBox2 = new System.Windows.Forms.CheckBox();
@@ -34,13 +35,12 @@
             this.checkBox9 = new System.Windows.Forms.CheckBox();
             this.checkBox10 = new System.Windows.Forms.CheckBox();
             this.checkBox11 = new System.Windows.Forms.CheckBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.button1 = new System.Windows.Forms.Button();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.button2 = new System.Windows.Forms.Button();
-            this.button3 = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
-            this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.groupBox2.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -58,22 +58,32 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "BUSQUEDAS";
             // 
-            // textBox1
+            // button3
             // 
-            this.textBox1.Location = new System.Drawing.Point(150, 29);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(155, 20);
-            this.textBox1.TabIndex = 3;
+            this.button3.Location = new System.Drawing.Point(172, 377);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(75, 23);
+            this.button3.TabIndex = 30;
+            this.button3.Text = "VER";
+            this.button3.UseVisualStyleBackColor = true;
             // 
-            // checkBox1
+            // button1
             // 
-            this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(7, 29);
-            this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(81, 17);
-            this.checkBox1.TabIndex = 0;
-            this.checkBox1.Text = "Por Palabra";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.button1.Location = new System.Drawing.Point(172, 167);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.TabIndex = 29;
+            this.button1.Text = "BUSCAR";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(13, 211);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(385, 150);
+            this.dataGridView1.TabIndex = 28;
             // 
             // groupBox2
             // 
@@ -161,22 +171,22 @@
             this.checkBox11.Text = "Lunes";
             this.checkBox11.UseVisualStyleBackColor = true;
             // 
-            // dataGridView1
+            // textBox1
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(13, 211);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(385, 150);
-            this.dataGridView1.TabIndex = 28;
+            this.textBox1.Location = new System.Drawing.Point(150, 29);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(155, 20);
+            this.textBox1.TabIndex = 3;
             // 
-            // button1
+            // checkBox1
             // 
-            this.button1.Location = new System.Drawing.Point(172, 167);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
-            this.button1.TabIndex = 29;
-            this.button1.Text = "BUSCAR";
-            this.button1.UseVisualStyleBackColor = true;
+            this.checkBox1.AutoSize = true;
+            this.checkBox1.Location = new System.Drawing.Point(7, 29);
+            this.checkBox1.Name = "checkBox1";
+            this.checkBox1.Size = new System.Drawing.Size(81, 17);
+            this.checkBox1.TabIndex = 0;
+            this.checkBox1.Text = "Por Palabra";
+            this.checkBox1.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
@@ -186,15 +196,6 @@
             this.button2.TabIndex = 30;
             this.button2.Text = "Volver";
             this.button2.UseVisualStyleBackColor = true;
-            // 
-            // button3
-            // 
-            this.button3.Location = new System.Drawing.Point(172, 377);
-            this.button3.Name = "button3";
-            this.button3.Size = new System.Drawing.Size(75, 23);
-            this.button3.TabIndex = 30;
-            this.button3.Text = "VER";
-            this.button3.UseVisualStyleBackColor = true;
             // 
             // BUSCAR_COMERCIO
             // 
@@ -207,9 +208,9 @@
             this.Text = "BUSCAR_COMERCIO";
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
 
         }

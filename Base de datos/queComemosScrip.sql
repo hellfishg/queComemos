@@ -84,7 +84,7 @@ CREATE TABLE Comercios (
 IdComercio_C INT IDENTITY(1,1) NOT NULL,
 Nombre VARCHAR (50) NOT NULL,
 Direccion VARCHAR (50) NULL,
-Horario VARCHAR (20) NULL,
+Horario VARCHAR (max) NULL,
 Telefono VARCHAR (20) NULL,
 CONSTRAINT PK_COM PRIMARY KEY (IdComercio_C)
 )
@@ -171,6 +171,17 @@ SELECT 1 , 4 , 'Leche', 1,2,3,4,5, 'Litros' UNION
 SELECT 2 , 5 , 'Arroz', 1,2,3,4,5, 'Gramos' UNION
 SELECT 2 , 5 , 'Galletitas', 1,2,3,4,5, 'Gramos'
 GO
+-----------------------------------------------------------------------------------------
+INSERT INTO Comercios (Nombre, Direccion, Horario, Telefono)
+SELECT 'Super Nuevo Estilo' ,'San Lorenzo 12343', '09:00 a 14:00', '4-713-3456' UNION
+SELECT 'Super Coto' ,'Balbin 3900', '09:00 a 21:00', '4-713-7456' UNION
+SELECT 'Pizzeria Simoqueña' ,'Matheu 3600', '18:00 a 23:30', '4-713-7856'
+GO
+-----------------------------------------------------------------------------------------
+
+
+GO
+-----------------------------------------------------------------------------------------
 
 
 
