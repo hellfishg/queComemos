@@ -25,46 +25,46 @@ namespace QueComemos {
 
         private string filtro() {
 
-            consultaSql = "SELECT Nombre, Dias, Telefono, Direccion FROM Comercios WHERE ";
+            consultaSql = "SELECT Nombre_C, Dias_C, Telefono_C, Direccion_C FROM Comercios WHERE ";
             bool checkArgumentos = false;
 
             if(checkBox1.Checked) {
-                consultaSql += "Nombre LIKE '%" + textBox1.Text + "%' ";
+                consultaSql += "Nombre_C LIKE '%" + textBox1.Text + "%' ";
                 checkArgumentos = true;
             }
             if(checkBox11.Checked ) {
                 if(checkArgumentos) {consultaSql += "AND ";}
-                consultaSql += "Dias LIKE '%l%' ";
+                consultaSql += "Dias_C LIKE '%l%' ";
                 checkArgumentos = true;
             }
             if(checkBox2.Checked) {
                 if(checkArgumentos) { consultaSql += "AND "; }
-                consultaSql += "Dias LIKE '%m%' ";
+                consultaSql += "Dias_C LIKE '%m%' ";
                 checkArgumentos = true;
             }
             if(checkBox3.Checked) {
                 if(checkArgumentos) { consultaSql += "AND "; }
-                consultaSql += "Dias LIKE '%i%' ";
+                consultaSql += "Dias_C LIKE '%i%' ";
                 checkArgumentos = true;
             }
             if(checkBox4.Checked) {
                 if(checkArgumentos) { consultaSql += "AND "; }
-                consultaSql += "Dias LIKE '%j%' ";
+                consultaSql += "Dias_C LIKE '%j%' ";
                 checkArgumentos = true;
             }
             if(checkBox5.Checked) {
                 if(checkArgumentos) { consultaSql += "AND "; }
-                consultaSql += "Dias LIKE '%v%' ";
+                consultaSql += "Dias_C LIKE '%v%' ";
                 checkArgumentos = true;
             }
             if(checkBox6.Checked) {
                 if(checkArgumentos) { consultaSql += "AND "; }
-                consultaSql += "Dias LIKE '%s%' ";
+                consultaSql += "Dias_C LIKE '%s%' ";
                 checkArgumentos = true;
             }
             if(checkBox7.Checked) {
                 if(checkArgumentos) { consultaSql += "AND "; }
-                consultaSql += "Dias LIKE '%d%' ";
+                consultaSql += "Dias_C LIKE '%d%' ";
                 checkArgumentos = true;
             }
 
@@ -85,9 +85,9 @@ namespace QueComemos {
         }
 
         private void button3_Click(object sender, EventArgs e) {
-            string busq = this.dataGridView1.CurrentRow.Cells[0].Value.ToString();
-
-            ventPadre.setConsulta(busq);
+            string nombre = this.dataGridView1.CurrentRow.Cells[0].Value.ToString();
+                        
+            ventPadre.setConsulta(nombre);
             ventPadre.Show();
             this.Dispose();
         }
