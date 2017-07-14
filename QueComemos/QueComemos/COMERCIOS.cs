@@ -12,18 +12,17 @@ using System.Data.SqlClient;
 namespace QueComemos {
     public partial class COMERCIOS : Form {
 
-        MAIN_CARGAR ventPadre;
+        MenuPrincipal ventPadre;
         BASE_DATOS SQL = new BASE_DATOS();
         DataTable dt;
         int index = 1;
         int indexMax;
-
         string consulta = "SELECT Nombre_C, Dias_C, Telefono_C, Direccion_C,Horario_C FROM Comercios";
 
-        public COMERCIOS() {
+        public COMERCIOS(MenuPrincipal ventPadre) {
             InitializeComponent();
 
-            //this.ventPadre = ventPadre;
+            this.ventPadre = ventPadre;
             
             dt = SQL.devolverTablaDataSet(consulta, "Comercios");
             cargarDatos(index);
@@ -56,6 +55,12 @@ namespace QueComemos {
             dataGridView1.DataSource = dt2;
         }
 
+        private void obtenerIndiceMaximo() {
+            DataTable DatAble = SQL.devolverTablaDataSet("SELECT max(IdComercio_C) FROM Comercios", "Comercios");
+            DataRow fila = DatAble.Rows[0];
+            indexMax = Convert.ToInt16(fila[0].ToString());
+        }
+
         public void setConsulta(string nombreBusqueda) {
             DataTable dt2 = SQL.devolverTablaDataSet("exec PROC_COM_2 '"+nombreBusqueda+"'", "Comercios");
             DataRow fila = dt2.Rows[0];
@@ -69,12 +74,6 @@ namespace QueComemos {
             this.Hide();
         }
 
-        private void obtenerIndiceMaximo() {
-            DataTable DatAble = SQL.devolverTablaDataSet("SELECT max(IdComercio_C) FROM Comercios", "Comercios");
-            DataRow fila = DatAble.Rows[0];
-            indexMax = Convert.ToInt16( fila[0].ToString());
-        }
-
         private void btn_next_Click(object sender, EventArgs e) {
             index++;
             if(index > indexMax) { index = 1; }
@@ -86,5 +85,11 @@ namespace QueComemos {
             if(index < 1) { index = indexMax; }
             cargarDatos(index);
         }
+
+        private void COMERCIOS_FormClosing(object sender, FormClosingEventArgs e) {
+            ventPadre.Show();
+            this.Dispose();
+        }
+        
     }
 }

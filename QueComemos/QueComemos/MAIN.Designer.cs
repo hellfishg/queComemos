@@ -31,9 +31,9 @@
             this.pERFILLOGINToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pERFIL1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.pERFIL2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.lOGINOUTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aYUDAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aCERCADEQueComemosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.lOGINOUTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -45,6 +45,7 @@
             this.btn_Recetas.TabIndex = 0;
             this.btn_Recetas.Text = "RECETAS";
             this.btn_Recetas.UseVisualStyleBackColor = true;
+            this.btn_Recetas.Click += new System.EventHandler(this.btn_Recetas_Click);
             // 
             // btn_Comercios
             // 
@@ -54,6 +55,7 @@
             this.btn_Comercios.TabIndex = 1;
             this.btn_Comercios.Text = "COMERCIOS";
             this.btn_Comercios.UseVisualStyleBackColor = true;
+            this.btn_Comercios.Click += new System.EventHandler(this.btn_Comercios_Click);
             // 
             // btn_Perfil
             // 
@@ -63,6 +65,7 @@
             this.btn_Perfil.TabIndex = 2;
             this.btn_Perfil.Text = "PERFIL";
             this.btn_Perfil.UseVisualStyleBackColor = true;
+            this.btn_Perfil.Click += new System.EventHandler(this.btn_Perfil_Click);
             // 
             // btn_Datos
             // 
@@ -72,6 +75,7 @@
             this.btn_Datos.TabIndex = 3;
             this.btn_Datos.Text = "DATOS";
             this.btn_Datos.UseVisualStyleBackColor = true;
+            this.btn_Datos.Click += new System.EventHandler(this.btn_Datos_Click);
             // 
             // menuStrip1
             // 
@@ -97,14 +101,20 @@
             // pERFIL1ToolStripMenuItem
             // 
             this.pERFIL1ToolStripMenuItem.Name = "pERFIL1ToolStripMenuItem";
-            this.pERFIL1ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.pERFIL1ToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.pERFIL1ToolStripMenuItem.Text = "PERFIL 1";
             // 
             // pERFIL2ToolStripMenuItem
             // 
             this.pERFIL2ToolStripMenuItem.Name = "pERFIL2ToolStripMenuItem";
-            this.pERFIL2ToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.pERFIL2ToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
             this.pERFIL2ToolStripMenuItem.Text = "PERFIL 2";
+            // 
+            // lOGINOUTToolStripMenuItem
+            // 
+            this.lOGINOUTToolStripMenuItem.Name = "lOGINOUTToolStripMenuItem";
+            this.lOGINOUTToolStripMenuItem.Size = new System.Drawing.Size(81, 20);
+            this.lOGINOUTToolStripMenuItem.Text = "LOGIN OUT";
             // 
             // aYUDAToolStripMenuItem
             // 
@@ -120,17 +130,11 @@
             this.aCERCADEQueComemosToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
             this.aCERCADEQueComemosToolStripMenuItem.Text = "ACERCA DE queComemos";
             // 
-            // lOGINOUTToolStripMenuItem
-            // 
-            this.lOGINOUTToolStripMenuItem.Name = "lOGINOUTToolStripMenuItem";
-            this.lOGINOUTToolStripMenuItem.Size = new System.Drawing.Size(81, 20);
-            this.lOGINOUTToolStripMenuItem.Text = "LOGIN OUT";
-            // 
             // MenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(435, 406);
+            this.ClientSize = new System.Drawing.Size(435, 395);
             this.Controls.Add(this.btn_Datos);
             this.Controls.Add(this.btn_Perfil);
             this.Controls.Add(this.btn_Comercios);

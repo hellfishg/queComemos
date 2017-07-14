@@ -270,6 +270,7 @@
             this.Controls.Add(this.label4);
             this.Name = "COMERCIOS";
             this.Text = "COMERCIOS";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.COMERCIOS_FormClosing);
             this.groupBox3.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox2.ResumeLayout(false);
