@@ -314,4 +314,63 @@ SELECT IdComercio_C FROM Comercios
 WHERE Nombre_C LIKE @Nombre_C
 GO
 -----------------------------------------------------------------------------------------
+CREATE procedure PROC_REC_1
+@IdReceta_Rec char (2)
+AS
+SELECT Nombre_Ing , Cantidad_RXI FROM Recetas
+INNER JOIN RecetaXIngrediente ON IdReceta_RXI = IdReceta_Rec
+INNER JOIN Ingredientes	ON IdIngrediente_Ing = IdIngrediente_RXI
+WHERE IdReceta_Rec = @IdReceta_Rec
+GO
+-----------------------------------------------------------------------------------------
+--Busca la cantidad de porciones segun el ID_RECETA
+CREATE procedure PROC_REC_2
+@IdReceta_Rec char (2)
+AS
+SELECT Porciones_Rec FROM Recetas
+WHERE IdReceta_Rec = @IdReceta_Rec
+GO
+-----------------------------------------------------------------------------------------
+CREATE procedure REC_CALORIAS
+@IdReceta_Rec char (2)
+AS
+SELECT sum( Calorias_Ing) FROM Recetas
+INNER JOIN RecetaXIngrediente ON IdReceta_RXI = IdReceta_Rec
+INNER JOIN Ingredientes	ON IdIngrediente_Ing = IdIngrediente_RXI
+WHERE IdReceta_Rec = @IdReceta_Rec
+GO
+-----------------------------------------------------------------------------------------
+CREATE procedure REC_CARBOHIDRATOS
+@IdReceta_Rec char (2)
+AS
+SELECT sum( Carbohidratos_Ing) FROM Recetas
+INNER JOIN RecetaXIngrediente ON IdReceta_RXI = IdReceta_Rec
+INNER JOIN Ingredientes	ON IdIngrediente_Ing = IdIngrediente_RXI
+WHERE IdReceta_Rec = @IdReceta_Rec
+GO
+-----------------------------------------------------------------------------------------
+CREATE procedure REC_PROTEINAS
+@IdReceta_Rec char (2)
+AS
+SELECT sum( Proteinas_Ing) FROM Recetas
+INNER JOIN RecetaXIngrediente ON IdReceta_RXI = IdReceta_Rec
+INNER JOIN Ingredientes	ON IdIngrediente_Ing = IdIngrediente_RXI
+WHERE IdReceta_Rec = @IdReceta_Rec
+GO
+-----------------------------------------------------------------------------------------
+CREATE procedure REC_GRASAS
+@IdReceta_Rec char (2)
+AS
+SELECT sum( Grasas_Ing) FROM Recetas
+INNER JOIN RecetaXIngrediente ON IdReceta_RXI = IdReceta_Rec
+INNER JOIN Ingredientes	ON IdIngrediente_Ing = IdIngrediente_RXI
+WHERE IdReceta_Rec = @IdReceta_Rec
+GO
+-----------------------------------------------------------------------------------------
 
+
+-----------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------
+
+-----------------------------------------------------------------------------------------

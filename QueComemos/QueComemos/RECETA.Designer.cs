@@ -41,17 +41,17 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label15 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
+            this.label_Grasas = new System.Windows.Forms.Label();
+            this.label_Carbohidratos = new System.Windows.Forms.Label();
+            this.label_Proteinas = new System.Windows.Forms.Label();
+            this.label_Calorias = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
+            this.label16 = new System.Windows.Forms.Label();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
-            this.label16 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
@@ -209,56 +209,56 @@
             // 
             // groupBox1
             // 
-            this.groupBox1.Controls.Add(this.label15);
-            this.groupBox1.Controls.Add(this.label14);
-            this.groupBox1.Controls.Add(this.label9);
-            this.groupBox1.Controls.Add(this.label8);
+            this.groupBox1.Controls.Add(this.label_Grasas);
+            this.groupBox1.Controls.Add(this.label_Carbohidratos);
+            this.groupBox1.Controls.Add(this.label_Proteinas);
+            this.groupBox1.Controls.Add(this.label_Calorias);
             this.groupBox1.Controls.Add(this.label11);
             this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.label12);
             this.groupBox1.Location = new System.Drawing.Point(31, 299);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(148, 154);
+            this.groupBox1.Size = new System.Drawing.Size(167, 154);
             this.groupBox1.TabIndex = 25;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Nutricion por porcio";
+            this.groupBox1.Text = "Nutricion por porcion";
             // 
-            // label15
+            // label_Grasas
             // 
-            this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(123, 130);
-            this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(19, 13);
-            this.label15.TabIndex = 28;
-            this.label15.Text = "12";
+            this.label_Grasas.AutoSize = true;
+            this.label_Grasas.Location = new System.Drawing.Point(123, 130);
+            this.label_Grasas.Name = "label_Grasas";
+            this.label_Grasas.Size = new System.Drawing.Size(19, 13);
+            this.label_Grasas.TabIndex = 28;
+            this.label_Grasas.Text = "12";
             // 
-            // label14
+            // label_Carbohidratos
             // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(123, 61);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(19, 13);
-            this.label14.TabIndex = 27;
-            this.label14.Text = "12";
+            this.label_Carbohidratos.AutoSize = true;
+            this.label_Carbohidratos.Location = new System.Drawing.Point(123, 61);
+            this.label_Carbohidratos.Name = "label_Carbohidratos";
+            this.label_Carbohidratos.Size = new System.Drawing.Size(19, 13);
+            this.label_Carbohidratos.TabIndex = 27;
+            this.label_Carbohidratos.Text = "12";
             // 
-            // label9
+            // label_Proteinas
             // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(123, 98);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(19, 13);
-            this.label9.TabIndex = 26;
-            this.label9.Text = "12";
+            this.label_Proteinas.AutoSize = true;
+            this.label_Proteinas.Location = new System.Drawing.Point(123, 98);
+            this.label_Proteinas.Name = "label_Proteinas";
+            this.label_Proteinas.Size = new System.Drawing.Size(19, 13);
+            this.label_Proteinas.TabIndex = 26;
+            this.label_Proteinas.Text = "12";
             // 
-            // label8
+            // label_Calorias
             // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(123, 26);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(19, 13);
-            this.label8.TabIndex = 25;
-            this.label8.Text = "12";
+            this.label_Calorias.AutoSize = true;
+            this.label_Calorias.Location = new System.Drawing.Point(123, 26);
+            this.label_Calorias.Name = "label_Calorias";
+            this.label_Calorias.Size = new System.Drawing.Size(19, 13);
+            this.label_Calorias.TabIndex = 25;
+            this.label_Calorias.Text = "12";
             // 
             // groupBox2
             // 
@@ -272,11 +272,17 @@
             // 
             // dataGridView1
             // 
+            this.dataGridView1.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dataGridView1.Location = new System.Drawing.Point(7, 19);
+            this.dataGridView1.MultiSelect = false;
             this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.ReadOnly = true;
+            this.dataGridView1.RowHeadersVisible = false;
+            this.dataGridView1.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dataGridView1.Size = new System.Drawing.Size(253, 124);
             this.dataGridView1.TabIndex = 0;
+            this.dataGridView1.TabStop = false;
             // 
             // groupBox3
             // 
@@ -293,6 +299,15 @@
             this.groupBox3.Size = new System.Drawing.Size(137, 90);
             this.groupBox3.TabIndex = 27;
             this.groupBox3.TabStop = false;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(76, 16);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(51, 13);
+            this.label16.TabIndex = 18;
+            this.label16.Text = "VEGANA";
             // 
             // button4
             // 
@@ -321,15 +336,6 @@
             this.button6.Text = "EDITAR";
             this.button6.UseVisualStyleBackColor = true;
             // 
-            // label16
-            // 
-            this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(76, 16);
-            this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(51, 13);
-            this.label16.TabIndex = 18;
-            this.label16.Text = "VEGANA";
-            // 
             // RECETA
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -348,6 +354,7 @@
             this.Controls.Add(this.button2);
             this.Name = "RECETA";
             this.Text = "RECETA";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.RECETA_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
@@ -384,10 +391,10 @@
         private System.Windows.Forms.Button button4;
         private System.Windows.Forms.Button button5;
         private System.Windows.Forms.Button button6;
-        private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.Label label9;
-        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label_Grasas;
+        private System.Windows.Forms.Label label_Carbohidratos;
+        private System.Windows.Forms.Label label_Proteinas;
+        private System.Windows.Forms.Label label_Calorias;
         private System.Windows.Forms.DataGridView dataGridView1;
         private System.Windows.Forms.Label label16;
     }

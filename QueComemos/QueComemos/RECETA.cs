@@ -16,13 +16,14 @@ namespace QueComemos {
         DataTable dt;
         int index = 1;
         int indexMax;
-        string consulta = "SELECT IdReceta_Rec , IdTipo1_Rec, IdTipo1_Rec, Nombre_Rec, Descripcion_Rec, URLImagen_Rec, Tiempo_Aprox_Rec FROM Recetas";
+        string consulta = "SELECT IdReceta_Rec , IdTipo1_Rec, IdTipo2_Rec, Nombre_Rec, Descripcion_Rec, URLImagen_Rec, Tiempo_Aprox_Rec, Porciones_Rec FROM Recetas";
 
         public RECETA (MenuPrincipal ventPadre) {
             InitializeComponent();
             this.ventPadre = ventPadre;
 
-            dt = SQL.devolverTablaDataSet(consulta, "Comercios");
+            dt = SQL.devolverTablaDataSet(consulta, "Recetas");
+            obtenerIndiceMaximo();
             cargarDatos(index);
         }
 
@@ -32,17 +33,64 @@ namespace QueComemos {
 
             textBox1.Text = fila["Nombre_Rec"].ToString();
             richTextBox1.Text = fila["Descripcion_Rec"].ToString();
-
             label1.Text = this.obtenerTipo(fila["IdTipo1_Rec"].ToString());
             label16.Text = this.obtenerTipo(fila["IdTipo2_Rec"].ToString());
+            label5.Text = fila["Tiempo_Aprox_Rec"].ToString();
+            label7.Text = fila["Porciones_Rec"].ToString();
 
-            label5.Text = fila["Tiempo_Aprox_Re"].ToString();
+            //Cargar ingredientes:
+
+            i++;
+            String consultaIngXrec = "exec PROC_REC_1 '" + i + "'";
+            DataTable dt2 = SQL.devolverTablaDataSet(consultaIngXrec, "Ingredientes");
+            dataGridView1.DataSource = dt2;
 
             //el costo se saca por los ingredientes. label6
 
-            //MacroNutrientes
+            //MacroNutrientes:
 
-            
+            DataTable datAble;
+            DataRow filaMacro;
+            int macroSuma;
+            int porcione_rec;
+
+            /////////////////////////////////////////////////////////////////////////////////////
+            datAble = SQL.devolverTablaDataSet("exec REC_CALORIAS '" + i + "'", "Calorias");
+            filaMacro = datAble.Rows[0];
+            macroSuma= Convert.ToInt16(filaMacro[0]);
+            datAble = SQL.devolverTablaDataSet("exec PROC_REC_2 '" + i + "'", "Porcion");
+            filaMacro = datAble.Rows[0];
+            porcione_rec = Convert.ToInt16(filaMacro[0]);
+
+            label_Calorias.Text = Convert.ToString( macroSuma/porcione_rec);
+            /////////////////////////////////////////////////////////////////////////////////////
+            datAble = SQL.devolverTablaDataSet("exec REC_PROTEINAS '" + i + "'", "Proteinas");
+            filaMacro = datAble.Rows[0];
+            macroSuma = Convert.ToInt16(filaMacro[0]);
+            datAble = SQL.devolverTablaDataSet("exec PROC_REC_2 '" + i + "'", "Porcion");
+            filaMacro = datAble.Rows[0];
+            porcione_rec = Convert.ToInt16(filaMacro[0]);
+
+            label_Proteinas.Text = Convert.ToString(macroSuma / porcione_rec);
+            /////////////////////////////////////////////////////////////////////////////////////
+            datAble = SQL.devolverTablaDataSet("exec REC_CARBOHIDRATOS '" + i + "'", "Carbohidratos");
+            filaMacro = datAble.Rows[0];
+            macroSuma = Convert.ToInt16(filaMacro[0]);
+            datAble = SQL.devolverTablaDataSet("exec PROC_REC_2 '" + i + "'", "Porcion");
+            filaMacro = datAble.Rows[0];
+            porcione_rec = Convert.ToInt16(filaMacro[0]);
+
+            label_Carbohidratos.Text = Convert.ToString(macroSuma / porcione_rec);
+            /////////////////////////////////////////////////////////////////////////////////////
+            datAble = SQL.devolverTablaDataSet("exec REC_GRASAS '" + i + "'", "Grasas");
+            filaMacro = datAble.Rows[0];
+            macroSuma = Convert.ToInt16(filaMacro[0]);
+            datAble = SQL.devolverTablaDataSet("exec PROC_REC_2 '" + i + "'", "Porcion");
+            filaMacro = datAble.Rows[0];
+            porcione_rec = Convert.ToInt16(filaMacro[0]);
+
+            label_Grasas.Text = Convert.ToString(macroSuma / porcione_rec);
+            /////////////////////////////////////////////////////////////////////////////////////
         }
 
         private string obtenerTipo(string num) {
@@ -68,6 +116,12 @@ namespace QueComemos {
             return tipo;
         }
 
+        private void obtenerIndiceMaximo() {
+            DataTable DatAble = SQL.devolverTablaDataSet("SELECT max(IdReceta_Rec) FROM Recetas", "Recetas");
+            DataRow fila = DatAble.Rows[0];
+            indexMax = Convert.ToInt16(fila[0].ToString());
+        }
+
         private void label11_Click(object sender, EventArgs e) {
 
         }
@@ -82,6 +136,11 @@ namespace QueComemos {
             index -= 1;
             if(index < 1) { index = indexMax; }
             cargarDatos(index);
+        }
+
+        private void RECETA_FormClosing(object sender, FormClosingEventArgs e) {
+            ventPadre.Show();
+            this.Dispose();
         }
 
    
