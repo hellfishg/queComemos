@@ -360,6 +360,7 @@
             this.Controls.Add(this.label1);
             this.Name = "CARGAR_COMERCIO";
             this.Text = "CARGAR_COMERCIO";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CARGAR_COMERCIO_FormClosing);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);

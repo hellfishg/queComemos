@@ -37,6 +37,7 @@
             this.button1.TabIndex = 0;
             this.button1.Text = "Crear Recetas";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // button2
             // 
@@ -46,6 +47,7 @@
             this.button2.TabIndex = 1;
             this.button2.Text = "Crear Ingredientes";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
@@ -55,6 +57,7 @@
             this.button3.TabIndex = 2;
             this.button3.Text = "Crear Comercio";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // button4
             // 
@@ -65,7 +68,7 @@
             this.button4.Text = "Crear Perfil";
             this.button4.UseVisualStyleBackColor = true;
             // 
-            // MAINCARGAR
+            // MAIN_CARGAR
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
@@ -74,8 +77,9 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
-            this.Name = "MAINCARGAR";
+            this.Name = "MAIN_CARGAR";
             this.Text = "MAINCARGAR";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.MAIN_CARGAR_FormClosing);
             this.ResumeLayout(false);
 
         }

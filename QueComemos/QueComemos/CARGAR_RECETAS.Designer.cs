@@ -296,6 +296,7 @@
             this.Controls.Add(this.label1);
             this.Name = "CARGAR_RECETAS";
             this.Text = "CARGAR_RECETAS";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CARGAR_RECETAS_FormClosing);
             this.groupBox1.ResumeLayout(false);
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();

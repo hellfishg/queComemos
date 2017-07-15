@@ -10,11 +10,22 @@ using System.Windows.Forms;
 
 namespace QueComemos {
     public partial class PERFIL : Form {
-        public PERFIL() {
+
+        MenuPrincipal ventPadre;
+
+        public PERFIL(MenuPrincipal ventPadre) {
             InitializeComponent();
+
+            this.ventPadre = ventPadre;
         }
 
         private void button1_Click(object sender, EventArgs e) {
+
+        }
+
+        private void PERFIL_FormClosing(object sender, FormClosingEventArgs e) {
+            ventPadre.Show();
+            this.Dispose();
 
         }
     }

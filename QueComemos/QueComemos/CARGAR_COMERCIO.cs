@@ -10,8 +10,18 @@ using System.Windows.Forms;
 
 namespace QueComemos {
     public partial class CARGAR_COMERCIO : Form {
-        public CARGAR_COMERCIO() {
+
+        MAIN_CARGAR ventPadre;
+
+        public CARGAR_COMERCIO(MAIN_CARGAR ventPadre) {
             InitializeComponent();
+
+            this.ventPadre = ventPadre;
+        }
+
+        private void CARGAR_COMERCIO_FormClosing(object sender, FormClosingEventArgs e) {
+            ventPadre.Show();
+            this.Dispose();
         }
     }
 }

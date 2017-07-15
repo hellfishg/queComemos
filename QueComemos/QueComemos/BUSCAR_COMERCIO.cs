@@ -91,5 +91,10 @@ namespace QueComemos {
             ventPadre.Show();
             this.Dispose();
         }
+
+        private void BUSCAR_COMERCIO_FormClosing(object sender, FormClosingEventArgs e) {
+            ventPadre.Show();
+            this.Dispose();
+        }
     }
 }

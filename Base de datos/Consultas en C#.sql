@@ -35,9 +35,20 @@ GO
 ------------------------------------------------------
 SELECT max(IdComercio_C) FROM Comercios
 ------------------------------------------------------
+--Busqueda de ingredientes por receta
+SELECT Nombre_Ing , Cantidad_RXI FROM Recetas
+INNER JOIN RecetaXIngrediente ON IdReceta_RXI = IdReceta_Rec
+INNER JOIN Ingredientes	ON IdIngrediente_Ing = IdIngrediente_RXI
 
 ------------------------------------------------------
-
+CREATE procedure PROC_REC_3
+@MacroNutriente NCHAR (max) , @IdReceta_Rec char (2)
+AS
+SELECT sum( cast(@MacroNutriente as int)) FROM Recetas
+INNER JOIN RecetaXIngrediente ON IdReceta_RXI = IdReceta_Rec
+INNER JOIN Ingredientes	ON IdIngrediente_Ing = IdIngrediente_RXI
+WHERE IdReceta_Rec = @IdReceta_Rec
+GO
 ------------------------------------------------------
 
 

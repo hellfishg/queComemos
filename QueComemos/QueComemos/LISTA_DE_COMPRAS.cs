@@ -10,8 +10,19 @@ using System.Windows.Forms;
 
 namespace QueComemos {
     public partial class LISTA_DE_COMPRAS : Form {
-        public LISTA_DE_COMPRAS() {
+
+        RECETA ventPadre;
+
+        public LISTA_DE_COMPRAS(RECETA ventPadre) {
             InitializeComponent();
+
+            this.ventPadre = ventPadre;
+
+        }
+
+        private void LISTA_DE_COMPRAS_FormClosing(object sender, FormClosingEventArgs e) {
+            ventPadre.Show();
+            this.Dispose();
         }
     }
 }

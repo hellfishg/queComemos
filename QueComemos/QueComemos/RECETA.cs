@@ -143,6 +143,18 @@ namespace QueComemos {
             this.Dispose();
         }
 
+        private void button5_Click(object sender, EventArgs e) {
+            LISTA_DE_COMPRAS lista_form = new LISTA_DE_COMPRAS(this);
+            this.Hide();
+            lista_form.Show();
+        }
+
+        private void button4_Click(object sender, EventArgs e) {
+            BUSQUEDA_RECETAS busquedaR_form = new BUSQUEDA_RECETAS(this);
+            this.Hide();
+            busquedaR_form.Show();
+        }
+
    
     }
 }

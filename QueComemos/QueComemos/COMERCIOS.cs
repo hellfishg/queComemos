@@ -40,13 +40,13 @@ namespace QueComemos {
 
             string dias = fila["Dias_C"].ToString();
 
-            if(dias[0].ToString() != "0") { checkBox1.Checked = true; }
-            if(dias[1].ToString() != "0") { checkBox2.Checked = true; }
-            if(dias[2].ToString() != "0") { checkBox3.Checked = true; }
-            if(dias[3].ToString() != "0") { checkBox4.Checked = true; }
-            if(dias[4].ToString() != "0") { checkBox5.Checked = true; }
-            if(dias[5].ToString() != "0") { checkBox6.Checked = true; }
-            if(dias[6].ToString() != "0") { checkBox7.Checked = true; }
+            if(dias[0].ToString() != "0") { checkBox1.Checked = true; }else {checkBox1.Checked=false;}
+            if(dias[1].ToString() != "0") { checkBox2.Checked = true; } else { checkBox2.Checked = false; }
+            if(dias[2].ToString() != "0") { checkBox3.Checked = true; } else { checkBox3.Checked = false; }
+            if(dias[3].ToString() != "0") { checkBox4.Checked = true; } else { checkBox4.Checked = false; }
+            if(dias[4].ToString() != "0") { checkBox5.Checked = true; } else { checkBox5.Checked = false; }
+            if(dias[5].ToString() != "0") { checkBox6.Checked = true; } else { checkBox6.Checked = false; }
+            if(dias[6].ToString() != "0") { checkBox7.Checked = true; } else { checkBox7.Checked = false; }
 
             i++;
 

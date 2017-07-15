@@ -25,8 +25,8 @@
         private void InitializeComponent() {
             this.button1 = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button2 = new System.Windows.Forms.Button();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
@@ -54,14 +54,6 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "INGREDIENTES PARA COMPRAR";
             // 
-            // dataGridView1
-            // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(7, 20);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(384, 150);
-            this.dataGridView1.TabIndex = 0;
-            // 
             // button2
             // 
             this.button2.Location = new System.Drawing.Point(129, 188);
@@ -70,6 +62,14 @@
             this.button2.TabIndex = 1;
             this.button2.Text = "Quitar";
             this.button2.UseVisualStyleBackColor = true;
+            // 
+            // dataGridView1
+            // 
+            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.dataGridView1.Location = new System.Drawing.Point(7, 20);
+            this.dataGridView1.Name = "dataGridView1";
+            this.dataGridView1.Size = new System.Drawing.Size(384, 150);
+            this.dataGridView1.TabIndex = 0;
             // 
             // button4
             // 
@@ -110,6 +110,7 @@
             this.Controls.Add(this.button1);
             this.Name = "LISTA_DE_COMPRAS";
             this.Text = "LISTA_DE_COMPRAS";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LISTA_DE_COMPRAS_FormClosing);
             this.groupBox1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

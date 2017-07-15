@@ -317,6 +317,7 @@
             this.button4.TabIndex = 28;
             this.button4.Text = "BUSCAR";
             this.button4.UseVisualStyleBackColor = true;
+            this.button4.Click += new System.EventHandler(this.button4_Click);
             // 
             // button5
             // 
@@ -326,6 +327,7 @@
             this.button5.TabIndex = 29;
             this.button5.Text = "LISTA DE COMPRAS";
             this.button5.UseVisualStyleBackColor = true;
+            this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
             // button6
             // 

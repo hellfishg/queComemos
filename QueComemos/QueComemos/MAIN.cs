@@ -27,15 +27,15 @@ namespace QueComemos {
         }
 
         private void btn_Perfil_Click(object sender, EventArgs e) {
-            //PERFIL perfil_form = new PERFIL(this);
+            PERFIL perfil_form = new PERFIL(this);
             this.Hide();
-            //perfil_form.Show();
+            perfil_form.Show();
         }
 
         private void btn_Datos_Click(object sender, EventArgs e) {
-            //MAIN_CARGAR cargar_form = new MAIN_CARGAR(this);
+            MAIN_CARGAR cargar_form = new MAIN_CARGAR(this);
             this.Hide();
-            //cargar_form.Show();
+            cargar_form.Show();
         }
 
 

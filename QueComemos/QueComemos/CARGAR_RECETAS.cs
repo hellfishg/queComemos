@@ -10,8 +10,18 @@ using System.Windows.Forms;
 
 namespace QueComemos {
     public partial class CARGAR_RECETAS : Form {
-        public CARGAR_RECETAS() {
+
+        MAIN_CARGAR ventPadre;
+
+        public CARGAR_RECETAS(MAIN_CARGAR ventPadre) {
             InitializeComponent();
+
+            this.ventPadre = ventPadre;
+        }
+
+        private void CARGAR_RECETAS_FormClosing(object sender, FormClosingEventArgs e) {
+            ventPadre.Show();
+            this.Dispose();
         }
     }
 }

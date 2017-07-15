@@ -10,8 +10,18 @@ using System.Windows.Forms;
 
 namespace QueComemos {
     public partial class BUSQUEDA_RECETAS : Form {
-        public BUSQUEDA_RECETAS() {
+
+        RECETA ventPadre;
+
+        public BUSQUEDA_RECETAS(RECETA ventPadre) {
             InitializeComponent();
+
+            this.ventPadre = ventPadre;
+        }
+
+        private void BUSQUEDA_RECETAS_FormClosing(object sender, FormClosingEventArgs e) {
+            ventPadre.Show();
+            this.Dispose();
         }
     }
 }

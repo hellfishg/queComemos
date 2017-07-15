@@ -110,73 +110,94 @@
             // 
             // checkBox7
             // 
+            this.checkBox7.Appearance = System.Windows.Forms.Appearance.Button;
+            this.checkBox7.AutoCheck = false;
             this.checkBox7.AutoSize = true;
-            this.checkBox7.Location = new System.Drawing.Point(146, 53);
+            this.checkBox7.BackColor = System.Drawing.SystemColors.Control;
+            this.checkBox7.Location = new System.Drawing.Point(206, 54);
             this.checkBox7.Name = "checkBox7";
-            this.checkBox7.Size = new System.Drawing.Size(68, 17);
+            this.checkBox7.Size = new System.Drawing.Size(59, 23);
             this.checkBox7.TabIndex = 6;
             this.checkBox7.Text = "Domingo";
-            this.checkBox7.UseVisualStyleBackColor = true;
+            this.checkBox7.UseVisualStyleBackColor = false;
             // 
             // checkBox6
             // 
+            this.checkBox6.Appearance = System.Windows.Forms.Appearance.Button;
+            this.checkBox6.AutoCheck = false;
             this.checkBox6.AutoSize = true;
-            this.checkBox6.Location = new System.Drawing.Point(67, 53);
+            this.checkBox6.BackColor = System.Drawing.SystemColors.Control;
+            this.checkBox6.Location = new System.Drawing.Point(127, 54);
             this.checkBox6.Name = "checkBox6";
-            this.checkBox6.Size = new System.Drawing.Size(63, 17);
+            this.checkBox6.Size = new System.Drawing.Size(54, 23);
             this.checkBox6.TabIndex = 5;
             this.checkBox6.Text = "Sabado";
-            this.checkBox6.UseVisualStyleBackColor = true;
+            this.checkBox6.UseVisualStyleBackColor = false;
             // 
             // checkBox5
             // 
+            this.checkBox5.Appearance = System.Windows.Forms.Appearance.Button;
+            this.checkBox5.AutoCheck = false;
             this.checkBox5.AutoSize = true;
-            this.checkBox5.Location = new System.Drawing.Point(307, 30);
+            this.checkBox5.BackColor = System.Drawing.SystemColors.Control;
+            this.checkBox5.Location = new System.Drawing.Point(323, 19);
             this.checkBox5.Name = "checkBox5";
-            this.checkBox5.Size = new System.Drawing.Size(61, 17);
+            this.checkBox5.Size = new System.Drawing.Size(52, 23);
             this.checkBox5.TabIndex = 4;
             this.checkBox5.Text = "Viernes";
-            this.checkBox5.UseVisualStyleBackColor = true;
+            this.checkBox5.UseVisualStyleBackColor = false;
             // 
             // checkBox4
             // 
+            this.checkBox4.Appearance = System.Windows.Forms.Appearance.Button;
+            this.checkBox4.AutoCheck = false;
             this.checkBox4.AutoSize = true;
-            this.checkBox4.Location = new System.Drawing.Point(232, 30);
+            this.checkBox4.BackColor = System.Drawing.SystemColors.Control;
+            this.checkBox4.Location = new System.Drawing.Point(248, 19);
             this.checkBox4.Name = "checkBox4";
-            this.checkBox4.Size = new System.Drawing.Size(60, 17);
+            this.checkBox4.Size = new System.Drawing.Size(51, 23);
             this.checkBox4.TabIndex = 3;
             this.checkBox4.Text = "Jueves";
-            this.checkBox4.UseVisualStyleBackColor = true;
+            this.checkBox4.UseVisualStyleBackColor = false;
             // 
             // checkBox3
             // 
+            this.checkBox3.Appearance = System.Windows.Forms.Appearance.Button;
+            this.checkBox3.AutoCheck = false;
             this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(146, 30);
+            this.checkBox3.BackColor = System.Drawing.SystemColors.Control;
+            this.checkBox3.Location = new System.Drawing.Point(162, 19);
             this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(71, 17);
+            this.checkBox3.Size = new System.Drawing.Size(62, 23);
             this.checkBox3.TabIndex = 2;
             this.checkBox3.Text = "Miercoles";
-            this.checkBox3.UseVisualStyleBackColor = true;
+            this.checkBox3.UseVisualStyleBackColor = false;
             // 
             // checkBox2
             // 
+            this.checkBox2.Appearance = System.Windows.Forms.Appearance.Button;
+            this.checkBox2.AutoCheck = false;
             this.checkBox2.AutoSize = true;
-            this.checkBox2.Location = new System.Drawing.Point(67, 30);
+            this.checkBox2.BackColor = System.Drawing.SystemColors.Control;
+            this.checkBox2.Location = new System.Drawing.Point(83, 19);
             this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(58, 17);
+            this.checkBox2.Size = new System.Drawing.Size(49, 23);
             this.checkBox2.TabIndex = 1;
             this.checkBox2.Text = "Martes";
-            this.checkBox2.UseVisualStyleBackColor = true;
+            this.checkBox2.UseVisualStyleBackColor = false;
             // 
             // checkBox1
             // 
+            this.checkBox1.Appearance = System.Windows.Forms.Appearance.Button;
+            this.checkBox1.AutoCheck = false;
             this.checkBox1.AutoSize = true;
-            this.checkBox1.Location = new System.Drawing.Point(6, 30);
+            this.checkBox1.BackColor = System.Drawing.SystemColors.Control;
+            this.checkBox1.Location = new System.Drawing.Point(22, 19);
             this.checkBox1.Name = "checkBox1";
-            this.checkBox1.Size = new System.Drawing.Size(55, 17);
+            this.checkBox1.Size = new System.Drawing.Size(46, 23);
             this.checkBox1.TabIndex = 0;
             this.checkBox1.Text = "Lunes";
-            this.checkBox1.UseVisualStyleBackColor = true;
+            this.checkBox1.UseVisualStyleBackColor = false;
             // 
             // textBox3
             // 
@@ -268,6 +289,7 @@
             this.Controls.Add(this.label5);
             this.Controls.Add(this.textBox2);
             this.Controls.Add(this.label4);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "COMERCIOS";
             this.Text = "COMERCIOS";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.COMERCIOS_FormClosing);
@@ -288,13 +310,6 @@
         private System.Windows.Forms.GroupBox groupBox2;
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.GroupBox groupBox1;
-        private System.Windows.Forms.CheckBox checkBox7;
-        private System.Windows.Forms.CheckBox checkBox6;
-        private System.Windows.Forms.CheckBox checkBox5;
-        private System.Windows.Forms.CheckBox checkBox4;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox checkBox2;
-        private System.Windows.Forms.CheckBox checkBox1;
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.TextBox textBox2;
@@ -303,5 +318,12 @@
         private System.Windows.Forms.Button btn_next;
         private System.Windows.Forms.Button btn_back;
         private System.Windows.Forms.Button btn_buscar;
+        private System.Windows.Forms.CheckBox checkBox7;
+        private System.Windows.Forms.CheckBox checkBox6;
+        private System.Windows.Forms.CheckBox checkBox5;
+        private System.Windows.Forms.CheckBox checkBox4;
+        private System.Windows.Forms.CheckBox checkBox3;
+        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox checkBox1;
     }
 }
