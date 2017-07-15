@@ -14,6 +14,7 @@ Nombre_Rec VARCHAR (50) NOT NULL,
 Descripcion_Rec VARCHAR (max) NULL,
 URLImagen_Rec VARCHAR (max) NULL DEFAULT 'NONE',
 Tiempo_Aprox_Rec INT NOT NULL,
+Porciones_Rec INT NOT NULL,
 CONSTRAINT PK_REC PRIMARY KEY (IdReceta_Rec)
 )
 GO
@@ -25,7 +26,7 @@ IdTipo1_Ing INT NOT NULL,
 IdTipo2_Ing INT NOT NULL,
 Nombre_Ing VARCHAR(50) NOT NULL,
 Cantidad_Ing INT NOT NULL,
-Unidad_De_Medida_Ing VARCHAR(10) CHECK ( Unidad_De_Medida_Ing IN('Gramos','Unidades','Litros')) NOT NULL,
+Unidad_De_Medida_Ing VARCHAR(11) CHECK ( Unidad_De_Medida_Ing IN('Gramos','Unidades','Mililitros')) NOT NULL,
 Calorias_Ing DECIMAL (10,2) NULL,
 Proteinas_Ing DECIMAL (10,2) NULL,
 Carbohidratos_Ing DECIMAL (10,2) NULL,
@@ -38,7 +39,7 @@ CREATE TABLE RecetaXIngrediente (
 
 IdReceta_RXI INT NOT NULL,
 IdIngrediente_RXI INT NOT NULL,
-Cantidad_RXI INT NOT NULL,
+Cantidad_RXI DECIMAL (10,2) NOT NULL,
 CONSTRAINT PK_RXI PRIMARY KEY (IdReceta_RXI,IdIngrediente_RXI)
 )
 GO
@@ -164,14 +165,111 @@ SELECT 4 , 2 ,'Tomate', 100 , 22.17 , 0.88 , 3.50 , 0.21 , 'Gramos' UNION
 SELECT 4 , 2 ,'Cebolla',100 , 31.85 , 1.19 , 5.30 , 0.25 , 'Gramos' UNION
 SELECT 4 , 2 , 'Ajo' , 1 , 3.57 , 0.13 , 0.73 , 0.0 , 'Unidades' UNION
 SELECT 4 , 2 , 'Papa' , 1 , 147.18 , 4.68 , 29.60 , 0.22 , 'Unidades' UNION
-SELECT 3 , 2 , 'Pollo', 1,2,3,4,5, 'Unidades' UNION
-SELECT 4 , 2 , 'Calabaza', 1,2,3,4,5, 'Unidades' UNION
-SELECT 4 , 2 , 'Berenjena', 1,2,3,4,5, 'Unidades' UNION
-SELECT 5 , 2 , 'Queso', 1,2,3,4,5, 'Gramos' UNION
-SELECT 5 , 2 , 'Leche', 1,2,3,4,5, 'Litros' UNION
-SELECT 4 , 2 , 'Arroz', 1,2,3,4,5, 'Gramos' UNION
-SELECT 3 , 1 , 'Galletitas', 1,2,3,4,5, 'Gramos'
+SELECT 4 , 2 , 'Calabaza' , 1 , 260 , 10 , 65 , 1 , 'Unidades' UNION
+SELECT 5 , 2 , 'Queso rallado' , 100 , 367 , 31 , 0 , 27 , 'Gramos' UNION
+SELECT 4 , 1 , 'Fideos de semola' , 100 , 372 , 12 , 74 , 1.8 , 'Gramos' UNION
+SELECT 3 , 1 , 'Calditos Knorr' , 1 , 26 , 0 , 1.6 , 2 , 'Unidades' UNION
+SELECT 5 , 2 , 'Huevos' , 1 , 78 , 6 , 0.2 , 5.9 , 'Unidades' UNION
+SELECT 3 , 2 , 'Jamon' , 100 , 107 , 16.85 , 0.7 , 4 , 'Gramos' UNION
+SELECT 5 , 2 , 'Queso Cremoso' , 100 , 305 , 18.7 , 1.3 , 25 , 'Gramos' UNION
+SELECT 4 , 1 , 'Tapa de tarta' , 1 , 1274 , 26 , 105 , 42.9 , 'Unidades' UNION
+SELECT 3 , 2 , 'Pollo' , 1 , 2490 , 298.5 , 0 , 144 , 'Unidades' UNION
+SELECT 4 , 2 , 'Aceite' , 15 , 125.86 , 0.14 , 0 , 13.99 , 'Mililitros' UNION
+SELECT 4 , 2 , 'Sal' , 0.5 , 0 , 0 , 0 , 0 , 'Gramos' UNION
+SELECT 4 , 2 , 'Lechuga' , 1 , 19.6 , 1.37 , 1.40 , 0.60 , 'Unidades' UNION
+SELECT 4 , 1 , 'Salsa de soja' , 15 , 9.86 , 1.31 , 1.01 , 0.02 , 'Mililitros' UNION
+SELECT 4 , 2 , 'Jugo de limon' , 15 , 21 , 0.4, 6.5 , 0.3 , 'Mililitros'
 GO
+-----------------------------------------------------------------------------------------
+--Recetas:
+INSERT INTO Recetas (IdTipo1_Rec, IdTipo2_Rec, Nombre_Rec, Descripcion_Rec,
+ URLImagen_Rec, Tiempo_Aprox_Rec, Porciones_Rec )
+SELECT 3 , 1 , 'Ensalada de pollo' , 'Cortar algo..' , 'URL' , 30 , 3 UNION
+SELECT 3 , 2 , 'Pollo con papas al horno', 'Meter el pollo al horno..' , 'URL' , 60 , 4 UNION
+SELECT 3 , 1 , 'Sopa de calabaza' , 'Hervir la calabaza...' , 'URL' , 40 , 3 UNION
+SELECT 3 , 1 , 'Tarta de jamon y queso' , 'Colocar la pascualina...', 'URL' , 30 , 2 
+GO
+-----------------------------------------------------------------------------------------
+--IngredientexReceta:
+/*
+1	Calditos Knorr
+2	Jamon
+3	Pollo
+4	Fideos de semola
+5	Salsa de soja
+6	Tapa de tarta
+7	Aceite
+8	Ajo
+9	Calabaza
+10	Cebolla
+11	Jugo de limon
+12	Lechuga
+13	Papa
+14	Sal
+15	Tomate
+16	Huevos
+17	Queso Cremoso
+18	Queso rallado
+*/
+
+INSERT INTO RecetaXIngrediente (IdReceta_RXI, IdIngrediente_RXI, Cantidad_RXI)
+--Ensalada de pollo:
+SELECT 1 , 3 , 0.25 UNION
+SELECT 1 , 12 , 1 UNION
+SELECT 1 , 15 , 3 UNION
+SELECT 1 , 18 , 20 UNION
+SELECT 1 , 16 , 3 UNION
+SELECT 1 , 5 , 10 UNION
+SELECT 1 , 11 , 10 UNION
+--Sopa de calabaza:
+SELECT 2 , 9 , 1 UNION
+SELECT 2 , 18 , 100 UNION
+SELECT 2 , 4 , 50 UNION
+SELECT 2 , 1 , 2 UNION
+SELECT 2 , 16 , 3 UNION
+--Tarta de jamon y queso:
+SELECT 3 , 2 , 150 UNION
+SELECT 3 , 17 , 200 UNION
+SELECT 3 , 16 , 3 UNION
+SELECT 3 , 6 , 1 UNION
+--Pollo con papas al horno:
+SELECT 4 , 13 ,  4 UNION
+SELECT 4 , 3 , 1 UNION
+SELECT 4 , 7 , 20 UNION
+SELECT 4 , 14 , 1 
+------------------------
+GO
+/*
+Recetas:
+	Sopa de calabaza 40,3
+		1 calabaza
+		100 g queso rallado
+		50 g fideos municiones
+		2 calditos knor
+		3 huevos
+
+	Tarta de jamón y queso 30,2
+		150 g de jamón
+		200 g de queso cremoso
+		3 huevos
+		1 tapa de tarta
+
+	Pollo con papas al horno 60,4
+		4 papas
+		1 pollo
+		20 mL aceite
+		Sal
+
+	Ensalada de pollo 30,3
+		1/4 pollo
+		1 lechuga
+		3 tomates
+		20 g queso rallado
+		3 huevos
+		10 mL salsa de soja
+		10 mL jugo de limón
+
+*/
 -----------------------------------------------------------------------------------------
 --Comercios
 INSERT INTO Comercios (Nombre_C, Direccion_C, Horario_C, Telefono_C, Dias_C)

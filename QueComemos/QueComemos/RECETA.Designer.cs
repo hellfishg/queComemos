@@ -24,11 +24,6 @@
         /// </summary>
         private void InitializeComponent() {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(RECETA));
-            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
-            this.pERFILToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.lOGINOUTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aYUDAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
@@ -46,84 +41,47 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.label15 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
+            this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.button4 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label14 = new System.Windows.Forms.Label();
-            this.label15 = new System.Windows.Forms.Label();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
-            this.menuStrip1.SuspendLayout();
+            this.label16 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
-            this.groupBox3.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            this.groupBox3.SuspendLayout();
             this.SuspendLayout();
-            // 
-            // menuStrip1
-            // 
-            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.pERFILToolStripMenuItem,
-            this.lOGINOUTToolStripMenuItem,
-            this.aYUDAToolStripMenuItem});
-            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
-            this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(535, 24);
-            this.menuStrip1.TabIndex = 0;
-            this.menuStrip1.Text = "menuStrip1";
-            // 
-            // pERFILToolStripMenuItem
-            // 
-            this.pERFILToolStripMenuItem.Name = "pERFILToolStripMenuItem";
-            this.pERFILToolStripMenuItem.Size = new System.Drawing.Size(54, 20);
-            this.pERFILToolStripMenuItem.Text = "PERFIL";
-            // 
-            // lOGINOUTToolStripMenuItem
-            // 
-            this.lOGINOUTToolStripMenuItem.Name = "lOGINOUTToolStripMenuItem";
-            this.lOGINOUTToolStripMenuItem.Size = new System.Drawing.Size(81, 20);
-            this.lOGINOUTToolStripMenuItem.Text = "LOGIN OUT";
-            // 
-            // aYUDAToolStripMenuItem
-            // 
-            this.aYUDAToolStripMenuItem.Name = "aYUDAToolStripMenuItem";
-            this.aYUDAToolStripMenuItem.Size = new System.Drawing.Size(58, 20);
-            this.aYUDAToolStripMenuItem.Text = "AYUDA";
-            // 
-            // button1
-            // 
-            this.button1.Location = new System.Drawing.Point(13, 38);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(59, 23);
-            this.button1.TabIndex = 1;
-            this.button1.Text = "VOLVER";
-            this.button1.UseVisualStyleBackColor = true;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(23, 79);
+            this.button2.Location = new System.Drawing.Point(41, 37);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(59, 23);
             this.button2.TabIndex = 2;
             this.button2.Text = "ATRAS";
             this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(375, 80);
+            this.button3.Location = new System.Drawing.Point(393, 38);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(75, 23);
             this.button3.TabIndex = 3;
             this.button3.Text = "SIGUIENTE";
             this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // textBox1
             // 
-            this.textBox1.Location = new System.Drawing.Point(88, 82);
+            this.textBox1.Location = new System.Drawing.Point(106, 40);
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(281, 20);
             this.textBox1.TabIndex = 4;
@@ -132,7 +90,7 @@
             // 
             // richTextBox1
             // 
-            this.richTextBox1.Location = new System.Drawing.Point(13, 127);
+            this.richTextBox1.Location = new System.Drawing.Point(31, 85);
             this.richTextBox1.Name = "richTextBox1";
             this.richTextBox1.Size = new System.Drawing.Size(287, 200);
             this.richTextBox1.TabIndex = 6;
@@ -142,7 +100,7 @@
             // 
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(319, 127);
+            this.pictureBox1.Location = new System.Drawing.Point(337, 85);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(137, 104);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
@@ -152,7 +110,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(41, 16);
+            this.label1.Location = new System.Drawing.Point(6, 16);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(51, 13);
             this.label1.TabIndex = 11;
@@ -259,91 +217,12 @@
             this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.label12);
-            this.groupBox1.Location = new System.Drawing.Point(13, 341);
+            this.groupBox1.Location = new System.Drawing.Point(31, 299);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(148, 154);
             this.groupBox1.TabIndex = 25;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Nutricion por porcio";
-            // 
-            // groupBox2
-            // 
-            this.groupBox2.Controls.Add(this.dataGridView1);
-            this.groupBox2.Location = new System.Drawing.Point(186, 341);
-            this.groupBox2.Name = "groupBox2";
-            this.groupBox2.Size = new System.Drawing.Size(270, 154);
-            this.groupBox2.TabIndex = 26;
-            this.groupBox2.TabStop = false;
-            this.groupBox2.Text = "Ingredientes";
-            // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.label1);
-            this.groupBox3.Controls.Add(this.label2);
-            this.groupBox3.Controls.Add(this.label3);
-            this.groupBox3.Controls.Add(this.label7);
-            this.groupBox3.Controls.Add(this.label4);
-            this.groupBox3.Controls.Add(this.label6);
-            this.groupBox3.Controls.Add(this.label5);
-            this.groupBox3.Location = new System.Drawing.Point(319, 237);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(137, 90);
-            this.groupBox3.TabIndex = 27;
-            this.groupBox3.TabStop = false;
-            // 
-            // button4
-            // 
-            this.button4.Location = new System.Drawing.Point(12, 501);
-            this.button4.Name = "button4";
-            this.button4.Size = new System.Drawing.Size(76, 43);
-            this.button4.TabIndex = 28;
-            this.button4.Text = "BUSCAR";
-            this.button4.UseVisualStyleBackColor = true;
-            // 
-            // button5
-            // 
-            this.button5.Location = new System.Drawing.Point(168, 501);
-            this.button5.Name = "button5";
-            this.button5.Size = new System.Drawing.Size(132, 43);
-            this.button5.TabIndex = 29;
-            this.button5.Text = "LISTA DE COMPRAS";
-            this.button5.UseVisualStyleBackColor = true;
-            // 
-            // button6
-            // 
-            this.button6.Location = new System.Drawing.Point(375, 501);
-            this.button6.Name = "button6";
-            this.button6.Size = new System.Drawing.Size(81, 43);
-            this.button6.TabIndex = 30;
-            this.button6.Text = "EDITAR";
-            this.button6.UseVisualStyleBackColor = true;
-            // 
-            // label8
-            // 
-            this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(123, 26);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(19, 13);
-            this.label8.TabIndex = 25;
-            this.label8.Text = "12";
-            // 
-            // label9
-            // 
-            this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(123, 98);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(19, 13);
-            this.label9.TabIndex = 26;
-            this.label9.Text = "12";
-            // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(123, 61);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(19, 13);
-            this.label14.TabIndex = 27;
-            this.label14.Text = "12";
             // 
             // label15
             // 
@@ -354,6 +233,43 @@
             this.label15.TabIndex = 28;
             this.label15.Text = "12";
             // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(123, 61);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(19, 13);
+            this.label14.TabIndex = 27;
+            this.label14.Text = "12";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(123, 98);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(19, 13);
+            this.label9.TabIndex = 26;
+            this.label9.Text = "12";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(123, 26);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(19, 13);
+            this.label8.TabIndex = 25;
+            this.label8.Text = "12";
+            // 
+            // groupBox2
+            // 
+            this.groupBox2.Controls.Add(this.dataGridView1);
+            this.groupBox2.Location = new System.Drawing.Point(204, 299);
+            this.groupBox2.Name = "groupBox2";
+            this.groupBox2.Size = new System.Drawing.Size(270, 154);
+            this.groupBox2.TabIndex = 26;
+            this.groupBox2.TabStop = false;
+            this.groupBox2.Text = "Ingredientes";
+            // 
             // dataGridView1
             // 
             this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -361,6 +277,58 @@
             this.dataGridView1.Name = "dataGridView1";
             this.dataGridView1.Size = new System.Drawing.Size(253, 124);
             this.dataGridView1.TabIndex = 0;
+            // 
+            // groupBox3
+            // 
+            this.groupBox3.Controls.Add(this.label16);
+            this.groupBox3.Controls.Add(this.label1);
+            this.groupBox3.Controls.Add(this.label2);
+            this.groupBox3.Controls.Add(this.label3);
+            this.groupBox3.Controls.Add(this.label7);
+            this.groupBox3.Controls.Add(this.label4);
+            this.groupBox3.Controls.Add(this.label6);
+            this.groupBox3.Controls.Add(this.label5);
+            this.groupBox3.Location = new System.Drawing.Point(337, 195);
+            this.groupBox3.Name = "groupBox3";
+            this.groupBox3.Size = new System.Drawing.Size(137, 90);
+            this.groupBox3.TabIndex = 27;
+            this.groupBox3.TabStop = false;
+            // 
+            // button4
+            // 
+            this.button4.Location = new System.Drawing.Point(30, 459);
+            this.button4.Name = "button4";
+            this.button4.Size = new System.Drawing.Size(76, 43);
+            this.button4.TabIndex = 28;
+            this.button4.Text = "BUSCAR";
+            this.button4.UseVisualStyleBackColor = true;
+            // 
+            // button5
+            // 
+            this.button5.Location = new System.Drawing.Point(186, 459);
+            this.button5.Name = "button5";
+            this.button5.Size = new System.Drawing.Size(132, 43);
+            this.button5.TabIndex = 29;
+            this.button5.Text = "LISTA DE COMPRAS";
+            this.button5.UseVisualStyleBackColor = true;
+            // 
+            // button6
+            // 
+            this.button6.Location = new System.Drawing.Point(393, 459);
+            this.button6.Name = "button6";
+            this.button6.Size = new System.Drawing.Size(81, 43);
+            this.button6.TabIndex = 30;
+            this.button6.Text = "EDITAR";
+            this.button6.UseVisualStyleBackColor = true;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(76, 16);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(51, 13);
+            this.label16.TabIndex = 18;
+            this.label16.Text = "VEGANA";
             // 
             // RECETA
             // 
@@ -378,20 +346,15 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.button1);
-            this.Controls.Add(this.menuStrip1);
-            this.MainMenuStrip = this.menuStrip1;
             this.Name = "RECETA";
             this.Text = "RECETA";
-            this.menuStrip1.ResumeLayout(false);
-            this.menuStrip1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox3.ResumeLayout(false);
             this.groupBox3.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -399,11 +362,6 @@
 
         #endregion
 
-        private System.Windows.Forms.MenuStrip menuStrip1;
-        private System.Windows.Forms.ToolStripMenuItem pERFILToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem lOGINOUTToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem aYUDAToolStripMenuItem;
-        private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.TextBox textBox1;
@@ -431,5 +389,6 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.Label label16;
     }
 }

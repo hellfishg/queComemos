@@ -15,9 +15,9 @@ namespace QueComemos {
         }
 
         private void btn_Recetas_Click(object sender, EventArgs e) {
-            //RECETA receta_form = new RECETA(this);
+            RECETA receta_form = new RECETA(this);
             this.Hide();
-            //receta_form.Show();
+            receta_form.Show();
         }
 
         private void btn_Comercios_Click(object sender, EventArgs e) {
