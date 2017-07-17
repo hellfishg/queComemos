@@ -23,6 +23,33 @@ namespace QueComemos {
             return ds.Tables[NombreTabla];
         }
 
+        public bool agregarDatosSQL(string consultaSQL) {
+
+
+            String rutaBD = "Data Source=localhost\\sqlexpress;Initial Catalog=queComemos;Integrated Security=True";
+
+            SqlConnection cn = new SqlConnection(rutaBD);
+
+            try {
+
+                cn.Open();
+
+            } catch {
+
+                return false;
+            }
+                                    
+            SqlCommand cmd = new SqlCommand();
+            cmd.Connection = cn;
+            cmd.CommandType = CommandType.Text;
+            cmd.CommandText = consultaSQL;
+
+            cmd.ExecuteNonQuery();
+            cn.Close();
+
+            return true;
+        }
+
 
     }
 }
