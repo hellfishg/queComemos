@@ -50,5 +50,39 @@ INNER JOIN Ingredientes	ON IdIngrediente_Ing = IdIngrediente_RXI
 WHERE IdReceta_Rec = @IdReceta_Rec
 GO
 ------------------------------------------------------
-
-
+--Seleccion auna receta y muestra las calorias por ingrediente en receta. IMPORTANTE MODIFICAR RECETAS CON ESTO.
+SELECT Nombre_Ing, Cantidad_RXI,Cantidad_Ing,Calorias_Ing,
+ CAST((Calorias_Ing/Cantidad_Ing ) *Cantidad_RXI as INT) AS CaloriasXreceta FROM Ingredientes
+INNER JOIN RecetaXIngrediente ON IdIngrediente_RXI = IdIngrediente_Ing
+INNER JOIN Recetas ON IdReceta_Rec = IdReceta_RXI
+WHERE Nombre_Rec LIKE '%Ensalada%'
+------------------------------------------------------
+--Consulta Naty sobre calorias:
+SELECT IdReceta_Rec,
+	SUM(
+		CAST(((Calorias_Ing/Cantidad_Ing ) *Cantidad_RXI) / Porciones_Rec as INT) 
+		)	AS CaloriasXreceta 
+FROM Ingredientes
+INNER JOIN RecetaXIngrediente ON IdIngrediente_RXI = IdIngrediente_Ing
+INNER JOIN Recetas ON IdReceta_Rec = IdReceta_RXI
+WHERE Nombre_Rec LIKE '%Ensalada%'
+GROUP BY IdReceta_Rec
+------------------------------------------------------
+--Consulta hasta calorias.
+SELECT * FROM 
+	(
+		SELECT 
+			R1.Nombre_Rec, 
+			R1.Tiempo_Aprox_Rec,
+			SUM(
+				CAST(((Calorias_Ing/Cantidad_Ing ) *Cantidad_RXI) / R1.Porciones_Rec as INT) 
+				)
+			AS CaloriasXreceta 
+		FROM Ingredientes
+			INNER JOIN RecetaXIngrediente ON IdIngrediente_RXI = IdIngrediente_Ing
+			INNER JOIN Recetas R1 ON R1.IdReceta_Rec = IdReceta_RXI
+		GROUP BY R1.IdReceta_Rec, R1.Nombre_Rec, R1.Tiempo_Aprox_Rec
+	) 
+	AS Total
+WHERE CaloriasXreceta < 800
+-------------------------------------------------------

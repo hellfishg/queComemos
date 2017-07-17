@@ -161,8 +161,8 @@ GO
 --Ingredientes
 INSERT INTO Ingredientes (IdTipo1_Ing, IdTipo2_Ing, Nombre_Ing, Cantidad_Ing, Calorias_Ing ,Proteinas_Ing ,
 Carbohidratos_Ing ,Grasas_Ing, Unidad_De_Medida_Ing)
-SELECT 4 , 2 ,'Tomate', 100 , 22.17 , 0.88 , 3.50 , 0.21 , 'Gramos' UNION
-SELECT 4 , 2 ,'Cebolla',100 , 31.85 , 1.19 , 5.30 , 0.25 , 'Gramos' UNION
+SELECT 4 , 2 ,'Tomate', 1 , 22.17 , 0.88 , 3.50 , 0.21 , 'Unidades' UNION
+SELECT 4 , 2 ,'Cebolla', 1 , 31.85 , 1.19 , 5.30 , 0.25 , 'Unidades' UNION
 SELECT 4 , 2 , 'Ajo' , 1 , 3.57 , 0.13 , 0.73 , 0.0 , 'Unidades' UNION
 SELECT 4 , 2 , 'Papa' , 1 , 147.18 , 4.68 , 29.60 , 0.22 , 'Unidades' UNION
 SELECT 4 , 2 , 'Calabaza' , 1 , 260 , 10 , 65 , 1 , 'Unidades' UNION
@@ -297,7 +297,7 @@ GO
 -----------------------------------------------------------------------------------------
 --Procedimientos:
 CREATE procedure PROC_COM_1
-@Id_Com char (2)
+@Id_Com char (4)
 AS
 SELECT Nombre_Ing, Costo_IXC FROM Ingredientes
 INNER JOIN IngredienteXComercio 
@@ -308,14 +308,14 @@ WHERE IdComercio_C = @Id_Com
 GO
 -----------------------------------------------------------------------------------------
 CREATE procedure PROC_COM_2
-@Nombre_C VARCHAR (20)
+@Nombre_C VARCHAR (50)
 AS
 SELECT IdComercio_C FROM Comercios
 WHERE Nombre_C LIKE @Nombre_C
 GO
 -----------------------------------------------------------------------------------------
 CREATE procedure PROC_REC_1
-@IdReceta_Rec char (2)
+@IdReceta_Rec char (4)
 AS
 SELECT Nombre_Ing , Cantidad_RXI FROM Recetas
 INNER JOIN RecetaXIngrediente ON IdReceta_RXI = IdReceta_Rec
@@ -325,52 +325,64 @@ GO
 -----------------------------------------------------------------------------------------
 --Busca la cantidad de porciones segun el ID_RECETA
 CREATE procedure PROC_REC_2
-@IdReceta_Rec char (2)
+@IdReceta_Rec char (4)
 AS
 SELECT Porciones_Rec FROM Recetas
 WHERE IdReceta_Rec = @IdReceta_Rec
 GO
 -----------------------------------------------------------------------------------------
-CREATE procedure REC_CALORIAS
-@IdReceta_Rec char (2)
+-- RECETAS.setConsulta(string recetaNombre)
+CREATE procedure PROC_REC_3
+@Nombre_Rec VARCHAR (50)
 AS
-SELECT sum( Calorias_Ing) FROM Recetas
-INNER JOIN RecetaXIngrediente ON IdReceta_RXI = IdReceta_Rec
-INNER JOIN Ingredientes	ON IdIngrediente_Ing = IdIngrediente_RXI
-WHERE IdReceta_Rec = @IdReceta_Rec
+SELECT IdReceta_Rec FROM Recetas
+WHERE Nombre_Rec LIKE @Nombre_Rec
 GO
 -----------------------------------------------------------------------------------------
-CREATE procedure REC_CARBOHIDRATOS
-@IdReceta_Rec char (2)
+--Regresa una tabla con todos los macronutrientes :
+CREATE procedure PROC_MACRO
 AS
-SELECT sum( Carbohidratos_Ing) FROM Recetas
-INNER JOIN RecetaXIngrediente ON IdReceta_RXI = IdReceta_Rec
-INNER JOIN Ingredientes	ON IdIngrediente_Ing = IdIngrediente_RXI
-WHERE IdReceta_Rec = @IdReceta_Rec
+SELECT IdReceta_Rec,
+	SUM(
+		CAST((( nullif(Calorias_Ing,0) /Cantidad_Ing ) *Cantidad_RXI) / Porciones_Rec as INT) 
+		)	AS CaloriasXreceta ,
+ 	SUM(
+		CAST((( nullif(Carbohidratos_Ing,0)/Cantidad_Ing ) *Cantidad_RXI) / Porciones_Rec as INT) 
+		)	AS CarbohidratosXreceta ,
+ 	SUM(
+		CAST((( nullif(Proteinas_Ing,0)/Cantidad_Ing ) *Cantidad_RXI) / Porciones_Rec as INT) 
+		)	AS ProteinasXreceta ,
+ 	SUM(
+		CAST((( nullif(Grasas_Ing,0)/Cantidad_Ing ) *Cantidad_RXI) / Porciones_Rec as INT) 
+		)	AS GrasasXreceta
+		
+FROM Ingredientes
+INNER JOIN RecetaXIngrediente ON IdIngrediente_RXI = IdIngrediente_Ing
+INNER JOIN Recetas ON IdReceta_Rec = IdReceta_RXI
+GROUP BY IdReceta_Rec
 GO
 -----------------------------------------------------------------------------------------
-CREATE procedure REC_PROTEINAS
-@IdReceta_Rec char (2)
+--Consulta hasta cuantas calorias en todas las recetas:
+CREATE procedure PROC_BUSC_CALORIAS
+@Num int
 AS
-SELECT sum( Proteinas_Ing) FROM Recetas
-INNER JOIN RecetaXIngrediente ON IdReceta_RXI = IdReceta_Rec
-INNER JOIN Ingredientes	ON IdIngrediente_Ing = IdIngrediente_RXI
-WHERE IdReceta_Rec = @IdReceta_Rec
+SELECT * FROM 
+	(
+		SELECT 
+			Nombre_Rec, 
+			Tiempo_Aprox_Rec,
+			SUM(
+				CAST((( nullif(Calorias_Ing,0) /Cantidad_Ing ) *Cantidad_RXI) / Porciones_Rec as INT) 
+				)
+			AS CaloriasXreceta 
+		FROM Ingredientes
+			INNER JOIN RecetaXIngrediente ON IdIngrediente_RXI = IdIngrediente_Ing
+			INNER JOIN Recetas ON IdReceta_Rec = IdReceta_RXI
+		GROUP BY IdReceta_Rec, Nombre_Rec, Tiempo_Aprox_Rec
+	) 
+	AS Total
+WHERE CaloriasXreceta < @Num
 GO
------------------------------------------------------------------------------------------
-CREATE procedure REC_GRASAS
-@IdReceta_Rec char (2)
-AS
-SELECT sum( Grasas_Ing) FROM Recetas
-INNER JOIN RecetaXIngrediente ON IdReceta_RXI = IdReceta_Rec
-INNER JOIN Ingredientes	ON IdIngrediente_Ing = IdIngrediente_RXI
-WHERE IdReceta_Rec = @IdReceta_Rec
-GO
------------------------------------------------------------------------------------------
-
-
------------------------------------------------------------------------------------------
-
 -----------------------------------------------------------------------------------------
 
 -----------------------------------------------------------------------------------------

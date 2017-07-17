@@ -28,7 +28,7 @@ namespace QueComemos {
         }
 
         private void cargarDatos(int i) {
-            i -= 1;
+            i--;
             DataRow fila = dt.Rows[i];
 
             textBox1.Text = fila["Nombre_Rec"].ToString();
@@ -48,49 +48,19 @@ namespace QueComemos {
             //el costo se saca por los ingredientes. label6
 
             //MacroNutrientes:
+            DataTable dt3 = SQL.devolverTablaDataSet("exec PROC_MACRO", "Recetas");
+            DataRow fila2;
+            string [] matrizMacros = new string[5];
+            
+            fila2=dt3.Rows[index-1];
 
-            DataTable datAble;
-            DataRow filaMacro;
-            int macroSuma;
-            int porcione_rec;
-
-            /////////////////////////////////////////////////////////////////////////////////////
-            datAble = SQL.devolverTablaDataSet("exec REC_CALORIAS '" + i + "'", "Calorias");
-            filaMacro = datAble.Rows[0];
-            macroSuma= Convert.ToInt16(filaMacro[0]);
-            datAble = SQL.devolverTablaDataSet("exec PROC_REC_2 '" + i + "'", "Porcion");
-            filaMacro = datAble.Rows[0];
-            porcione_rec = Convert.ToInt16(filaMacro[0]);
-
-            label_Calorias.Text = Convert.ToString( macroSuma/porcione_rec);
-            /////////////////////////////////////////////////////////////////////////////////////
-            datAble = SQL.devolverTablaDataSet("exec REC_PROTEINAS '" + i + "'", "Proteinas");
-            filaMacro = datAble.Rows[0];
-            macroSuma = Convert.ToInt16(filaMacro[0]);
-            datAble = SQL.devolverTablaDataSet("exec PROC_REC_2 '" + i + "'", "Porcion");
-            filaMacro = datAble.Rows[0];
-            porcione_rec = Convert.ToInt16(filaMacro[0]);
-
-            label_Proteinas.Text = Convert.ToString(macroSuma / porcione_rec);
-            /////////////////////////////////////////////////////////////////////////////////////
-            datAble = SQL.devolverTablaDataSet("exec REC_CARBOHIDRATOS '" + i + "'", "Carbohidratos");
-            filaMacro = datAble.Rows[0];
-            macroSuma = Convert.ToInt16(filaMacro[0]);
-            datAble = SQL.devolverTablaDataSet("exec PROC_REC_2 '" + i + "'", "Porcion");
-            filaMacro = datAble.Rows[0];
-            porcione_rec = Convert.ToInt16(filaMacro[0]);
-
-            label_Carbohidratos.Text = Convert.ToString(macroSuma / porcione_rec);
-            /////////////////////////////////////////////////////////////////////////////////////
-            datAble = SQL.devolverTablaDataSet("exec REC_GRASAS '" + i + "'", "Grasas");
-            filaMacro = datAble.Rows[0];
-            macroSuma = Convert.ToInt16(filaMacro[0]);
-            datAble = SQL.devolverTablaDataSet("exec PROC_REC_2 '" + i + "'", "Porcion");
-            filaMacro = datAble.Rows[0];
-            porcione_rec = Convert.ToInt16(filaMacro[0]);
-
-            label_Grasas.Text = Convert.ToString(macroSuma / porcione_rec);
-            /////////////////////////////////////////////////////////////////////////////////////
+            for(int dato = 0; dato < 5; dato++) {
+                matrizMacros [dato]= fila2[dato].ToString() ;
+            }
+            label_Calorias.Text= matrizMacros[1];
+            label_Carbohidratos.Text = matrizMacros[2];
+            label_Proteinas.Text = matrizMacros[3];
+            label_Grasas.Text = matrizMacros[4];
         }
 
         private string obtenerTipo(string num) {
@@ -122,6 +92,14 @@ namespace QueComemos {
             indexMax = Convert.ToInt16(fila[0].ToString());
         }
 
+        public void setConsulta(string recetaNombre) {
+            //aca carga la consulta de busqueda_Receta:
+            DataTable dt2 = SQL.devolverTablaDataSet("exec PROC_REC_3 '" + recetaNombre + "'", "Receta");
+            DataRow fila = dt2.Rows[0];
+            index = Convert.ToInt16(fila[0].ToString());
+            cargarDatos(index);
+        }
+
         private void label11_Click(object sender, EventArgs e) {
 
         }
@@ -138,10 +116,6 @@ namespace QueComemos {
             cargarDatos(index);
         }
 
-        private void RECETA_FormClosing(object sender, FormClosingEventArgs e) {
-            ventPadre.Show();
-            this.Dispose();
-        }
 
         private void button5_Click(object sender, EventArgs e) {
             LISTA_DE_COMPRAS lista_form = new LISTA_DE_COMPRAS(this);
@@ -153,6 +127,11 @@ namespace QueComemos {
             BUSQUEDA_RECETAS busquedaR_form = new BUSQUEDA_RECETAS(this);
             this.Hide();
             busquedaR_form.Show();
+        }
+
+        private void RECETA_FormClosing(object sender, FormClosingEventArgs e) {
+            ventPadre.Show();
+            this.Dispose();
         }
 
    
