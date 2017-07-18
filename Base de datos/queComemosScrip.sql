@@ -384,5 +384,11 @@ SELECT * FROM
 WHERE CaloriasXreceta < @Num
 GO
 -----------------------------------------------------------------------------------------
-
+--CREATE procedure PROC_TIPO_ING
+--@Nombre_Ing varchar (50)
+--AS
+--SELECT Nombre_Tip FROM Ingredientes
+INNER JOIN Tipos on IdTipo_Tip = IdTipo1_Ing
+WHERE Nombre_Ing LIKE @Nombre_Ing
+GO
 -----------------------------------------------------------------------------------------
