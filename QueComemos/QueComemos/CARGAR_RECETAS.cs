@@ -19,8 +19,14 @@ namespace QueComemos {
             InitializeComponent();
 
             this.ventPadre = ventPadre;
-            this.cargarListaDeIngredintes();
         }
+
+        private void CARGAR_RECETAS_VisibleChanged(object sender, EventArgs e) {
+            //Carga la lista de ingredientes y coloca el primer tipo visible.
+            this.cargarListaDeIngredintes();
+            this.IngredienteAtipo();
+        }
+
         private void button5_Click(object sender, EventArgs e) {
             string consultaReceta= "INSERT INTO Recetas ( Nombre_Rec, Tiempo_Aprox_Rec, Porciones_Rec, Descripcion_Rec, IdTipo1_Rec, IdTipo2_Rec, URLImagen_Rec) SELECT ";
 
@@ -106,7 +112,7 @@ namespace QueComemos {
         }
 
         private void button2_Click(object sender, EventArgs e) {
-
+            //Agregar el ingrediente seleccionado a la lista receta.
             dataGridView2.Rows.Add(dataGridView1.CurrentCell.RowIndex.ToString(),dataGridView1.CurrentCell.Value.ToString(),textBox5.Text.ToString(), label8.Text.ToString());
 
             textBox5.Text = "";
@@ -164,6 +170,7 @@ namespace QueComemos {
         }
 
         private void dataGridView1_CellClick(object sender, DataGridViewCellEventArgs e) {
+            //Coloca el tipo de unidad del ingrediente para ver.
             this.IngredienteAtipo();
 
         }
@@ -196,9 +203,16 @@ namespace QueComemos {
          
         }
 
+        private void button1_Click(object sender, EventArgs e) {
+            CARGAR_INGREDIENTES cargarI_form = new CARGAR_INGREDIENTES(this);
+            this.Hide();
+            cargarI_form.Show();
+        }
+
         private void CARGAR_RECETAS_FormClosing(object sender, FormClosingEventArgs e) {
             ventPadre.Show();
             this.Dispose();
         }
+
     }
 }

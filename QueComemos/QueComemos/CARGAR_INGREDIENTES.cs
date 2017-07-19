@@ -11,10 +11,11 @@ using System.Windows.Forms;
 namespace QueComemos {
     public partial class CARGAR_INGREDIENTES : Form {
 
-        MAIN_CARGAR ventPadre;
+        Form ventPadre;
+        
         BASE_DATOS BDSQL = new BASE_DATOS();
 
-        public CARGAR_INGREDIENTES(MAIN_CARGAR ventPadre) {
+        public CARGAR_INGREDIENTES(Form ventPadre) {
             InitializeComponent();
 
             this.ventPadre = ventPadre;
@@ -47,7 +48,7 @@ namespace QueComemos {
             consultaSQL += textBox6.Text.ToString();
 
             //llamar a la base datos:
-            //BDSQL.agregarDatosSQL(consultaSQL);
+            BDSQL.agregarDatosSQL(consultaSQL);
 
             this.limpiarFormulario();
         }
