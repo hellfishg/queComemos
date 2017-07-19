@@ -78,8 +78,6 @@
             // 
             this.comboBox1.FormattingEnabled = true;
             this.comboBox1.Items.AddRange(new object[] {
-            "",
-            "Celiaco",
             "Omnivoro",
             "Vegano",
             "Vegetariano"});
@@ -93,10 +91,7 @@
             this.comboBox2.FormattingEnabled = true;
             this.comboBox2.Items.AddRange(new object[] {
             "",
-            "Celiaco",
-            "Omnivoro",
-            "Vegano",
-            "Vegetariano"});
+            "Celiaco"});
             this.comboBox2.Location = new System.Drawing.Point(118, 62);
             this.comboBox2.Name = "comboBox2";
             this.comboBox2.Size = new System.Drawing.Size(158, 21);
