@@ -25,7 +25,7 @@ namespace QueComemos {
         private void button1_Click(object sender, EventArgs e) {
             //Busqueda:
                    
-            consultaSql = "SELECT Nombre_Rec as 'Receta',Tiempo_Aprox_Rec as 'Tiempo Prep.',Nombre_Tip as 'Tipo' FROM Recetas join Tipos on IdTipo_Tip = IdTipo1_Rec WHERE ";
+            consultaSql = "SELECT Nombre_Rec as 'Receta',Tiempo_Aprox_Rec as 'Tiempo Prep.',Nombre_Tip as 'Tipo', Costo_Rec as 'Costo' FROM Recetas join Tipos on IdTipo_Tip = IdTipo1_Rec WHERE ";
             bool checkArgumentos = false;
 
             if(checkBox1.Checked) {
@@ -43,9 +43,12 @@ namespace QueComemos {
                 checkArgumentos = true;
             }
 
-            //+Falta por Precio hasta.
             if(checkBox3.Checked) {
+                if(checkArgumentos) { consultaSql += "AND "; }
+                consultaSql += "Costo_Rec <= " + textBox4.Text.ToString();
+                checkArgumentos = true;
             }
+
 
             //Busqueda de Calorias menos de:
             if(checkBox5.Checked) {
@@ -74,10 +77,9 @@ namespace QueComemos {
 
             if(checkBox5.Checked) {
                 groupBox1.Enabled = false;
-                groupBox3.Enabled = false;
+              
             } else {
                 groupBox1.Enabled = true;
-                groupBox3.Enabled = true;
             }
         }
     }

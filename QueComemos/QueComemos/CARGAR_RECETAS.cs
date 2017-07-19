@@ -28,7 +28,7 @@ namespace QueComemos {
         }
 
         private void button5_Click(object sender, EventArgs e) {
-            string consultaReceta= "INSERT INTO Recetas ( Nombre_Rec, Tiempo_Aprox_Rec, Porciones_Rec, Descripcion_Rec, IdTipo1_Rec, IdTipo2_Rec, URLImagen_Rec) SELECT ";
+            string consultaReceta= "INSERT INTO Recetas ( Nombre_Rec, Tiempo_Aprox_Rec, Porciones_Rec, Descripcion_Rec, IdTipo1_Rec, IdTipo2_Rec, URLImagen_Rec, Costo_Rec) SELECT ";
 
             consultaReceta += "'" + textBox1.Text.ToString() + "'";
             consultaReceta += ", ";
@@ -50,6 +50,9 @@ namespace QueComemos {
 
             //codigo de ingreso de la imagen ver.
             consultaReceta += "'URL:algoDeNoseQue'";
+            consultaReceta += " ,";
+
+            consultaReceta += textBox6.Text.ToString();
 
             SQL.agregarDatosSQL(consultaReceta);
 

@@ -15,6 +15,7 @@ Descripcion_Rec VARCHAR (max) NULL,
 URLImagen_Rec VARCHAR (max) NULL DEFAULT 'NONE',
 Tiempo_Aprox_Rec INT NOT NULL,
 Porciones_Rec INT NOT NULL,
+Costo_Rec INT NOT NULL,
 CONSTRAINT PK_REC PRIMARY KEY (IdReceta_Rec)
 )
 GO
@@ -183,11 +184,11 @@ GO
 -----------------------------------------------------------------------------------------
 --Recetas:
 INSERT INTO Recetas (IdTipo1_Rec, IdTipo2_Rec, Nombre_Rec, Descripcion_Rec,
- URLImagen_Rec, Tiempo_Aprox_Rec, Porciones_Rec )
-SELECT 3 , 1 , 'Ensalada de pollo' , 'Cortar algo..' , 'URL' , 30 , 3 UNION
-SELECT 3 , 2 , 'Pollo con papas al horno', 'Meter el pollo al horno..' , 'URL' , 60 , 4 UNION
-SELECT 3 , 1 , 'Sopa de calabaza' , 'Hervir la calabaza...' , 'URL' , 40 , 3 UNION
-SELECT 3 , 1 , 'Tarta de jamon y queso' , 'Colocar la pascualina...', 'URL' , 30 , 2 
+ URLImagen_Rec, Tiempo_Aprox_Rec, Porciones_Rec, Costo_Rec )
+SELECT 3 , 1 , 'Ensalada de pollo' , 'Cortar algo..' , 'URL' , 30 , 3 , 70 UNION
+SELECT 3 , 2 , 'Pollo con papas al horno', 'Meter el pollo al horno..' , 'URL' , 60 , 4 , 60 UNION
+SELECT 3 , 1 , 'Sopa de calabaza' , 'Hervir la calabaza...' , 'URL' , 40 , 3 , 40 UNION
+SELECT 3 , 1 , 'Tarta de jamon y queso' , 'Colocar la pascualina...', 'URL' , 30 , 2 , 90
 GO
 -----------------------------------------------------------------------------------------
 --IngredientexReceta:
@@ -383,12 +384,4 @@ SELECT * FROM
 	AS Total
 WHERE CaloriasXreceta < @Num
 GO
------------------------------------------------------------------------------------------
---CREATE procedure PROC_TIPO_ING
---@Nombre_Ing varchar (50)
---AS
---SELECT Nombre_Tip FROM Ingredientes
---INNER JOIN Tipos on IdTipo_Tip = IdTipo1_Ing
---WHERE Nombre_Ing LIKE @Nombre_Ing
---GO
 -----------------------------------------------------------------------------------------

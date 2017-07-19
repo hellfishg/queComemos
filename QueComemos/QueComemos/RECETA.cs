@@ -17,7 +17,7 @@ namespace QueComemos {
         DataTable dt2;
         int index = 1;
         int indexMax;
-        string consulta = "SELECT IdReceta_Rec , IdTipo1_Rec, IdTipo2_Rec, Nombre_Rec, Descripcion_Rec, URLImagen_Rec, Tiempo_Aprox_Rec, Porciones_Rec FROM Recetas";
+        string consulta = "SELECT IdReceta_Rec , IdTipo1_Rec, IdTipo2_Rec, Nombre_Rec, Descripcion_Rec, URLImagen_Rec, Tiempo_Aprox_Rec, Porciones_Rec , Costo_Rec FROM Recetas";
 
         public RECETA (MenuPrincipal ventPadre) {
             InitializeComponent();
@@ -37,7 +37,9 @@ namespace QueComemos {
             label1.Text = this.obtenerTipo(fila["IdTipo1_Rec"].ToString());
             label16.Text = this.obtenerTipo(fila["IdTipo2_Rec"].ToString());
             label5.Text = fila["Tiempo_Aprox_Rec"].ToString();
+            label6.Text = fila["Costo_Rec"].ToString();
             label7.Text = fila["Porciones_Rec"].ToString();
+            
 
             //Cargar ingredientes:
 

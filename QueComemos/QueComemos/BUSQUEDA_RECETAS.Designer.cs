@@ -43,18 +43,19 @@
             this.button2 = new System.Windows.Forms.Button();
             this.button3 = new System.Windows.Forms.Button();
             this.button5 = new System.Windows.Forms.Button();
-            this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.groupBox4 = new System.Windows.Forms.GroupBox();
             this.groupBox1.SuspendLayout();
             this.groupBox2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
-            this.groupBox3.SuspendLayout();
             this.groupBox4.SuspendLayout();
             this.SuspendLayout();
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.checkBox3);
+            this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Controls.Add(this.textBox4);
             this.groupBox1.Controls.Add(this.textBox2);
             this.groupBox1.Controls.Add(this.checkBox4);
             this.groupBox1.Controls.Add(this.comboBox1);
@@ -63,7 +64,7 @@
             this.groupBox1.Controls.Add(this.checkBox1);
             this.groupBox1.Location = new System.Drawing.Point(13, 13);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(434, 149);
+            this.groupBox1.Size = new System.Drawing.Size(434, 182);
             this.groupBox1.TabIndex = 0;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "BUSQUEDAS";
@@ -146,7 +147,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(241, 38);
+            this.label2.Location = new System.Drawing.Point(241, 154);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(36, 13);
             this.label2.TabIndex = 14;
@@ -154,7 +155,7 @@
             // 
             // textBox4
             // 
-            this.textBox4.Location = new System.Drawing.Point(175, 31);
+            this.textBox4.Location = new System.Drawing.Point(175, 147);
             this.textBox4.Name = "textBox4";
             this.textBox4.Size = new System.Drawing.Size(60, 20);
             this.textBox4.TabIndex = 12;
@@ -180,7 +181,7 @@
             // checkBox3
             // 
             this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(32, 33);
+            this.checkBox3.Location = new System.Drawing.Point(32, 149);
             this.checkBox3.Name = "checkBox3";
             this.checkBox3.Size = new System.Drawing.Size(126, 17);
             this.checkBox3.TabIndex = 2;
@@ -190,7 +191,7 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.dataGridView1);
-            this.groupBox2.Location = new System.Drawing.Point(13, 367);
+            this.groupBox2.Location = new System.Drawing.Point(12, 327);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(433, 194);
             this.groupBox2.TabIndex = 1;
@@ -212,7 +213,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(171, 329);
+            this.button1.Location = new System.Drawing.Point(181, 289);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(77, 32);
             this.button1.TabIndex = 2;
@@ -222,7 +223,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(34, 579);
+            this.button2.Location = new System.Drawing.Point(32, 537);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(89, 38);
             this.button2.TabIndex = 3;
@@ -231,7 +232,7 @@
             // 
             // button3
             // 
-            this.button3.Location = new System.Drawing.Point(181, 579);
+            this.button3.Location = new System.Drawing.Point(179, 537);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(89, 38);
             this.button3.TabIndex = 4;
@@ -240,7 +241,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(336, 579);
+            this.button5.Location = new System.Drawing.Point(334, 537);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(90, 38);
             this.button5.TabIndex = 6;
@@ -248,24 +249,12 @@
             this.button5.UseVisualStyleBackColor = true;
             this.button5.Click += new System.EventHandler(this.button5_Click);
             // 
-            // groupBox3
-            // 
-            this.groupBox3.Controls.Add(this.checkBox3);
-            this.groupBox3.Controls.Add(this.label2);
-            this.groupBox3.Controls.Add(this.textBox4);
-            this.groupBox3.Location = new System.Drawing.Point(13, 246);
-            this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(434, 77);
-            this.groupBox3.TabIndex = 13;
-            this.groupBox3.TabStop = false;
-            this.groupBox3.Text = "Costo de la Receta";
-            // 
             // groupBox4
             // 
             this.groupBox4.Controls.Add(this.label3);
             this.groupBox4.Controls.Add(this.checkBox5);
             this.groupBox4.Controls.Add(this.textBox3);
-            this.groupBox4.Location = new System.Drawing.Point(13, 168);
+            this.groupBox4.Location = new System.Drawing.Point(13, 201);
             this.groupBox4.Name = "groupBox4";
             this.groupBox4.Size = new System.Drawing.Size(434, 72);
             this.groupBox4.TabIndex = 14;
@@ -276,9 +265,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(465, 629);
+            this.ClientSize = new System.Drawing.Size(465, 592);
             this.Controls.Add(this.groupBox4);
-            this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.button5);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
@@ -292,8 +280,6 @@
             this.groupBox1.PerformLayout();
             this.groupBox2.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
-            this.groupBox3.ResumeLayout(false);
-            this.groupBox3.PerformLayout();
             this.groupBox4.ResumeLayout(false);
             this.groupBox4.PerformLayout();
             this.ResumeLayout(false);
@@ -322,7 +308,6 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.GroupBox groupBox4;
     }
 }

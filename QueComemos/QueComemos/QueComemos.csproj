@@ -115,12 +115,6 @@
     <Compile Include="RECETA.Designer.cs">
       <DependentUpon>RECETA.cs</DependentUpon>
     </Compile>
-    <Compile Include="TESTEO.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="TESTEO.Designer.cs">
-      <DependentUpon>TESTEO.cs</DependentUpon>
-    </Compile>
     <EmbeddedResource Include="BUSCAR_COMERCIO.resx">
       <DependentUpon>BUSCAR_COMERCIO.cs</DependentUpon>
     </EmbeddedResource>
@@ -162,9 +156,6 @@
     </Compile>
     <EmbeddedResource Include="RECETA.resx">
       <DependentUpon>RECETA.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="TESTEO.resx">
-      <DependentUpon>TESTEO.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>

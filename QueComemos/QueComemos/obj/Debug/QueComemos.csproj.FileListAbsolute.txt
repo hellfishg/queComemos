@@ -24,7 +24,6 @@ C:\HellDocs\queComemos\QueComemos\QueComemos\obj\Debug\QueComemos.MAIN_CARGAR.re
 C:\HellDocs\queComemos\QueComemos\QueComemos\obj\Debug\QueComemos.PERFIL.resources
 C:\HellDocs\queComemos\QueComemos\QueComemos\obj\Debug\QueComemos.Properties.Resources.resources
 C:\HellDocs\queComemos\QueComemos\QueComemos\obj\Debug\QueComemos.RECETA.resources
-C:\HellDocs\queComemos\QueComemos\QueComemos\obj\Debug\QueComemos.TESTEO.resources
 C:\HellDocs\queComemos\QueComemos\QueComemos\obj\Debug\QueComemos.csproj.GenerateResource.Cache
 C:\HellDocs\queComemos\QueComemos\QueComemos\bin\Debug\QueComemos.exe
 C:\HellDocs\queComemos\QueComemos\QueComemos\bin\Debug\QueComemos.pdb
