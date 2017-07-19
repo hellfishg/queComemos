@@ -14,6 +14,7 @@ namespace QueComemos {
         MenuPrincipal ventPadre;
         BASE_DATOS SQL = new BASE_DATOS();
         DataTable dt;
+        DataTable dt2;
         int index = 1;
         int indexMax;
         string consulta = "SELECT IdReceta_Rec , IdTipo1_Rec, IdTipo2_Rec, Nombre_Rec, Descripcion_Rec, URLImagen_Rec, Tiempo_Aprox_Rec, Porciones_Rec FROM Recetas";
@@ -42,7 +43,7 @@ namespace QueComemos {
 
             i++;
             String consultaIngXrec = "exec PROC_REC_1 '" + i + "'";
-            DataTable dt2 = SQL.devolverTablaDataSet(consultaIngXrec, "Ingredientes");
+            dt2 = SQL.devolverTablaDataSet(consultaIngXrec, "Ingredientes");
             dataGridView1.DataSource = dt2;
 
             //el costo se saca por los ingredientes. label6
@@ -118,7 +119,7 @@ namespace QueComemos {
 
 
         private void button5_Click(object sender, EventArgs e) {
-            LISTA_DE_COMPRAS lista_form = new LISTA_DE_COMPRAS(this);
+            LISTA_DE_COMPRAS lista_form = new LISTA_DE_COMPRAS(this,dt2);
             this.Hide();
             lista_form.Show();
         }

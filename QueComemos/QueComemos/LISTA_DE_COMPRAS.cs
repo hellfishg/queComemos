@@ -12,17 +12,37 @@ namespace QueComemos {
     public partial class LISTA_DE_COMPRAS : Form {
 
         RECETA ventPadre;
+        DataTable dtBackUp;
+        //DataTable dt;
 
-        public LISTA_DE_COMPRAS(RECETA ventPadre) {
+        public LISTA_DE_COMPRAS(RECETA ventPadre, DataTable dtReceta) {
             InitializeComponent();
 
             this.ventPadre = ventPadre;
+            //this.dt = dtReceta;
+            this.dtBackUp = dtReceta;
+            this.dataGridView1.DataSource = dtReceta;
+
+        }
+
+        private void cargarLista() {
 
         }
 
         private void LISTA_DE_COMPRAS_FormClosing(object sender, FormClosingEventArgs e) {
             ventPadre.Show();
             this.Dispose();
+        }
+
+        private void button2_Click(object sender, EventArgs e) {
+            int selectedCount = dataGridView1.SelectedRows.Count;
+
+            while(selectedCount > 0) {
+
+                if(!dataGridView1.SelectedRows[0].IsNewRow)
+                    dataGridView1.Rows.RemoveAt(dataGridView1.SelectedRows[0].Index);
+                selectedCount--;
+            }
         }
     }
 }
