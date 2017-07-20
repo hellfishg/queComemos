@@ -23,6 +23,7 @@ namespace QueComemos {
 
         private void button1_Click(object sender, EventArgs e) {
             //carga el perfil en la base de datos:
+            
             string consultaSQL = "INSERT INTO Perfiles (Nombre_P,UrlAvatar_P) SELECT ";
 
             consultaSQL += "'" + textBox1.Text.ToString() + "'";
@@ -31,10 +32,31 @@ namespace QueComemos {
             consultaSQL += "'" + pathImagen + "'";
 
             SQL.agregarDatosSQL(consultaSQL);
-
+            
             //Peso inicial:
+            
+            //Busca el ID del perfil recien ingresado.
+            DataTable dt2 = SQL.devolverTablaDataSet("SELECT IdPerfil_P FROM Perfiles WHERE Nombre_P LIKE '" + textBox1.Text + "%'", "Perfiles");
+            DataRow fila = dt2.Rows[0];
+            string IdPerfil= fila[0].ToString();
 
+            //------------------------------------------------------------
 
+            //Establece la fecha actual
+            string fecha = DateTime.Today.ToShortDateString();
+
+            consultaSQL = "INSERT INTO PesosHistoricos (IdPerfil_PH, Fecha_PH, Peso_PH ) SELECT ";
+
+            consultaSQL += IdPerfil;
+            consultaSQL += ", ";
+
+            consultaSQL +="'" + fecha + "'";
+            consultaSQL += ", ";
+
+            consultaSQL += textBox2.Text;
+
+            SQL.agregarDatosSQL(consultaSQL);
+            
             this.limpiarFormulario();
         }
 
