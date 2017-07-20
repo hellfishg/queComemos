@@ -14,6 +14,7 @@ namespace QueComemos {
         MAIN_CARGAR ventPadre;
         BASE_DATOS SQL = new BASE_DATOS();
         DataTable dt;
+        string pathImagen;
 
         public CARGAR_RECETAS(MAIN_CARGAR ventPadre) {
             InitializeComponent();
@@ -48,8 +49,8 @@ namespace QueComemos {
             consultaReceta += this.obtenerTipo(comboBox2.SelectedItem.ToString());
             consultaReceta += " ,";
 
-            //codigo de ingreso de la imagen ver.
-            consultaReceta += "'URL:algoDeNoseQue'";
+            //path de la imagen:
+            consultaReceta += "'" + pathImagen + "'";
             consultaReceta += " ,";
 
             consultaReceta += textBox6.Text.ToString();
@@ -178,6 +179,21 @@ namespace QueComemos {
 
         }
 
+        private void btn_cargarImagen_Click(object sender, EventArgs e) {
+
+            Image file;
+
+            OpenFileDialog f = new OpenFileDialog();
+            f.Filter = "2JPG(*.JPG)|*.JPG";
+
+            if(f.ShowDialog() == DialogResult.OK) {
+                file = Image.FromFile(f.FileName);
+                pictureBox1.Image = file;
+                pathImagen = f.FileName;
+
+            }
+        }
+
         private void button4_Click(object sender, EventArgs e) {
             //Borra la fila de la lista seleccionada.
             int selectedCount = dataGridView2.SelectedRows.Count;
@@ -216,6 +232,8 @@ namespace QueComemos {
             ventPadre.Show();
             this.Dispose();
         }
+
+   
 
     }
 }

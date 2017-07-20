@@ -71,6 +71,12 @@
     <Compile Include="CARGAR_INGREDIENTES.Designer.cs">
       <DependentUpon>CARGAR_INGREDIENTES.cs</DependentUpon>
     </Compile>
+    <Compile Include="CARGAR_PERFIL.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CARGAR_PERFIL.Designer.cs">
+      <DependentUpon>CARGAR_PERFIL.cs</DependentUpon>
+    </Compile>
     <Compile Include="CARGAR_RECETAS.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -126,6 +132,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CARGAR_INGREDIENTES.resx">
       <DependentUpon>CARGAR_INGREDIENTES.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CARGAR_PERFIL.resx">
+      <DependentUpon>CARGAR_PERFIL.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CARGAR_RECETAS.resx">
       <DependentUpon>CARGAR_RECETAS.cs</DependentUpon>

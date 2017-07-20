@@ -155,8 +155,8 @@ GO
 
 ----Perfiles
 INSERT INTO Perfiles (Nombre_P,UrlAvatar_P)
-SELECT 'Hellfishg','C:\HellDocs\queComemos\Imagenes Raw\nurgle.jpg' UNION
-SELECT 'Mina', 'C:\HellDocs\queComemos\Imagenes Raw\nurgle.jpg' 
+SELECT 'Hellfishg','C:\HellDocs\queComemos\QueComemos\QueComemos\imagenes\hellfish.jpg' UNION
+SELECT 'Mina', 'C:\HellDocs\queComemos\QueComemos\QueComemos\imagenes\hada.jpg' 
 GO
 -----------------------------------------------------------------------------------------
 --Ingredientes
@@ -185,10 +185,10 @@ GO
 --Recetas:
 INSERT INTO Recetas (IdTipo1_Rec, IdTipo2_Rec, Nombre_Rec, Descripcion_Rec,
  URLImagen_Rec, Tiempo_Aprox_Rec, Porciones_Rec, Costo_Rec )
-SELECT 3 , 1 , 'Ensalada de pollo' , 'Cortar algo..' , 'URL' , 30 , 3 , 70 UNION
-SELECT 3 , 2 , 'Pollo con papas al horno', 'Meter el pollo al horno..' , 'URL' , 60 , 4 , 60 UNION
-SELECT 3 , 1 , 'Sopa de calabaza' , 'Hervir la calabaza...' , 'URL' , 40 , 3 , 40 UNION
-SELECT 3 , 1 , 'Tarta de jamon y queso' , 'Colocar la pascualina...', 'URL' , 30 , 2 , 90
+SELECT 3 , 1 , 'Ensalada de pollo' , 'Cortar algo..' , 'C:\HellDocs\queComemos\QueComemos\QueComemos\imagenes\EnsaPollo.jpg' , 30 , 3 , 70 UNION
+SELECT 3 , 2 , 'Pollo con papas al horno', 'Meter el pollo al horno..' , 'C:\HellDocs\queComemos\QueComemos\QueComemos\imagenes\PolloAlHorno.jpg' , 60 , 4 , 60 UNION
+SELECT 3 , 1 , 'Sopa de calabaza' , 'Hervir la calabaza...' , 'C:\HellDocs\queComemos\QueComemos\QueComemos\imagenes\sopaCalabaza.jpg' , 40 , 3 , 40 UNION
+SELECT 3 , 1 , 'Tarta de jamon y queso' , 'Colocar la pascualina...', 'C:\HellDocs\queComemos\QueComemos\QueComemos\imagenes\TartaJQ.jpg' , 30 , 2 , 90
 GO
 -----------------------------------------------------------------------------------------
 --IngredientexReceta:

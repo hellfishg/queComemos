@@ -39,6 +39,8 @@ namespace QueComemos {
             label5.Text = fila["Tiempo_Aprox_Rec"].ToString();
             label6.Text = fila["Costo_Rec"].ToString();
             label7.Text = fila["Porciones_Rec"].ToString();
+            Image file = Image.FromFile(fila["URLImagen_Rec"].ToString());
+            pictureBox1.Image = file;
             
 
             //Cargar ingredientes:

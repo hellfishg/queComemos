@@ -41,5 +41,11 @@ namespace QueComemos {
             this.Hide();
             cargarC_form.Show();
         }
+
+        private void button4_Click(object sender, EventArgs e) {
+            CARGAR_PERFIL cargarP_form = new CARGAR_PERFIL(this);
+            this.Hide();
+            cargarP_form.Show();
+        }
     }
 }
