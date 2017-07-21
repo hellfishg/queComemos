@@ -29,17 +29,21 @@
             this.btn_Datos = new System.Windows.Forms.Button();
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.pERFILLOGINToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pERFIL1ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.pERFIL2ToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.lOGINOUTToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aYUDAToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aCERCADEQueComemosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.label1 = new System.Windows.Forms.Label();
+            this.label2 = new System.Windows.Forms.Label();
+            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.menuStrip1.SuspendLayout();
+            this.groupBox1.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.SuspendLayout();
             // 
             // btn_Recetas
             // 
-            this.btn_Recetas.Location = new System.Drawing.Point(19, 82);
+            this.btn_Recetas.Location = new System.Drawing.Point(15, 144);
             this.btn_Recetas.Name = "btn_Recetas";
             this.btn_Recetas.Size = new System.Drawing.Size(186, 113);
             this.btn_Recetas.TabIndex = 0;
@@ -49,7 +53,7 @@
             // 
             // btn_Comercios
             // 
-            this.btn_Comercios.Location = new System.Drawing.Point(226, 82);
+            this.btn_Comercios.Location = new System.Drawing.Point(222, 144);
             this.btn_Comercios.Name = "btn_Comercios";
             this.btn_Comercios.Size = new System.Drawing.Size(186, 113);
             this.btn_Comercios.TabIndex = 1;
@@ -59,7 +63,7 @@
             // 
             // btn_Perfil
             // 
-            this.btn_Perfil.Location = new System.Drawing.Point(19, 217);
+            this.btn_Perfil.Location = new System.Drawing.Point(15, 279);
             this.btn_Perfil.Name = "btn_Perfil";
             this.btn_Perfil.Size = new System.Drawing.Size(186, 113);
             this.btn_Perfil.TabIndex = 2;
@@ -69,7 +73,7 @@
             // 
             // btn_Datos
             // 
-            this.btn_Datos.Location = new System.Drawing.Point(226, 217);
+            this.btn_Datos.Location = new System.Drawing.Point(222, 279);
             this.btn_Datos.Name = "btn_Datos";
             this.btn_Datos.Size = new System.Drawing.Size(186, 113);
             this.btn_Datos.TabIndex = 3;
@@ -91,30 +95,17 @@
             // 
             // pERFILLOGINToolStripMenuItem
             // 
-            this.pERFILLOGINToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
-            this.pERFIL1ToolStripMenuItem,
-            this.pERFIL2ToolStripMenuItem});
             this.pERFILLOGINToolStripMenuItem.Name = "pERFILLOGINToolStripMenuItem";
             this.pERFILLOGINToolStripMenuItem.Size = new System.Drawing.Size(92, 20);
             this.pERFILLOGINToolStripMenuItem.Text = "PERFIL LOGIN";
-            // 
-            // pERFIL1ToolStripMenuItem
-            // 
-            this.pERFIL1ToolStripMenuItem.Name = "pERFIL1ToolStripMenuItem";
-            this.pERFIL1ToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
-            this.pERFIL1ToolStripMenuItem.Text = "PERFIL 1";
-            // 
-            // pERFIL2ToolStripMenuItem
-            // 
-            this.pERFIL2ToolStripMenuItem.Name = "pERFIL2ToolStripMenuItem";
-            this.pERFIL2ToolStripMenuItem.Size = new System.Drawing.Size(118, 22);
-            this.pERFIL2ToolStripMenuItem.Text = "PERFIL 2";
+            this.pERFILLOGINToolStripMenuItem.DropDownItemClicked += new System.Windows.Forms.ToolStripItemClickedEventHandler(this.pERFILLOGINToolStripMenuItem_DropDownItemClicked);
             // 
             // lOGINOUTToolStripMenuItem
             // 
             this.lOGINOUTToolStripMenuItem.Name = "lOGINOUTToolStripMenuItem";
             this.lOGINOUTToolStripMenuItem.Size = new System.Drawing.Size(81, 20);
             this.lOGINOUTToolStripMenuItem.Text = "LOGIN OUT";
+            this.lOGINOUTToolStripMenuItem.Click += new System.EventHandler(this.lOGINOUTToolStripMenuItem_Click);
             // 
             // aYUDAToolStripMenuItem
             // 
@@ -130,11 +121,53 @@
             this.aCERCADEQueComemosToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
             this.aCERCADEQueComemosToolStripMenuItem.Text = "ACERCA DE queComemos";
             // 
+            // label1
+            // 
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.Location = new System.Drawing.Point(132, 32);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(91, 20);
+            this.label1.TabIndex = 5;
+            this.label1.Text = "ANONIMO";
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Italic, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label2.Location = new System.Drawing.Point(132, 67);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(93, 13);
+            this.label2.TabIndex = 6;
+            this.label2.Text = "NO CONECTADO";
+            // 
+            // groupBox1
+            // 
+            this.groupBox1.Controls.Add(this.pictureBox1);
+            this.groupBox1.Controls.Add(this.label2);
+            this.groupBox1.Controls.Add(this.label1);
+            this.groupBox1.Location = new System.Drawing.Point(87, 27);
+            this.groupBox1.Name = "groupBox1";
+            this.groupBox1.Size = new System.Drawing.Size(260, 111);
+            this.groupBox1.TabIndex = 7;
+            this.groupBox1.TabStop = false;
+            this.groupBox1.Text = "PERFIL";
+            // 
+            // pictureBox1
+            // 
+            this.pictureBox1.Location = new System.Drawing.Point(6, 19);
+            this.pictureBox1.Name = "pictureBox1";
+            this.pictureBox1.Size = new System.Drawing.Size(108, 86);
+            this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureBox1.TabIndex = 7;
+            this.pictureBox1.TabStop = false;
+            // 
             // MenuPrincipal
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(435, 395);
+            this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btn_Datos);
             this.Controls.Add(this.btn_Perfil);
             this.Controls.Add(this.btn_Comercios);
@@ -143,8 +176,12 @@
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MenuPrincipal";
             this.Text = "Que Comemos?";
+            this.VisibleChanged += new System.EventHandler(this.MenuPrincipal_VisibleChanged);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
+            this.groupBox1.ResumeLayout(false);
+            this.groupBox1.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -158,11 +195,13 @@
         private System.Windows.Forms.Button btn_Datos;
         private System.Windows.Forms.MenuStrip menuStrip1;
         private System.Windows.Forms.ToolStripMenuItem pERFILLOGINToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem pERFIL1ToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem pERFIL2ToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aYUDAToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem aCERCADEQueComemosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem lOGINOUTToolStripMenuItem;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Label label2;
+        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.PictureBox pictureBox1;
     }
 }
 
