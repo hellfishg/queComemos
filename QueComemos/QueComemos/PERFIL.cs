@@ -14,6 +14,7 @@ namespace QueComemos {
         BASE_DATOS SQL = new BASE_DATOS();
         MenuPrincipal ventPadre;
         string login;
+        string IDperfil;
         string URLImagen;
         string fecha;
 
@@ -23,10 +24,7 @@ namespace QueComemos {
             this.ventPadre = ventPadre;
             this.login = login;
             this.URLImagen = URLImagen;
-
-            //string dataInicioSemana;
-            //string dataFinSemana;
-            
+           
             this.cargarPerfil();
         }
 
@@ -41,12 +39,19 @@ namespace QueComemos {
             fecha = DateTime.Today.ToShortDateString();
 
             this.cargarDias();
+            this.cargarPeso();
 
         }
 
         private void cargarDias() {
             //Carga la semana de comidas.
+            
+            //Buscar el Id del perfil:
+            DataTable dtPerfil = SQL.devolverTablaDataSet("SELECT IdPerfil_P FROM Perfiles WHERE Nombre_P LIKE '" + login + "%'", "Lunes");
+            DataRow fila = dtPerfil.Rows[0];
+            IDperfil = fila[0].ToString();
 
+            //////////////////////////
             //busca cual es el dia lunes de esta semana.
             int restarDias = 0;
 
@@ -85,10 +90,14 @@ namespace QueComemos {
             string dia = dya.ToShortDateString();
 
             //////////////////////////
-            //Buscar el Id del perfil:
-            DataTable dtPerfil = SQL.devolverTablaDataSet("SELECT IdPerfil_P FROM Perfiles WHERE Nombre_P LIKE '"+login+"%'", "Lunes");
-            DataRow fila = dtPerfil.Rows[0];
-            string IDperfil = fila[0].ToString();
+            //Actualizar el peso de la ultima fecha.
+            dtPerfil = SQL.devolverTablaDataSet("EXEC PROC_PESO_FECHA "+ IDperfil,"PesoHistorico");
+            fila = dtPerfil.Rows[0];
+            textBox1.Text = fila[1].ToString();
+            string fechaPeso = fila[0].ToString();
+            string[] fechaSinHora = fechaPeso.Split(' ');
+            label2.Text = fechaSinHora[0];            
+
             //////////////////////////
 
             //LUNES:
@@ -140,15 +149,30 @@ namespace QueComemos {
 
         }
 
-        private string cargarUltimoPeso() {
-            //busca el ultimo peso cargado.
-            string peso = "";
+        private void cargarPeso() {
+            //Actualiza el peso de la ultimo pesaje.
 
-            return peso;
+            DataTable dtPerfil = SQL.devolverTablaDataSet("EXEC PROC_PESO_FECHA " + IDperfil, "PesoHistorico");
+            DataRow fila = dtPerfil.Rows[0];
+            textBox1.Text = fila[1].ToString();
+            string fechaPeso = fila[0].ToString();
+            string[] fechaSinHora = fechaPeso.Split(' ');
+            label2.Text = fechaSinHora[0];
+        }
+
+        private void actualizarUltimoPeso() {
+            //Carga el nuevo peso:
+            string consultaSQL = "INSERT INTO PesosHistoricos (IdPerfil_PH, Fecha_PH , Peso_PH) SELECT "+IDperfil+", '"+fecha+ "', "+textBox1.Text.ToString();
+
+            SQL.agregarDatosSQL(consultaSQL);
+
+            this.cargarPeso();
         }
 
         private void button1_Click(object sender, EventArgs e) {
-            //Actualizar el peso:
+            //Actualizar el peso del texBox1.
+            this.actualizarUltimoPeso();
+
         }
 
         private void PERFIL_FormClosing(object sender, FormClosingEventArgs e) {

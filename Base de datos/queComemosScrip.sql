@@ -296,6 +296,18 @@ SELECT 4, 7, 56 UNION
 SELECT 4, 6, 89 
 GO
 -----------------------------------------------------------------------------------------
+--PesosHistoricos
+INSERT INTO PesosHistoricos (IdPerfil_PH, Fecha_PH , Peso_PH)
+SELECT 1, '16-07-2017', 75 UNION
+SELECT 1, '17-07-2017', 70 UNION
+SELECT 1, '18-07-2017', 72 UNION
+SELECT 1, '19-07-2017', 75 UNION
+SELECT 1, '20-07-2017', 80 UNION
+SELECT 2, '16-07-2017', 40 UNION
+SELECT 2, '17-07-2017', 50 UNION
+SELECT 2, '18-07-2017', 65 
+GO
+-----------------------------------------------------------------------------------------
 --Procedimientos:
 CREATE procedure PROC_COM_1
 @Id_Com char (4)
@@ -422,3 +434,12 @@ WHERE IdPerfil_RXF = @IdPerfil_P AND IdFecha_RXF = @Fecha
 GROUP BY  Nombre_Rec
 GO
 ---------------------------------------------------------------------------------------------
+--Busca la ultima fecha donde se cargo un peso de un perfil determinado por ID.
+CREATE procedure PROC_PESO_FECHA
+@IdPerfil_P int
+AS
+SELECT  Fecha_PH , Peso_PH, IdPesoH_PH, IdPerfil_PH FROM PesosHistoricos
+WHERE IdPerfil_PH = @IdPerfil_P
+ORDER BY Fecha_PH DESC
+GO
+----------------------------------------------------------------------------------------------
