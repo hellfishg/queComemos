@@ -401,7 +401,7 @@ GO
 CREATE procedure PROC_FECHA_PERF
 @Fecha VARCHAR (11) , @Nombre_P VARCHAR (50)
 AS
-SELECT Nombre_Rec,  FROM Perfiles
+SELECT Nombre_Rec  FROM Perfiles
 INNER JOIN RecetaXFecha ON IdPerfil_RXF = IdPerfil_P
 INNER JOIN Recetas ON IdReceta_Rec = IdReceta_RXF
 WHERE IdFecha_RXF = @Fecha AND Nombre_P LIKE @Nombre_P

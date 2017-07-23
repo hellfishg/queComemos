@@ -121,6 +121,7 @@
     <Compile Include="RECETA.Designer.cs">
       <DependentUpon>RECETA.cs</DependentUpon>
     </Compile>
+    <Compile Include="Validar.cs" />
     <EmbeddedResource Include="BUSCAR_COMERCIO.resx">
       <DependentUpon>BUSCAR_COMERCIO.cs</DependentUpon>
     </EmbeddedResource>
