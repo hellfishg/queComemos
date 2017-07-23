@@ -15,6 +15,7 @@ namespace QueComemos {
         DataTable dt;
         int rows = 0;
         string login = "Nadie";
+        string URImagen;
 
         public MenuPrincipal() {
             InitializeComponent();
@@ -53,6 +54,8 @@ namespace QueComemos {
                 nombre = fila[0].ToString();
 
                 if(nombre == e.ClickedItem.Text) {
+
+                    URImagen = fila[1].ToString();
                     Image avatar = Image.FromFile(fila[1].ToString());
                     pictureBox1.Image = avatar;
                 }
@@ -91,7 +94,8 @@ namespace QueComemos {
         }
 
         private void btn_Perfil_Click(object sender, EventArgs e) {
-            PERFIL perfil_form = new PERFIL(this,login);
+
+            PERFIL perfil_form = new PERFIL(this,login,URImagen);
             this.Hide();
             perfil_form.Show();
         }

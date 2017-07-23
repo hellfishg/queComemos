@@ -385,3 +385,40 @@ SELECT * FROM
 WHERE CaloriasXreceta < @Num
 GO
 -----------------------------------------------------------------------------------------
+--Busqueda de receta por fecha de un perfil especifico:
+CREATE procedure PROC_FECHA_PERF
+@Fecha VARCHAR (11) , @Nombre_P VARCHAR (50)
+AS
+SELECT Nombre_Rec,  FROM Perfiles
+INNER JOIN RecetaXFecha ON IdPerfil_RXF = IdPerfil_P
+INNER JOIN Recetas ON IdReceta_Rec = IdReceta_RXF
+WHERE IdFecha_RXF = @Fecha AND Nombre_P LIKE @Nombre_P
+GO
+------------------------------------------------------------------------------------------
+--Consulta de las recetas de una fecha, de un perfil y toda la suma de sus macronutrientes.
+CREATE procedure PROC_FECHA_REC
+@IdPerfil_P INT, @Fecha DATE
+AS
+SELECT 
+	Nombre_Rec AS Receta,
+	SUM(
+	CAST(((Calorias_Ing /Cantidad_Ing ) * Cantidad_RXI) / Porciones_Rec AS decimal(16,0)) 
+		)	AS Calorias ,
+	SUM(
+	CAST(((Proteinas_Ing /Cantidad_Ing ) * Cantidad_RXI) / Porciones_Rec AS decimal(16,0)) 
+		)	AS Proteinas ,
+	SUM(
+	CAST(((Carbohidratos_Ing /Cantidad_Ing ) * Cantidad_RXI) / Porciones_Rec AS decimal(16,0)) 
+		)	AS Carbohidratos ,
+	SUM(
+	CAST(((Grasas_Ing /Cantidad_Ing ) * Cantidad_RXI) / Porciones_Rec AS decimal(16,0)) 
+		)	AS Grasas 
+	
+FROM Ingredientes
+	INNER JOIN RecetaXIngrediente ON IdIngrediente_RXI = IdIngrediente_Ing
+	INNER JOIN Recetas ON IdReceta_Rec = IdReceta_RXI
+	INNER JOIN RecetaXFecha ON IdReceta_RXF = IdReceta_Rec
+WHERE IdPerfil_RXF = @IdPerfil_P AND IdFecha_RXF = @Fecha
+GROUP BY  Nombre_Rec
+GO
+---------------------------------------------------------------------------------------------
