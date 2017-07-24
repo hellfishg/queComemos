@@ -414,16 +414,16 @@ AS
 SELECT 
 	Nombre_Rec AS Receta,
 	SUM(
-	CAST(((Calorias_Ing /Cantidad_Ing ) * Cantidad_RXI) / Porciones_Rec AS decimal(16,0)) 
+	CAST(((  nullif(Calorias_Ing,0) /Cantidad_Ing ) * Cantidad_RXI) / Porciones_Rec AS decimal(16,0)) 
 		)	AS Calorias ,
 	SUM(
-	CAST(((Proteinas_Ing /Cantidad_Ing ) * Cantidad_RXI) / Porciones_Rec AS decimal(16,0)) 
+	CAST(((  nullif(Proteinas_Ing,0) /Cantidad_Ing ) * Cantidad_RXI) / Porciones_Rec AS decimal(16,0)) 
 		)	AS Proteinas ,
 	SUM(
-	CAST(((Carbohidratos_Ing /Cantidad_Ing ) * Cantidad_RXI) / Porciones_Rec AS decimal(16,0)) 
+	CAST(((  nullif(Carbohidratos_Ing,0) /Cantidad_Ing ) * Cantidad_RXI) / Porciones_Rec AS decimal(16,0)) 
 		)	AS Carbohidratos ,
 	SUM(
-	CAST(((Grasas_Ing /Cantidad_Ing ) * Cantidad_RXI) / Porciones_Rec AS decimal(16,0)) 
+	CAST(((  nullif(Grasas_Ing,0) /Cantidad_Ing ) * Cantidad_RXI) / Porciones_Rec AS decimal(16,0)) 
 		)	AS Grasas 
 	
 FROM Ingredientes

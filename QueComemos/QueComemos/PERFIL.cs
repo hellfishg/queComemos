@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Windows.Forms.DataVisualization.Charting;
 
 namespace QueComemos {
     public partial class PERFIL : Form {
@@ -17,6 +18,14 @@ namespace QueComemos {
         string IDperfil;
         string URLImagen;
         string fecha;
+
+        DataTable dtLunes;
+        DataTable dtMartes;
+        DataTable dtMiercoles;
+        DataTable dtJueves;
+        DataTable dtViernes;
+        DataTable dtSabado;
+        DataTable dtDomingo;
 
         public PERFIL(MenuPrincipal ventPadre, string login, string URLImagen) {
             InitializeComponent();
@@ -101,49 +110,50 @@ namespace QueComemos {
             //////////////////////////
 
             //LUNES:
-            DataTable dtLunes = SQL.devolverTablaDataSet("EXEC PROC_FECHA_REC "+ IDperfil +",'"+ dia +"'", "Lunes");
+            
+            dtLunes = SQL.devolverTablaDataSet("EXEC PROC_FECHA_REC "+ IDperfil +",'"+ dia +"'", "Lunes");
             dataGridView1.DataSource = dtLunes;
             tabPage1.Text += " " + dia;
-
+            
             //MARTES:
             dya = DateTime.Today.AddDays((restarDias) + 1);
             dia = dya.ToShortDateString();
-            DataTable dtMartes = SQL.devolverTablaDataSet("EXEC PROC_FECHA_REC " + IDperfil + ",'" + dia + "'", "Martes");
+            dtMartes = SQL.devolverTablaDataSet("EXEC PROC_FECHA_REC " + IDperfil + ",'" + dia + "'", "Martes");
             dataGridView2.DataSource = dtMartes;
             tabPage2.Text += " " + dia;
 
             //MIERCOLES:
             dya = DateTime.Today.AddDays((restarDias) + 2);
             dia = dya.ToShortDateString();
-            DataTable dtMiercoles = SQL.devolverTablaDataSet("EXEC PROC_FECHA_REC " + IDperfil + ",'" + dia + "'", "Miercoles");
+            dtMiercoles = SQL.devolverTablaDataSet("EXEC PROC_FECHA_REC " + IDperfil + ",'" + dia + "'", "Miercoles");
             dataGridView3.DataSource = dtMiercoles;
             tabPage3.Text += " " + dia;
 
             //JUEVES:
             dya = DateTime.Today.AddDays((restarDias) + 3);
             dia = dya.ToShortDateString();
-            DataTable dtJueves = SQL.devolverTablaDataSet("EXEC PROC_FECHA_REC " + IDperfil + ",'" + dia + "'", "Jueves");
+            dtJueves = SQL.devolverTablaDataSet("EXEC PROC_FECHA_REC " + IDperfil + ",'" + dia + "'", "Jueves");
             dataGridView4.DataSource = dtJueves;
             tabPage4.Text += " " + dia;
 
             //VIERNES:
             dya = DateTime.Today.AddDays((restarDias) + 4);
             dia = dya.ToShortDateString();
-            DataTable dtViernes = SQL.devolverTablaDataSet("EXEC PROC_FECHA_REC " + IDperfil + ",'" + dia + "'", "Viernes");
+            dtViernes = SQL.devolverTablaDataSet("EXEC PROC_FECHA_REC " + IDperfil + ",'" + dia + "'", "Viernes");
             dataGridView5.DataSource = dtViernes;
             tabPage5.Text += " " + dia;
 
             //SABADO:
             dya = DateTime.Today.AddDays((restarDias) + 5);
             dia = dya.ToShortDateString();
-            DataTable dtSabado = SQL.devolverTablaDataSet("EXEC PROC_FECHA_REC " + IDperfil + ",'" + dia + "'", "Sabado");
+            dtSabado = SQL.devolverTablaDataSet("EXEC PROC_FECHA_REC " + IDperfil + ",'" + dia + "'", "Sabado");
             dataGridView6.DataSource = dtSabado;
             tabPage6.Text += " " + dia;
 
             //DOMINGO:
             dya = DateTime.Today.AddDays((restarDias) + 6);
             dia = dya.ToShortDateString();
-            DataTable dtDomingo = SQL.devolverTablaDataSet("EXEC PROC_FECHA_REC " + IDperfil + ",'" + dia + "'", "Domingo");
+            dtDomingo = SQL.devolverTablaDataSet("EXEC PROC_FECHA_REC " + IDperfil + ",'" + dia + "'", "Domingo");
             dataGridView7.DataSource = dtDomingo;
             tabPage7.Text += " " + dia;
 
@@ -169,6 +179,79 @@ namespace QueComemos {
             this.cargarPeso();
         }
 
+        private void cargarGrafico1() {
+
+            try {
+                DataTable dt = new DataTable();
+
+                switch(tabControl1.SelectedIndex) {
+
+                case 0:
+                dt = dtLunes;
+                break;
+
+                case 1:
+                dt = dtMartes;
+                break;
+
+                case 2:
+                dt = dtMiercoles;
+                break;
+
+                case 3:
+                dt = dtJueves;
+                break;
+
+                case 4:
+                dt = dtViernes;
+                break;
+
+                case 5:
+                dt = dtSabado;
+                break;
+
+                case 6:
+                dt = dtDomingo;
+                break;
+                }
+
+                string[] leyenda = { "Proteinas", "Carbohidratos", "Grasas" };
+                int[] puntos = { 0, 0, 0 };
+                
+                chart1.Series.Clear();
+                
+                int index = dt.Rows.Count;
+
+                DataRow fila;
+
+                for(int i = 0; i < index; i++) {
+
+                    fila = dt.Rows[i];
+
+                    puntos[0] += int.Parse(fila[2].ToString());
+                    puntos[1] += int.Parse(fila[3].ToString());
+                    puntos[2] += int.Parse(fila[4].ToString());
+                }
+
+                Series series = new Series();
+
+                for(int i = 0; i < puntos.Length; i++) {
+
+                    //Titulos:
+                    series = chart1.Series.Add(leyenda[i]);
+
+                    //Cantidades:
+                    series.Label = puntos[i].ToString();
+                    series.Points.Add(puntos[i]);
+                }
+
+                chart1.ChartAreas[0].RecalculateAxesScale();
+
+            } catch {
+
+            }
+        }
+
         private void button1_Click(object sender, EventArgs e) {
             //Actualizar el peso del texBox1.
             this.actualizarUltimoPeso();
@@ -180,5 +263,11 @@ namespace QueComemos {
             this.Dispose();
 
         }
+
+        private void tabControl1_MouseClick(object sender, MouseEventArgs e) {
+            this.cargarGrafico1();
+
+        }
+
     }
 }

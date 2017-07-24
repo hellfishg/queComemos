@@ -43,6 +43,7 @@
             // 
             // btn_Recetas
             // 
+            this.btn_Recetas.AutoSizeMode = System.Windows.Forms.AutoSizeMode.GrowAndShrink;
             this.btn_Recetas.Location = new System.Drawing.Point(15, 144);
             this.btn_Recetas.Name = "btn_Recetas";
             this.btn_Recetas.Size = new System.Drawing.Size(186, 113);
@@ -166,7 +167,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(435, 395);
+            this.ClientSize = new System.Drawing.Size(435, 403);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btn_Datos);
             this.Controls.Add(this.btn_Perfil);
