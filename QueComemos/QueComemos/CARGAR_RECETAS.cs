@@ -15,6 +15,7 @@ namespace QueComemos {
         BASE_DATOS SQL = new BASE_DATOS();
         DataTable dt;
         string pathImagen;
+        Validar validar = new Validar();
 
         public CARGAR_RECETAS(MAIN_CARGAR ventPadre) {
             InitializeComponent();
@@ -29,7 +30,54 @@ namespace QueComemos {
         }
 
         private void button5_Click(object sender, EventArgs e) {
-            string consultaReceta= "INSERT INTO Recetas ( Nombre_Rec, Tiempo_Aprox_Rec, Porciones_Rec, Descripcion_Rec, IdTipo1_Rec, IdTipo2_Rec, URLImagen_Rec, Costo_Rec) SELECT ";
+            //Valida la carga SQL:
+            bool check = true;
+
+            if(!this.validar.validarTexBoxVacio(textBox1, e, errorProvider1)) {
+                //Valida nombre
+                check = false;
+            }
+            if(!this.validar.validarTexBoxVacio(textBox6, e, errorProvider1)) {
+                //Valida costo
+                check = false;
+            }
+            if(!this.validar.validarTexBoxVacio(textBox2, e, errorProvider1)) {
+                //Valida timepo
+                check = false;
+            }
+            if(!this.validar.validarTexBoxVacio(textBox3, e, errorProvider1)) {
+                //Valida Porcion
+                check = false;
+            }
+            if(pictureBox1.Image == null) {
+                //Valida si tiene una imagen cargada:
+                check = false;
+            }
+            if(!this.validar.validarComboBoxVacio(comboBox1, e, errorProvider1)) {
+                //Valida Tipo1
+                check = false;
+            }
+            if(!this.validar.validarComboBoxVacio(comboBox2, e, errorProvider1)) {
+                //Valida tipo2
+                check = false;
+            }
+            if(dataGridView2.RowCount == 1 ) {
+                //Valida si tiene al menos un registro
+                check = false;
+            }
+            if(check) {
+
+                this.guardarReceta();
+                MessageBox.Show("Receta guardada!");
+
+            } else {
+                MessageBox.Show("Carge todos los campos");
+            }
+        }
+
+        private void guardarReceta() {
+            //Guarda la receta en la base de datos.
+            string consultaReceta = "INSERT INTO Recetas ( Nombre_Rec, Tiempo_Aprox_Rec, Porciones_Rec, Descripcion_Rec, IdTipo1_Rec, IdTipo2_Rec, URLImagen_Rec, Costo_Rec) SELECT ";
 
             consultaReceta += "'" + textBox1.Text.ToString() + "'";
             consultaReceta += ", ";
@@ -59,28 +107,28 @@ namespace QueComemos {
 
             //-----------------------------
             //Cargar de ingredienteXreceta:
-    
-            DataTable dt2 = SQL.devolverTablaDataSet("SELECT IdReceta_Rec FROM Recetas WHERE Nombre_Rec LIKE '"+ textBox1.Text +"%'", "Ingredientes");
+
+            DataTable dt2 = SQL.devolverTablaDataSet("SELECT IdReceta_Rec FROM Recetas WHERE Nombre_Rec LIKE '" + textBox1.Text + "%'", "Ingredientes");
             DataRow fila = dt2.Rows[0];
             string IdReceta = fila[0].ToString();
 
             //-------------
             string stringCargarIng = "INSERT INTO RecetaXIngrediente (IdReceta_RXI, IdIngrediente_RXI, Cantidad_RXI) SELECT ";
 
-                //IDReceta:
-                stringCargarIng += IdReceta;
-                stringCargarIng += ", ";
-                                
-                //IDIngrediente:
-                int IdIng = int.Parse( dataGridView2.Rows[0].Cells[0].Value.ToString()) +1 ;
-                string idIngS = IdIng.ToString();
+            //IDReceta:
+            stringCargarIng += IdReceta;
+            stringCargarIng += ", ";
 
-                stringCargarIng += idIngS;
-                stringCargarIng += " ,";
+            //IDIngrediente:
+            int IdIng = int.Parse(dataGridView2.Rows[0].Cells[0].Value.ToString()) + 1;
+            string idIngS = IdIng.ToString();
 
-                //Cantidad:
-                stringCargarIng += dataGridView2.Rows[0].Cells[2].Value.ToString();
-                
+            stringCargarIng += idIngS;
+            stringCargarIng += " ,";
+
+            //Cantidad:
+            stringCargarIng += dataGridView2.Rows[0].Cells[2].Value.ToString();
+
             //---------
 
             int index = dataGridView2.Rows.Count - 1;
@@ -91,9 +139,9 @@ namespace QueComemos {
                 //IDReceta:
                 stringCargarIng += IdReceta;
                 stringCargarIng += ", ";
-                                
+
                 //IDIngrediente:
-                IdIng = int.Parse( dataGridView2.Rows[i].Cells[0].Value.ToString()) +1 ;
+                IdIng = int.Parse(dataGridView2.Rows[i].Cells[0].Value.ToString()) + 1;
                 idIngS = IdIng.ToString();
 
                 stringCargarIng += idIngS;
@@ -120,7 +168,6 @@ namespace QueComemos {
             dataGridView2.Rows.Add(dataGridView1.CurrentCell.RowIndex.ToString(),dataGridView1.CurrentCell.Value.ToString(),textBox5.Text.ToString(), label8.Text.ToString());
 
             textBox5.Text = "";
-            
         }
 
         private void IngredienteAtipo() {
@@ -219,7 +266,6 @@ namespace QueComemos {
                     this.IngredienteAtipo();
                 }
             }
-         
         }
 
         private void button1_Click(object sender, EventArgs e) {
@@ -233,7 +279,24 @@ namespace QueComemos {
             this.Dispose();
         }
 
-   
+        private void textBox6_KeyPress(object sender, KeyPressEventArgs e) {
+            //valida el key costo aprox:
+            validar.soloNumeros(e);
+        }
 
+        private void textBox2_KeyPress(object sender, KeyPressEventArgs e) {
+            //valida el key tiempo:
+            validar.soloNumeros(e);
+        }
+
+        private void textBox3_KeyPress(object sender, KeyPressEventArgs e) {
+            //Valida el Porcion:
+            validar.soloNumeros(e);
+        }
+
+        private void textBox5_KeyPress(object sender, KeyPressEventArgs e) {
+            //Validar el tipo 
+            validar.soloDecimal(e);
+        }
     }
 }

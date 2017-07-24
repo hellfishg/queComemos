@@ -27,7 +27,7 @@ namespace QueComemos {
         public bool validarComboBoxVacio(ComboBox tBox, EventArgs e, ErrorProvider errorP) {
             bool validar = false;
 
-            if(tBox.Text.Trim() == "") {
+            if( tBox.SelectedItem == null) {
 
                 errorP.SetError(tBox, "Este Campo no puede quedar vacio!");
                 tBox.Focus();
@@ -39,9 +39,18 @@ namespace QueComemos {
 
             return validar;
         }
-        
-        public void soloNumeros(string campo, string nomComp, KeyPressEventArgs e) {
 
+        public void soloDecimal(KeyPressEventArgs e) {
+
+            if((e.KeyChar < 46 || e.KeyChar > 57) && e.KeyChar != 8) {
+                e.Handled = true;
+            } else {
+                e.Handled = false;
+            }
+        }
+
+        public void soloNumeros(KeyPressEventArgs e) {
+            
             try {
                 
                 if(char.IsNumber(e.KeyChar)) {
@@ -49,7 +58,7 @@ namespace QueComemos {
 
                 } else if(char.IsControl(e.KeyChar)) {
                     e.Handled = false;
-
+               
                 } else {
                     e.Handled = true;
                 }
@@ -59,7 +68,5 @@ namespace QueComemos {
                 MessageBox.Show("ERROR");
             }
         }
-
-
     }
 }

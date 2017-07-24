@@ -109,7 +109,7 @@ namespace QueComemos {
 
         private void textBox2_KeyPress(object sender, KeyPressEventArgs e) {
             //Valida que solo se ingresen numeros.
-            validar.soloNumeros(textBox2.Text,"Peso Actual", e);
+            validar.soloNumeros(e);
         }
 
         private void CARGAR_PERFIL_FormClosing(object sender, FormClosingEventArgs e) {

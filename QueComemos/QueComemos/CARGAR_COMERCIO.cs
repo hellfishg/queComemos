@@ -14,6 +14,7 @@ namespace QueComemos {
         MAIN_CARGAR ventPadre;
         BASE_DATOS SQL = new BASE_DATOS();
         DataTable dt;
+        Validar validar = new Validar();
 
         public CARGAR_COMERCIO(MAIN_CARGAR ventPadre) {
             InitializeComponent();
@@ -30,6 +31,37 @@ namespace QueComemos {
         }
 
         private void button5_Click(object sender, EventArgs e) {
+            //Validar los campos vacios:
+            bool check = true;
+
+            if(!this.validar.validarTexBoxVacio(textBox1, e, errorProvider1)) {
+                //Valida nombre
+                check = false;
+            }
+            if(!this.validar.validarTexBoxVacio(textBox2, e, errorProvider1)) {
+                //Valida direccion
+                check = false;
+            }
+            if(!this.validar.validarTexBoxVacio(textBox3, e, errorProvider1)) {
+                //Valida telefono
+                check = false;
+            }
+            if(dataGridView2.RowCount == 1) {
+                //Valida si tiene al menos un registro
+                check = false;
+            }
+            if(check) {
+
+                this.guardarComercio();
+                MessageBox.Show("Comercio guardado!");
+
+            } else {
+                MessageBox.Show("Carge todos los campos");
+            }
+
+        }
+
+        private void guardarComercio() {
             //Guarda en al base de datos:
 
             string consultaComercio = "INSERT INTO Comercios (Nombre_C, Direccion_C, Horario_C, Telefono_C, Dias_C) SELECT ";
@@ -151,6 +183,12 @@ namespace QueComemos {
         private void CARGAR_COMERCIO_FormClosing(object sender, FormClosingEventArgs e) {
             ventPadre.Show();
             this.Dispose();
+        }
+
+        private void textBox5_KeyPress(object sender, KeyPressEventArgs e) {
+            //valida el costo.
+
+            validar.soloNumeros(e);
         }
     }
 

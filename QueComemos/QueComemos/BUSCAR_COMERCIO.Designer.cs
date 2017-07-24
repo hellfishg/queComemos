@@ -23,6 +23,7 @@
         /// the contents of this method with the code editor.
         /// </summary>
         private void InitializeComponent() {
+            this.components = new System.ComponentModel.Container();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
             this.button3 = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
@@ -37,10 +38,11 @@
             this.checkBox11 = new System.Windows.Forms.CheckBox();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.errorProvider1 = new System.Windows.Forms.ErrorProvider(this.components);
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
             this.groupBox2.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).BeginInit();
             this.SuspendLayout();
             // 
             // groupBox1
@@ -193,19 +195,15 @@
             this.checkBox1.Text = "Por Palabra";
             this.checkBox1.UseVisualStyleBackColor = true;
             // 
-            // textBox2
+            // errorProvider1
             // 
-            this.textBox2.Location = new System.Drawing.Point(12, 459);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(406, 20);
-            this.textBox2.TabIndex = 31;
+            this.errorProvider1.ContainerControl = this;
             // 
             // BUSCAR_COMERCIO
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(428, 491);
-            this.Controls.Add(this.textBox2);
+            this.ClientSize = new System.Drawing.Size(428, 457);
             this.Controls.Add(this.groupBox1);
             this.Name = "BUSCAR_COMERCIO";
             this.Text = "BUSCAR_COMERCIO";
@@ -215,8 +213,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.groupBox2.ResumeLayout(false);
             this.groupBox2.PerformLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.errorProvider1)).EndInit();
             this.ResumeLayout(false);
-            this.PerformLayout();
 
         }
 
@@ -229,7 +227,6 @@
         private System.Windows.Forms.Button button3;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.DataGridView dataGridView1;
-        private System.Windows.Forms.TextBox textBox2;
         public System.Windows.Forms.CheckBox checkBox7;
         public System.Windows.Forms.CheckBox checkBox6;
         public System.Windows.Forms.CheckBox checkBox5;
@@ -237,5 +234,6 @@
         public System.Windows.Forms.CheckBox checkBox3;
         public System.Windows.Forms.CheckBox checkBox2;
         public System.Windows.Forms.CheckBox checkBox11;
+        private System.Windows.Forms.ErrorProvider errorProvider1;
     }
 }

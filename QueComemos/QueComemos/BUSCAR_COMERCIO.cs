@@ -16,6 +16,7 @@ namespace QueComemos {
         BASE_DATOS SQL = new BASE_DATOS();
         DataTable dt;
         string consultaSql;
+        Validar validar = new Validar();
 
         public BUSCAR_COMERCIO(COMERCIOS ventPadre) {
             InitializeComponent();
@@ -73,14 +74,19 @@ namespace QueComemos {
 
         private void cargarDataGrid() {
 
-            dt = SQL.devolverTablaDataSet(consultaSql, "Comercios");
-            dataGridView1.DataSource = dt;
+            try {
+                dt = SQL.devolverTablaDataSet(consultaSql, "Comercios");
+                dataGridView1.DataSource = dt;
+
+            } catch {
+                 
+                MessageBox.Show("Seleccione al menos una busqueda");
+            }
         }
 
         private void button1_Click(object sender, EventArgs e) {
 
             this.filtro();
-            textBox2.Text = consultaSql;
             this.cargarDataGrid();
         }
 

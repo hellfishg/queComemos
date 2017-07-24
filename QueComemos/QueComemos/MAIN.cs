@@ -95,9 +95,15 @@ namespace QueComemos {
 
         private void btn_Perfil_Click(object sender, EventArgs e) {
 
-            PERFIL perfil_form = new PERFIL(this,login,URImagen);
-            this.Hide();
-            perfil_form.Show();
+            if(pictureBox1.Image == null) {
+
+                MessageBox.Show("Acceda a un perfil para entrar");
+
+            }else{
+                PERFIL perfil_form = new PERFIL(this,login,URImagen);
+                this.Hide();
+                perfil_form.Show();
+            }
         }
 
         private void btn_Datos_Click(object sender, EventArgs e) {

@@ -12,7 +12,7 @@ namespace QueComemos {
     public partial class CARGAR_INGREDIENTES : Form {
 
         Form ventPadre;
-        
+        Validar validar = new Validar();
         BASE_DATOS BDSQL = new BASE_DATOS();
 
         public CARGAR_INGREDIENTES(Form ventPadre) {
@@ -21,7 +21,7 @@ namespace QueComemos {
             this.ventPadre = ventPadre;
         }
 
-        private void gruardarIngrediente() {
+        private void guardarIngrediente() {
             string consultaSQL = "INSERT INTO Ingredientes (Nombre_Ing, IdTipo1_Ing, IdTipo2_Ing, Calorias_Ing, Proteinas_Ing, Carbohidratos_Ing, Grasas_Ing, Unidad_De_Medida_Ing, Cantidad_Ing) SELECT ";
 
             consultaSQL += "'" + textBox1.Text.ToString() + "'";
@@ -94,7 +94,54 @@ namespace QueComemos {
         }
 
         private void button1_Click(object sender, EventArgs e) {
-            this.gruardarIngrediente();
+            //Validar los campos.
+            bool check = true;
+
+            if(!this.validar.validarTexBoxVacio(textBox1, e, errorProvider1)) {
+                //Valida nombre
+                check = false;
+            }
+            if(!this.validar.validarComboBoxVacio(comboBox1, e, errorProvider1)) {
+                //Valida Tipo1
+                check = false;
+            }
+            if(!this.validar.validarComboBoxVacio(comboBox2, e, errorProvider1)) {
+                //Valida Tipo1
+                check = false;
+            }
+            if(!this.validar.validarTexBoxVacio(textBox2, e, errorProvider1)) {
+                //Valida calorias
+                check = false;
+            }
+            if(!this.validar.validarTexBoxVacio(textBox3, e, errorProvider1)) {
+                //Valida proteinas
+                check = false;
+            }
+            if(!this.validar.validarTexBoxVacio(textBox4, e, errorProvider1)) {
+                //Valida carbohidratos
+                check = false;
+            }
+            if(!this.validar.validarTexBoxVacio(textBox5, e, errorProvider1)) {
+                //Valida grasas
+                check = false;
+            }
+            if(!this.validar.validarComboBoxVacio(comboBox3, e, errorProvider1)) {
+                //Valida unidad de medida
+                check = false;
+            }
+            if(!this.validar.validarTexBoxVacio(textBox6, e, errorProvider1)) {
+                //Valida cantidad
+                check = false;
+            }
+
+            if(check) {
+
+                this.guardarIngrediente();
+                MessageBox.Show("Ingrediente guardado!");
+
+            } else {
+                MessageBox.Show("Carge todos los campos");
+            }
         }
 
         private void comboBox3_SelectedIndexChanged(object sender, EventArgs e) {
@@ -104,6 +151,31 @@ namespace QueComemos {
             }catch{
                 label10.Text = "";
             }
+        }
+
+        private void textBox2_KeyPress(object sender, KeyPressEventArgs e) {
+            //calorias
+            validar.soloDecimal(e);
+        }
+
+        private void textBox3_KeyPress(object sender, KeyPressEventArgs e) {
+            //proteinas
+            validar.soloDecimal(e);
+        }
+
+        private void textBox4_KeyPress(object sender, KeyPressEventArgs e) {
+            //carbohidratos
+            validar.soloDecimal(e);
+        }
+
+        private void textBox5_KeyPress(object sender, KeyPressEventArgs e) {
+            //grasas
+            validar.soloDecimal(e);
+        }
+
+        private void textBox6_KeyPress(object sender, KeyPressEventArgs e) {
+            //cantidad
+            validar.soloDecimal(e);
         }
     }
 }

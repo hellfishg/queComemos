@@ -56,8 +56,12 @@ namespace QueComemos {
             }
 
             //Cargar en dataGrid:
-            dt = SQL.devolverTablaDataSet(consultaSql, "Comercios");
-            dataGridView1.DataSource = dt;
+            try {
+                dt = SQL.devolverTablaDataSet(consultaSql, "Comercios");
+                dataGridView1.DataSource = dt;
+            } catch {
+                MessageBox.Show("Active al menos un campo de busqueda");
+            }
         }
 
         private void BUSQUEDA_RECETAS_FormClosing(object sender, FormClosingEventArgs e) {
