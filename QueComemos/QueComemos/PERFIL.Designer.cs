@@ -383,6 +383,7 @@
             // 
             // button2
             // 
+            this.button2.Enabled = false;
             this.button2.Location = new System.Drawing.Point(179, 574);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(110, 30);
@@ -478,6 +479,7 @@
             this.Controls.Add(this.label1);
             this.Controls.Add(this.pictureBox1);
             this.Name = "PERFIL";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Ultima fecha";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.PERFIL_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.chart1)).EndInit();

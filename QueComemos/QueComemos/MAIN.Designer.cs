@@ -175,6 +175,7 @@
             this.Controls.Add(this.menuStrip1);
             this.MainMenuStrip = this.menuStrip1;
             this.Name = "MenuPrincipal";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Que Comemos?";
             this.VisibleChanged += new System.EventHandler(this.MenuPrincipal_VisibleChanged);
             this.menuStrip1.ResumeLayout(false);

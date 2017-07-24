@@ -18,10 +18,22 @@ namespace QueComemos {
         int index = 1;
         int indexMax;
         string consulta = "SELECT IdReceta_Rec , IdTipo1_Rec, IdTipo2_Rec, Nombre_Rec, Descripcion_Rec, URLImagen_Rec, Tiempo_Aprox_Rec, Porciones_Rec , Costo_Rec FROM Recetas";
+        string perfil;
 
         public RECETA (MenuPrincipal ventPadre) {
             InitializeComponent();
             this.ventPadre = ventPadre;
+            this.button1.Enabled = false;
+
+            dt = SQL.devolverTablaDataSet(consulta, "Recetas");
+            obtenerIndiceMaximo();
+            cargarDatos(index);
+        }
+
+        public RECETA(MenuPrincipal ventPadre, string perfil) {
+            InitializeComponent();
+            this.ventPadre = ventPadre;
+            this.perfil = perfil;
 
             dt = SQL.devolverTablaDataSet(consulta, "Recetas");
             obtenerIndiceMaximo();
@@ -137,6 +149,12 @@ namespace QueComemos {
         private void RECETA_FormClosing(object sender, FormClosingEventArgs e) {
             ventPadre.Show();
             this.Dispose();
+        }
+
+        private void button1_Click(object sender, EventArgs e) {
+            //Lanza la carga de recetas al perfil.
+            CARGAR_COMIDAS busquedaR_form = new CARGAR_COMIDAS(perfil,textBox1.Text);
+            busquedaR_form.Show();
         }
 
    

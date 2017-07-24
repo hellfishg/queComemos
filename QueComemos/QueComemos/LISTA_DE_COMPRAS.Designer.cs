@@ -68,6 +68,7 @@
             // 
             // button4
             // 
+            this.button4.Enabled = false;
             this.button4.Location = new System.Drawing.Point(13, 282);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(116, 23);
@@ -77,6 +78,7 @@
             // 
             // button3
             // 
+            this.button3.Enabled = false;
             this.button3.Location = new System.Drawing.Point(266, 275);
             this.button3.Name = "button3";
             this.button3.Size = new System.Drawing.Size(116, 37);
@@ -93,6 +95,7 @@
             this.Controls.Add(this.button4);
             this.Controls.Add(this.groupBox1);
             this.Name = "LISTA_DE_COMPRAS";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "LISTA_DE_COMPRAS";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.LISTA_DE_COMPRAS_FormClosing);
             this.groupBox1.ResumeLayout(false);

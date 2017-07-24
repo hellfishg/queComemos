@@ -431,6 +431,7 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.Name = "CARGAR_RECETAS";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CARGAR_RECETAS";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CARGAR_RECETAS_FormClosing);
             this.VisibleChanged += new System.EventHandler(this.CARGAR_RECETAS_VisibleChanged);

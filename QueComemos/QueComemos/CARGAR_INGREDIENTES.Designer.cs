@@ -285,6 +285,7 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.Name = "CARGAR_INGREDIENTES";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CARGAR_INGREDIENTES";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CARGAR_INGREDIENTES_FormClosing);
             this.groupBox1.ResumeLayout(false);

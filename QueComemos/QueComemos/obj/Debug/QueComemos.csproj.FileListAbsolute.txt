@@ -28,3 +28,4 @@ C:\HellDocs\queComemos\QueComemos\QueComemos\obj\Debug\QueComemos.csproj.Generat
 C:\HellDocs\queComemos\QueComemos\QueComemos\bin\Debug\QueComemos.exe
 C:\HellDocs\queComemos\QueComemos\QueComemos\bin\Debug\QueComemos.pdb
 C:\HellDocs\queComemos\QueComemos\QueComemos\obj\Debug\QueComemos.CARGAR_PERFIL.resources
+C:\HellDocs\queComemos\QueComemos\QueComemos\obj\Debug\QueComemos.CARGAR_COMIDAS.resources

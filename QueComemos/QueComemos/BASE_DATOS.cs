@@ -14,13 +14,23 @@ namespace QueComemos {
 
         public DataTable devolverTablaDataSet (String ConsultaSQL, String NombreTabla) {
 
+           
+
             DataSet ds = new DataSet();
             SqlConnection cn = new SqlConnection(rutaNeptunoSQL);
             SqlDataAdapter adaptador = new SqlDataAdapter(ConsultaSQL, cn);
-            cn.Open();
-            adaptador.Fill(ds, NombreTabla);
-            cn.Close();
+
+            try {
+                cn.Open();
+                adaptador.Fill(ds, NombreTabla);
+                cn.Close();
+
+            } catch {
+                MessageBox.Show("ERROR EN BASE DE DATOS");
+            }
+
             return ds.Tables[NombreTabla];
+
         }
 
         public bool agregarDatosSQL(string consultaSQL) {
@@ -35,7 +45,7 @@ namespace QueComemos {
                 cn.Open();
 
             } catch {
-
+                MessageBox.Show("ERROR EN BASE DE DATOS");
                 return false;
             }
                                     

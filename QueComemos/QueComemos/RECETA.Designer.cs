@@ -93,7 +93,7 @@
             // 
             this.richTextBox1.Location = new System.Drawing.Point(31, 85);
             this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(287, 200);
+            this.richTextBox1.Size = new System.Drawing.Size(273, 242);
             this.richTextBox1.TabIndex = 6;
             this.richTextBox1.Text = "TODA LA PREPARACION DE LA RECETA";
             // 
@@ -101,9 +101,9 @@
             // 
             this.pictureBox1.BorderStyle = System.Windows.Forms.BorderStyle.FixedSingle;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(337, 85);
+            this.pictureBox1.Location = new System.Drawing.Point(321, 85);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(137, 104);
+            this.pictureBox1.Size = new System.Drawing.Size(153, 133);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.StretchImage;
             this.pictureBox1.TabIndex = 10;
             this.pictureBox1.TabStop = false;
@@ -147,7 +147,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(96, 33);
+            this.label5.Location = new System.Drawing.Point(112, 33);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(31, 13);
             this.label5.TabIndex = 15;
@@ -156,7 +156,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(96, 50);
+            this.label6.Location = new System.Drawing.Point(112, 50);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(25, 13);
             this.label6.TabIndex = 16;
@@ -165,7 +165,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(96, 67);
+            this.label7.Location = new System.Drawing.Point(112, 67);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(13, 13);
             this.label7.TabIndex = 17;
@@ -218,7 +218,7 @@
             this.groupBox1.Controls.Add(this.label13);
             this.groupBox1.Controls.Add(this.label10);
             this.groupBox1.Controls.Add(this.label12);
-            this.groupBox1.Location = new System.Drawing.Point(31, 299);
+            this.groupBox1.Location = new System.Drawing.Point(31, 333);
             this.groupBox1.Name = "groupBox1";
             this.groupBox1.Size = new System.Drawing.Size(167, 154);
             this.groupBox1.TabIndex = 25;
@@ -264,7 +264,7 @@
             // groupBox2
             // 
             this.groupBox2.Controls.Add(this.dataGridView1);
-            this.groupBox2.Location = new System.Drawing.Point(204, 299);
+            this.groupBox2.Location = new System.Drawing.Point(204, 333);
             this.groupBox2.Name = "groupBox2";
             this.groupBox2.Size = new System.Drawing.Size(270, 154);
             this.groupBox2.TabIndex = 26;
@@ -295,16 +295,16 @@
             this.groupBox3.Controls.Add(this.label4);
             this.groupBox3.Controls.Add(this.label6);
             this.groupBox3.Controls.Add(this.label5);
-            this.groupBox3.Location = new System.Drawing.Point(337, 195);
+            this.groupBox3.Location = new System.Drawing.Point(321, 237);
             this.groupBox3.Name = "groupBox3";
-            this.groupBox3.Size = new System.Drawing.Size(137, 90);
+            this.groupBox3.Size = new System.Drawing.Size(153, 90);
             this.groupBox3.TabIndex = 27;
             this.groupBox3.TabStop = false;
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(76, 16);
+            this.label16.Location = new System.Drawing.Point(92, 16);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(51, 13);
             this.label16.TabIndex = 18;
@@ -312,7 +312,7 @@
             // 
             // button4
             // 
-            this.button4.Location = new System.Drawing.Point(30, 459);
+            this.button4.Location = new System.Drawing.Point(30, 493);
             this.button4.Name = "button4";
             this.button4.Size = new System.Drawing.Size(76, 43);
             this.button4.TabIndex = 28;
@@ -322,7 +322,7 @@
             // 
             // button5
             // 
-            this.button5.Location = new System.Drawing.Point(128, 459);
+            this.button5.Location = new System.Drawing.Point(128, 493);
             this.button5.Name = "button5";
             this.button5.Size = new System.Drawing.Size(124, 43);
             this.button5.TabIndex = 29;
@@ -332,7 +332,8 @@
             // 
             // button6
             // 
-            this.button6.Location = new System.Drawing.Point(393, 459);
+            this.button6.Enabled = false;
+            this.button6.Location = new System.Drawing.Point(393, 493);
             this.button6.Name = "button6";
             this.button6.Size = new System.Drawing.Size(81, 43);
             this.button6.TabIndex = 30;
@@ -341,12 +342,13 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(270, 459);
+            this.button1.Location = new System.Drawing.Point(270, 493);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(103, 43);
             this.button1.TabIndex = 32;
             this.button1.Text = "Agregar Comida Del Dia";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // RECETA
             // 
@@ -366,6 +368,7 @@
             this.Controls.Add(this.button3);
             this.Controls.Add(this.button2);
             this.Name = "RECETA";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "RECETA";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.RECETA_FormClosing);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();

@@ -91,11 +91,16 @@ namespace QueComemos {
         }
 
         private void button3_Click(object sender, EventArgs e) {
-            string nombre = this.dataGridView1.CurrentRow.Cells[0].Value.ToString();
-                        
-            ventPadre.setConsulta(nombre);
-            ventPadre.Show();
-            this.Dispose();
+            try {
+                string nombre = this.dataGridView1.CurrentRow.Cells[0].Value.ToString();
+
+                ventPadre.setConsulta(nombre);
+                ventPadre.Show();
+                this.Dispose();
+
+            } catch {
+                MessageBox.Show("No se selecciono ningun comercio");
+            }
         }
 
         private void BUSCAR_COMERCIO_FormClosing(object sender, FormClosingEventArgs e) {

@@ -206,6 +206,7 @@
             this.ClientSize = new System.Drawing.Size(428, 457);
             this.Controls.Add(this.groupBox1);
             this.Name = "BUSCAR_COMERCIO";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BUSCAR_COMERCIO";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.BUSCAR_COMERCIO_FormClosing);
             this.groupBox1.ResumeLayout(false);

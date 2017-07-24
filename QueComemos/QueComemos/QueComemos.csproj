@@ -65,6 +65,12 @@
     <Compile Include="CARGAR_COMERCIO.Designer.cs">
       <DependentUpon>CARGAR_COMERCIO.cs</DependentUpon>
     </Compile>
+    <Compile Include="CARGAR_COMIDAS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CARGAR_COMIDAS.Designer.cs">
+      <DependentUpon>CARGAR_COMIDAS.cs</DependentUpon>
+    </Compile>
     <Compile Include="CARGAR_INGREDIENTES.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,6 +136,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="CARGAR_COMERCIO.resx">
       <DependentUpon>CARGAR_COMERCIO.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CARGAR_COMIDAS.resx">
+      <DependentUpon>CARGAR_COMIDAS.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="CARGAR_INGREDIENTES.resx">
       <DependentUpon>CARGAR_INGREDIENTES.cs</DependentUpon>

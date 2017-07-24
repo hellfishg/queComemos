@@ -24,7 +24,10 @@
         /// </summary>
         private void InitializeComponent() {
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.checkBox3 = new System.Windows.Forms.CheckBox();
+            this.label2 = new System.Windows.Forms.Label();
             this.label1 = new System.Windows.Forms.Label();
+            this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox2 = new System.Windows.Forms.TextBox();
             this.checkBox4 = new System.Windows.Forms.CheckBox();
             this.comboBox1 = new System.Windows.Forms.ComboBox();
@@ -32,11 +35,8 @@
             this.checkBox2 = new System.Windows.Forms.CheckBox();
             this.checkBox1 = new System.Windows.Forms.CheckBox();
             this.label3 = new System.Windows.Forms.Label();
-            this.label2 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.checkBox5 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
             this.dataGridView1 = new System.Windows.Forms.DataGridView();
             this.button1 = new System.Windows.Forms.Button();
@@ -69,6 +69,25 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "BUSQUEDAS";
             // 
+            // checkBox3
+            // 
+            this.checkBox3.AutoSize = true;
+            this.checkBox3.Location = new System.Drawing.Point(32, 149);
+            this.checkBox3.Name = "checkBox3";
+            this.checkBox3.Size = new System.Drawing.Size(126, 17);
+            this.checkBox3.TabIndex = 2;
+            this.checkBox3.Text = "Costo Por Debajo De";
+            this.checkBox3.UseVisualStyleBackColor = true;
+            // 
+            // label2
+            // 
+            this.label2.AutoSize = true;
+            this.label2.Location = new System.Drawing.Point(241, 154);
+            this.label2.Name = "label2";
+            this.label2.Size = new System.Drawing.Size(36, 13);
+            this.label2.TabIndex = 14;
+            this.label2.Text = "Pesos";
+            // 
             // label1
             // 
             this.label1.AutoSize = true;
@@ -77,6 +96,13 @@
             this.label1.Size = new System.Drawing.Size(44, 13);
             this.label1.TabIndex = 13;
             this.label1.Text = "Minutos";
+            // 
+            // textBox4
+            // 
+            this.textBox4.Location = new System.Drawing.Point(175, 147);
+            this.textBox4.Name = "textBox4";
+            this.textBox4.Size = new System.Drawing.Size(60, 20);
+            this.textBox4.TabIndex = 12;
             // 
             // textBox2
             // 
@@ -144,22 +170,6 @@
             this.label3.TabIndex = 15;
             this.label3.Text = "K";
             // 
-            // label2
-            // 
-            this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(241, 154);
-            this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(36, 13);
-            this.label2.TabIndex = 14;
-            this.label2.Text = "Pesos";
-            // 
-            // textBox4
-            // 
-            this.textBox4.Location = new System.Drawing.Point(175, 147);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(60, 20);
-            this.textBox4.TabIndex = 12;
-            // 
             // textBox3
             // 
             this.textBox3.Location = new System.Drawing.Point(175, 30);
@@ -177,16 +187,6 @@
             this.checkBox5.Text = "Calorias Por Debajo De";
             this.checkBox5.UseVisualStyleBackColor = true;
             this.checkBox5.CheckedChanged += new System.EventHandler(this.checkBox5_CheckedChanged);
-            // 
-            // checkBox3
-            // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Location = new System.Drawing.Point(32, 149);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(126, 17);
-            this.checkBox3.TabIndex = 2;
-            this.checkBox3.Text = "Costo Por Debajo De";
-            this.checkBox3.UseVisualStyleBackColor = true;
             // 
             // groupBox2
             // 
@@ -274,6 +274,7 @@
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.groupBox1);
             this.Name = "BUSQUEDA_RECETAS";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "BUSQUEDA_RECETAS";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.BUSQUEDA_RECETAS_FormClosing);
             this.groupBox1.ResumeLayout(false);

@@ -291,6 +291,7 @@
             this.Controls.Add(this.label4);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedSingle;
             this.Name = "COMERCIOS";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "COMERCIOS";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.COMERCIOS_FormClosing);
             this.groupBox3.ResumeLayout(false);

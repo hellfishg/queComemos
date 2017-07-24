@@ -380,6 +380,7 @@
             this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label1);
             this.Name = "CARGAR_COMERCIO";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "CARGAR_COMERCIO";
             this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CARGAR_COMERCIO_FormClosing);
             this.groupBox1.ResumeLayout(false);

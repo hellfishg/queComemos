@@ -82,9 +82,19 @@ namespace QueComemos {
         }
 
         private void btn_Recetas_Click(object sender, EventArgs e) {
-            RECETA receta_form = new RECETA(this);
-            this.Hide();
-            receta_form.Show();
+
+            if(pictureBox1.Image == null) {
+                //sin perfil
+                RECETA receta_form = new RECETA(this);
+                this.Hide();
+                receta_form.Show();
+
+            } else {
+                //Con perfil
+                RECETA receta_form = new RECETA(this,login);
+                this.Hide();
+                receta_form.Show();
+            }
         }
 
         private void btn_Comercios_Click(object sender, EventArgs e) {
