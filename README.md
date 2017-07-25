@@ -2,11 +2,11 @@ Proyecto queComemos:
 
   Idea:
 
-    - Aplicación para registrar recetas , ingredientes y comercios. Búsqueda de recetas, Búsquedas de costos de compras, tiempo de cocción, búsqueda de ingredientes acordes para cocinar. Ademas un perfil que gestione las comidas semanales para realizar, un seguimiento nutricional y poder decidir la próxima comida.
+    QueComemos es una aplicación pensada para esos momentos donde no se sabe que comer en la casa. La aplicación permite manejar recetas precargadas, para realizar búsquedas que nos ayuden a evaluar que comida vamos a hacer. Permite búsquedas de tiempo de preparación, costo, cantidad de macro-nutrientes (proteínas,carbohidratos,calorías,grasas), tipo de comidas (vegetarianas,veganas, celiacas,etc.),por ingredientes en la heladera, por nombre.
 
-    - Base de datos SQL y front en C# form.
+    También provee una base de datos de comercios para cargar costos especifico, ver sus horarios y días hábiles.(si los teléfonos de delivery también están incluidos)
 
-    - Proyecto en gihub: https://github.com/hellfishg/queComemos
+    La aplicación permite también , de modo opcional, gestionar un perfil en el cual podamos seguir las comidas, la nutrición y el peso en plazo de una semana o mas. (incluye gráficos para ir viendo lo que vamos consumiendo en macro-nutrientes y el peso semanal)
 
 
 
@@ -198,8 +198,7 @@ Proyecto queComemos:
 
 
  
-  Validaciones:
-    Ver bien los forms a usar.
+
 
 
    
