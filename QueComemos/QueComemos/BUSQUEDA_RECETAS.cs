@@ -70,11 +70,16 @@ namespace QueComemos {
         }
 
         private void button5_Click(object sender, EventArgs e) {
-            string nombre = this.dataGridView1.CurrentRow.Cells[0].Value.ToString();
+            try {
+                string nombre = this.dataGridView1.CurrentRow.Cells[0].Value.ToString();
 
-            ventPadre.setConsulta(nombre);
-            ventPadre.Show();
-            this.Dispose();
+                ventPadre.setConsulta(nombre);
+                ventPadre.Show();
+                this.Dispose();
+
+            } catch {
+                MessageBox.Show("Seleccione al menos una receta");
+            }
         }
 
         private void checkBox5_CheckedChanged(object sender, EventArgs e) {

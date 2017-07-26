@@ -104,8 +104,8 @@
             // lOGINOUTToolStripMenuItem
             // 
             this.lOGINOUTToolStripMenuItem.Name = "lOGINOUTToolStripMenuItem";
-            this.lOGINOUTToolStripMenuItem.Size = new System.Drawing.Size(81, 20);
-            this.lOGINOUTToolStripMenuItem.Text = "LOGIN OUT";
+            this.lOGINOUTToolStripMenuItem.Size = new System.Drawing.Size(66, 20);
+            this.lOGINOUTToolStripMenuItem.Text = "LOGOUT";
             this.lOGINOUTToolStripMenuItem.Click += new System.EventHandler(this.lOGINOUTToolStripMenuItem_Click);
             // 
             // aYUDAToolStripMenuItem
@@ -144,6 +144,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.BackColor = System.Drawing.SystemColors.ControlLight;
             this.groupBox1.Controls.Add(this.pictureBox1);
             this.groupBox1.Controls.Add(this.label2);
             this.groupBox1.Controls.Add(this.label1);
@@ -156,6 +157,7 @@
             // 
             // pictureBox1
             // 
+            this.pictureBox1.BackColor = System.Drawing.SystemColors.ControlLight;
             this.pictureBox1.Location = new System.Drawing.Point(6, 19);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(108, 86);
@@ -167,6 +169,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.BackColor = System.Drawing.SystemColors.InactiveCaption;
             this.ClientSize = new System.Drawing.Size(435, 403);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.btn_Datos);

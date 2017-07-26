@@ -25,8 +25,13 @@ namespace QueComemos {
             this.ventPadre = ventPadre;
             
             dt = SQL.devolverTablaDataSet(consulta, "Comercios");
-            cargarDatos(index);
-            obtenerIndiceMaximo();
+            try {
+                cargarDatos(index);
+                obtenerIndiceMaximo();
+            } catch {
+                MessageBox.Show("No hay comercion en la base");
+            }
+      
         }
 
         private void cargarDatos(int i) {

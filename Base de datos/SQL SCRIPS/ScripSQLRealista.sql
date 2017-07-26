@@ -142,21 +142,17 @@ GO
 ALTER TABLE PesosHistoricos
 ADD CONSTRAINT FK_PH FOREIGN KEY (IdPerfil_PH) REFERENCES Perfiles (IdPerfil_P)
 GO
+
 -----------------------------------------------------------------------------------------
+--CARGA DE DATOS--
+-----------------------------------------------------------------------------------------
+--Tipos de Recetas
 INSERT INTO Tipos (Nombre_Tip)
 SELECT '' UNION
 SELECT 'Celiaco' UNION
 SELECT 'Omnivoro' UNION
 SELECT 'Vegano' UNION
 SELECT 'Vegetariano'
-GO
------------------------------------------------------------------------------------------
---CARGA DE DATOS--
-
-----Perfiles
-INSERT INTO Perfiles (Nombre_P,UrlAvatar_P)
-SELECT 'Hellfishg','C:\HellDocs\queComemos\QueComemos\QueComemos\imagenes\hellfish.jpg' UNION
-SELECT 'Mina', 'C:\HellDocs\queComemos\QueComemos\QueComemos\imagenes\hada.jpg' 
 GO
 -----------------------------------------------------------------------------------------
 --Ingredientes
@@ -193,54 +189,6 @@ GO
 -----------------------------------------------------------------------------------------
 --IngredientexReceta:
 /*
-1	Calditos Knorr
-2	Jamon
-3	Pollo
-4	Fideos de semola
-5	Salsa de soja
-6	Tapa de tarta
-7	Aceite
-8	Ajo
-9	Calabaza
-10	Cebolla
-11	Jugo de limon
-12	Lechuga
-13	Papa
-14	Sal
-15	Tomate
-16	Huevos
-17	Queso Cremoso
-18	Queso rallado
-*/
-
-INSERT INTO RecetaXIngrediente (IdReceta_RXI, IdIngrediente_RXI, Cantidad_RXI)
---Ensalada de pollo:
-SELECT 1 , 3 , 0.25 UNION
-SELECT 1 , 12 , 1 UNION
-SELECT 1 , 15 , 3 UNION
-SELECT 1 , 18 , 20 UNION
-SELECT 1 , 16 , 3 UNION
-SELECT 1 , 5 , 10 UNION
-SELECT 1 , 11 , 10 UNION
---Sopa de calabaza:
-SELECT 2 , 9 , 1 UNION
-SELECT 2 , 18 , 100 UNION
-SELECT 2 , 4 , 50 UNION
-SELECT 2 , 1 , 2 UNION
-SELECT 2 , 16 , 3 UNION
---Tarta de jamon y queso:
-SELECT 3 , 2 , 150 UNION
-SELECT 3 , 17 , 200 UNION
-SELECT 3 , 16 , 3 UNION
-SELECT 3 , 6 , 1 UNION
---Pollo con papas al horno:
-SELECT 4 , 13 ,  4 UNION
-SELECT 4 , 3 , 1 UNION
-SELECT 4 , 7 , 20 UNION
-SELECT 4 , 14 , 1 
-------------------------
-GO
-/*
 Recetas:
 	Sopa de calabaza 40,3
 		1 calabaza
@@ -271,41 +219,33 @@ Recetas:
 		10 mL jugo de limón
 
 */
------------------------------------------------------------------------------------------
---Comercios
-INSERT INTO Comercios (Nombre_C, Direccion_C, Horario_C, Telefono_C, Dias_C)
-SELECT 'Super Nuevo Estilo' ,'San Lorenzo 12343', '09:00 a 14:00', '4-713-3456', 'lmijvs0' UNION
-SELECT 'Super Coto' ,'Balbin 3900', '09:00 a 21:00', '4-713-7456', 'lmijvsd' UNION
-SELECT 'Pizzeria Simoqueña' ,'Matheu 3600', '18:00 a 23:30', '4-713-7856', '0mijvsd' UNION
-SELECT 'Dietetica Tomillo' , 'Malaver 4567' , '15:00 a 19:00' , '4-713-9812' , 'lmijv'
-GO
------------------------------------------------------------------------------------------
---IngredientesxComercios
-INSERT INTO IngredientexComercio (IdComercio_IXC, IdIngrediente_IXC, Costo_IXC)
-SELECT 1, 1, 5 UNION
-SELECT 1, 2, 10 UNION
-SELECT 1, 3, 20 UNION
-SELECT 2, 3, 330 UNION
-SELECT 2, 4, 12 UNION
-SELECT 2, 5, 1 UNION
-SELECT 3, 5, 32 UNION
-SELECT 3, 7, 56 UNION
-SELECT 1, 6, 89 UNION 
-SELECT 4, 4, 32 UNION
-SELECT 4, 7, 56 UNION
-SELECT 4, 6, 89 
-GO
------------------------------------------------------------------------------------------
---PesosHistoricos
-INSERT INTO PesosHistoricos (IdPerfil_PH, Fecha_PH , Peso_PH)
-SELECT 1, '16-07-2017', 75 UNION
-SELECT 1, '17-07-2017', 70 UNION
-SELECT 1, '18-07-2017', 72 UNION
-SELECT 1, '19-07-2017', 75 UNION
-SELECT 1, '20-07-2017', 80 UNION
-SELECT 2, '16-07-2017', 40 UNION
-SELECT 2, '17-07-2017', 50 UNION
-SELECT 2, '18-07-2017', 65 
+
+INSERT INTO RecetaXIngrediente (IdReceta_RXI, IdIngrediente_RXI, Cantidad_RXI)
+--Ensalada de pollo:
+SELECT 1 , 3 , 0.25 UNION
+SELECT 1 , 12 , 1 UNION
+SELECT 1 , 15 , 3 UNION
+SELECT 1 , 18 , 20 UNION
+SELECT 1 , 16 , 3 UNION
+SELECT 1 , 5 , 10 UNION
+SELECT 1 , 11 , 10 UNION
+--Sopa de calabaza:
+SELECT 2 , 9 , 1 UNION
+SELECT 2 , 18 , 100 UNION
+SELECT 2 , 4 , 50 UNION
+SELECT 2 , 1 , 2 UNION
+SELECT 2 , 16 , 3 UNION
+--Tarta de jamon y queso:
+SELECT 3 , 2 , 150 UNION
+SELECT 3 , 17 , 200 UNION
+SELECT 3 , 16 , 3 UNION
+SELECT 3 , 6 , 1 UNION
+--Pollo con papas al horno:
+SELECT 4 , 13 ,  4 UNION
+SELECT 4 , 3 , 1 UNION
+SELECT 4 , 7 , 20 UNION
+SELECT 4 , 14 , 1 
+------------------------
 GO
 -----------------------------------------------------------------------------------------
 --Procedimientos:

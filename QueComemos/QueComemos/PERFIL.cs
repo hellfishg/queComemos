@@ -35,6 +35,7 @@ namespace QueComemos {
             this.URLImagen = URLImagen;
            
             this.cargarPerfil();
+            this.cargarGrafico1();
         }
 
         private void cargarPerfil(){
@@ -267,6 +268,10 @@ namespace QueComemos {
         private void tabControl1_MouseClick(object sender, MouseEventArgs e) {
             this.cargarGrafico1();
 
+        }
+
+        private void button2_Click(object sender, EventArgs e) {
+            //Editar perfil.
         }
 
     }
