@@ -81,16 +81,17 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Ingresar Receta al Perfil";
             // 
-            // Cargar_Comida
+            // CARGAR_COMIDAS
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(192, 219);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.button1);
-            this.Name = "Cargar_Comida";
+            this.Name = "CARGAR_COMIDAS";
             this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Cargar_Comida";
+            this.FormClosing += new System.Windows.Forms.FormClosingEventHandler(this.CARGAR_COMIDAS_FormClosing);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
             this.ResumeLayout(false);

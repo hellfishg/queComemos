@@ -16,6 +16,7 @@ URLImagen_Rec VARCHAR (max) NULL DEFAULT 'NONE',
 Tiempo_Aprox_Rec INT NOT NULL,
 Porciones_Rec INT NOT NULL,
 Costo_Rec INT NOT NULL,
+Estado_Rec INT NOT NULL DEFAULT 1,
 CONSTRAINT PK_REC PRIMARY KEY (IdReceta_Rec)
 )
 GO
@@ -193,39 +194,6 @@ SELECT 3 , 1 , 'Sopa de calabaza' , 'Hervir la calabaza...' , 'C:\HellDocs\queCo
 SELECT 3 , 1 , 'Tarta de jamon y queso' , 'Colocar la pascualina...', 'C:\HellDocs\queComemos\QueComemos\QueComemos\imagenes\TartaJQ.jpg' , 30 , 2 , 90
 GO
 -----------------------------------------------------------------------------------------
---IngredientexReceta:
-/*
-Recetas:
-	Sopa de calabaza 40,3
-		1 calabaza
-		100 g queso rallado
-		50 g fideos municiones
-		2 calditos knor
-		3 huevos
-
-	Tarta de jamón y queso 30,2
-		150 g de jamón
-		200 g de queso cremoso
-		3 huevos
-		1 tapa de tarta
-
-	Pollo con papas al horno 60,4
-		4 papas
-		1 pollo
-		20 mL aceite
-		Sal
-
-	Ensalada de pollo 30,3
-		1/4 pollo
-		1 lechuga
-		3 tomates
-		20 g queso rallado
-		3 huevos
-		10 mL salsa de soja
-		10 mL jugo de limón
-
-*/
-
 INSERT INTO RecetaXIngrediente (IdReceta_RXI, IdIngrediente_RXI, Cantidad_RXI)
 --Ensalada de pollo:
 SELECT 1 , 3 , 0.25 UNION
@@ -312,10 +280,10 @@ GO
 CREATE procedure PROC_REC_1
 @IdReceta_Rec char (4)
 AS
-SELECT Nombre_Ing , Cantidad_RXI FROM Recetas
+SELECT Nombre_Ing , Cantidad_RXI , Unidad_De_Medida_Ing FROM Recetas
 INNER JOIN RecetaXIngrediente ON IdReceta_RXI = IdReceta_Rec
 INNER JOIN Ingredientes	ON IdIngrediente_Ing = IdIngrediente_RXI
-WHERE IdReceta_Rec = @IdReceta_Rec
+WHERE IdReceta_Rec = @IdReceta_Rec AND Estado_Rec = 1
 GO
 -----------------------------------------------------------------------------------------
 --Busca la cantidad de porciones segun el ID_RECETA
@@ -323,7 +291,7 @@ CREATE procedure PROC_REC_2
 @IdReceta_Rec char (4)
 AS
 SELECT Porciones_Rec FROM Recetas
-WHERE IdReceta_Rec = @IdReceta_Rec
+WHERE IdReceta_Rec = @IdReceta_Rec AND Estado_Rec = 1
 GO
 -----------------------------------------------------------------------------------------
 -- RECETAS.setConsulta(string recetaNombre)
@@ -331,7 +299,7 @@ CREATE procedure PROC_REC_3
 @Nombre_Rec VARCHAR (50)
 AS
 SELECT IdReceta_Rec FROM Recetas
-WHERE Nombre_Rec LIKE @Nombre_Rec
+WHERE Nombre_Rec LIKE @Nombre_Rec AND Estado_Rec = 1
 GO
 -----------------------------------------------------------------------------------------
 --Regresa una tabla con todos los macronutrientes :
@@ -373,6 +341,7 @@ SELECT * FROM
 		FROM Ingredientes
 			INNER JOIN RecetaXIngrediente ON IdIngrediente_RXI = IdIngrediente_Ing
 			INNER JOIN Recetas ON IdReceta_Rec = IdReceta_RXI
+		WHERE Estado_Rec = 1
 		GROUP BY IdReceta_Rec, Nombre_Rec, Tiempo_Aprox_Rec
 	) 
 	AS Total
@@ -425,3 +394,20 @@ WHERE IdPerfil_PH = @IdPerfil_P
 ORDER BY Fecha_PH DESC
 GO
 ----------------------------------------------------------------------------------------------
+--Buscar el ID del ingrediente.
+CREATE procedure PROC_Ing
+@Nom_Ing VARCHAR(50)
+AS
+SELECT IdIngrediente_Ing FROM Ingredientes
+WHERE Nombre_Ing = @Nom_Ing
+GO
+-----------------------------------------------------------------------------------------
+CREATE procedure PROC_REC_4
+@Nombre VARCHAR(50)
+AS
+SELECT Nombre_Ing , Cantidad_RXI , Unidad_De_Medida_Ing FROM Recetas
+INNER JOIN RecetaXIngrediente ON IdReceta_RXI = IdReceta_Rec
+INNER JOIN Ingredientes	ON IdIngrediente_Ing = IdIngrediente_RXI
+WHERE Nombre_Rec = @Nombre AND Estado_Rec = 1
+GO
+-----------------------------------------------------------------------------------------

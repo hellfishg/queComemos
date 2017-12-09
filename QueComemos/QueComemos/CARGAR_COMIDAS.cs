@@ -12,6 +12,7 @@ namespace QueComemos {
     public partial class CARGAR_COMIDAS : Form {
 
         BASE_DATOS SQL = new BASE_DATOS();
+        RECETA ventPadre;
         Validar validar = new Validar();
         string login;
         string IdPerfil;
@@ -19,9 +20,10 @@ namespace QueComemos {
         string fechaActual;
         string Receta;
 
-        public CARGAR_COMIDAS(string perfil,string Receta) {
+        public CARGAR_COMIDAS(string perfil,string Receta,RECETA ventPadre) {
             InitializeComponent();
 
+            this.ventPadre = ventPadre;
             this.login = perfil;
             this.Receta = Receta;
 
@@ -70,6 +72,7 @@ namespace QueComemos {
                 SQL.agregarDatosSQL(consultaSQL);
 
                 MessageBox.Show("Comida Guardada!");
+                this.ventPadre.Show();
                 this.Dispose();
 
             } catch {
@@ -81,6 +84,11 @@ namespace QueComemos {
         private void textBox1_KeyPress(object sender, KeyPressEventArgs e) {
             //Que sea fecha:
             validar.soloDecimal(e);
+        }
+
+        private void CARGAR_COMIDAS_FormClosing(object sender, FormClosingEventArgs e) {
+            this.ventPadre.Show();
+            this.Dispose();
         }
     }
 }

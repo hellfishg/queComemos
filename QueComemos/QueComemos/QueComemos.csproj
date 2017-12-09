@@ -95,6 +95,12 @@
     <Compile Include="COMERCIOS.Designer.cs">
       <DependentUpon>COMERCIOS.cs</DependentUpon>
     </Compile>
+    <Compile Include="EDITAR_RECETAS.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="EDITAR_RECETAS.Designer.cs">
+      <DependentUpon>EDITAR_RECETAS.cs</DependentUpon>
+    </Compile>
     <Compile Include="LISTA_DE_COMPRAS.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -151,6 +157,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="COMERCIOS.resx">
       <DependentUpon>COMERCIOS.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="EDITAR_RECETAS.resx">
+      <DependentUpon>EDITAR_RECETAS.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="LISTA_DE_COMPRAS.resx">
       <DependentUpon>LISTA_DE_COMPRAS.cs</DependentUpon>

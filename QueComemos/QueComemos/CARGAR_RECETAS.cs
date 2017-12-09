@@ -10,7 +10,7 @@ using System.Windows.Forms;
 
 namespace QueComemos {
     public partial class CARGAR_RECETAS : Form {
-
+        
         MAIN_CARGAR ventPadre;
         BASE_DATOS SQL = new BASE_DATOS();
         DataTable dt;
@@ -71,7 +71,7 @@ namespace QueComemos {
                 MessageBox.Show("Receta guardada!");
 
             } else {
-                MessageBox.Show("Carge todos los campos");
+                MessageBox.Show("Carga de campos invalida!");
             }
         }
 
@@ -247,8 +247,9 @@ namespace QueComemos {
 
             while(selectedCount > 0) {
 
-                if(!dataGridView2.SelectedRows[0].IsNewRow)
+                if(!dataGridView2.SelectedRows[0].IsNewRow) {
                     dataGridView2.Rows.RemoveAt(dataGridView2.SelectedRows[0].Index);
+                }
                 selectedCount--;
             }
         }
@@ -290,7 +291,7 @@ namespace QueComemos {
         }
 
         private void textBox3_KeyPress(object sender, KeyPressEventArgs e) {
-            //Valida el Porcion:
+            //Valida la Porcion:
             validar.soloNumeros(e);
         }
 

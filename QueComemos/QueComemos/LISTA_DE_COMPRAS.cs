@@ -13,19 +13,13 @@ namespace QueComemos {
 
         RECETA ventPadre;
         DataTable dtBackUp;
-        //DataTable dt;
 
         public LISTA_DE_COMPRAS(RECETA ventPadre, DataTable dtReceta) {
             InitializeComponent();
 
             this.ventPadre = ventPadre;
-            //this.dt = dtReceta;
-            this.dtBackUp = dtReceta;
-            this.dataGridView1.DataSource = dtReceta;
-
-        }
-
-        private void cargarLista() {
+            this.dtBackUp = dtReceta.Copy();
+            this.dataGridView1.DataSource = dtBackUp;
 
         }
 

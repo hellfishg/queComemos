@@ -15,10 +15,22 @@ namespace QueComemos {
         BASE_DATOS SQL = new BASE_DATOS();
         DataTable dt;
         DataTable dt2;
+        DataTable dt3;
         int index = 1;
         int indexMax;
-        string consulta = "SELECT IdReceta_Rec , IdTipo1_Rec, IdTipo2_Rec, Nombre_Rec, Descripcion_Rec, URLImagen_Rec, Tiempo_Aprox_Rec, Porciones_Rec , Costo_Rec FROM Recetas";
+        string consulta = "SELECT IdReceta_Rec , IdTipo1_Rec, IdTipo2_Rec, Nombre_Rec, Descripcion_Rec, URLImagen_Rec, Tiempo_Aprox_Rec, Porciones_Rec , Costo_Rec FROM Recetas WHERE Estado_Rec = 1";
         string perfil;
+
+        public RECETA() {
+            InitializeComponent();
+            this.button1.Enabled = false;
+            MenuPrincipal padre = new MenuPrincipal();
+            this.ventPadre = padre;
+
+            dt = SQL.devolverTablaDataSet(consulta, "Recetas");
+            obtenerIndiceMaximo();
+            cargarDatos(index);
+        }
 
         public RECETA (MenuPrincipal ventPadre) {
             InitializeComponent();
@@ -35,6 +47,7 @@ namespace QueComemos {
             this.ventPadre = ventPadre;
             this.perfil = perfil;
 
+            lbl_Perfil.Text = perfil;
             dt = SQL.devolverTablaDataSet(consulta, "Recetas");
             obtenerIndiceMaximo();
             cargarDatos(index);
@@ -56,16 +69,18 @@ namespace QueComemos {
             
 
             //Cargar ingredientes:
-
             i++;
-            String consultaIngXrec = "exec PROC_REC_1 '" + i + "'";
+            String consultaIngXrec = "exec PROC_REC_4 '" + textBox1.Text.ToString() + "'";
             dt2 = SQL.devolverTablaDataSet(consultaIngXrec, "Ingredientes");
+            dt2.Columns[0].ColumnName = "Nombre";
+            dt2.Columns[1].ColumnName = "Cantidad";
+            dt2.Columns[2].ColumnName = "Medida";
             dataGridView1.DataSource = dt2;
 
             //el costo se saca por los ingredientes. label6
 
             //MacroNutrientes:
-            DataTable dt3 = SQL.devolverTablaDataSet("exec PROC_MACRO", "Recetas");
+            dt3 = SQL.devolverTablaDataSet("exec PROC_MACRO", "Recetas");
             DataRow fila2;
             string [] matrizMacros = new string[5];
             
@@ -104,16 +119,23 @@ namespace QueComemos {
         }
 
         private void obtenerIndiceMaximo() {
-            DataTable DatAble = SQL.devolverTablaDataSet("SELECT max(IdReceta_Rec) FROM Recetas", "Recetas");
+            DataTable DatAble = SQL.devolverTablaDataSet("SELECT COUNT(IdReceta_Rec) FROM Recetas WHERE Estado_Rec = 1", "Recetas");
             DataRow fila = DatAble.Rows[0];
             indexMax = Convert.ToInt16(fila[0].ToString());
         }
 
         public void setConsulta(string recetaNombre) {
             //aca carga la consulta de busqueda_Receta:
-            DataTable dt2 = SQL.devolverTablaDataSet("exec PROC_REC_3 '" + recetaNombre + "'", "Receta");
-            DataRow fila = dt2.Rows[0];
-            index = Convert.ToInt16(fila[0].ToString());
+
+            for(int i = 0; i < indexMax; i++) {
+
+                string aux = this.dt.Rows[i]["Nombre_Rec"].ToString();
+                if(string.Compare(recetaNombre,aux) == 0) {
+
+                    index = i +1;
+                    //MessageBox.Show(aux + "/" + recetaNombre +"/"+ index.ToString());
+                }
+            }
             cargarDatos(index);
         }
 
@@ -153,10 +175,18 @@ namespace QueComemos {
 
         private void button1_Click(object sender, EventArgs e) {
             //Lanza la carga de recetas al perfil.
-            CARGAR_COMIDAS busquedaR_form = new CARGAR_COMIDAS(perfil,textBox1.Text);
+            CARGAR_COMIDAS busquedaR_form = new CARGAR_COMIDAS(perfil,textBox1.Text,this);
+            this.Hide();
             busquedaR_form.Show();
         }
 
-   
+        private void button6_Click(object sender, EventArgs e) {
+            //Lanza la Edicion de la receta.
+            EDITAR_RECETAS editarReceta = new EDITAR_RECETAS(this,index,dt,dt2);
+            this.Hide();
+            editarReceta.Show();
+        }
+
+        
     }
 }

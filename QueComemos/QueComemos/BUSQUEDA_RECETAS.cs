@@ -24,31 +24,21 @@ namespace QueComemos {
 
         private void button1_Click(object sender, EventArgs e) {
             //Busqueda:
-                   
-            consultaSql = "SELECT Nombre_Rec as 'Receta',Tiempo_Aprox_Rec as 'Tiempo Prep.',Nombre_Tip as 'Tipo', Costo_Rec as 'Costo' FROM Recetas join Tipos on IdTipo_Tip = IdTipo1_Rec WHERE ";
-            bool checkArgumentos = false;
+
+            consultaSql = "SELECT Nombre_Rec as 'Receta',Tiempo_Aprox_Rec as 'Tiempo Prep.',Nombre_Tip as 'Tipo', Costo_Rec as 'Costo' FROM Recetas join Tipos on IdTipo_Tip = IdTipo1_Rec WHERE Estado_Rec = 1 ";
 
             if(checkBox1.Checked) {
-                consultaSql += "Nombre_Rec LIKE '%" + textBox1.Text.ToString() + "%' ";
-                checkArgumentos = true;
+                consultaSql += "AND Nombre_Rec LIKE '%" + textBox1.Text.ToString() + "%' ";
             }
             if(checkBox2.Checked) {
-                if(checkArgumentos) { consultaSql += "AND "; }
-                consultaSql += "Nombre_Tip LIKE '%" + comboBox1.SelectedItem.ToString() + "%' ";
-                checkArgumentos = true;
+                consultaSql += "AND Nombre_Tip LIKE '%" + comboBox1.SelectedItem.ToString() + "%' ";
             }
             if(checkBox4.Checked) {
-                if(checkArgumentos) { consultaSql += "AND "; }
-                consultaSql += "Tiempo_Aprox_Rec <= " + textBox2.Text.ToString();
-                checkArgumentos = true;
+                consultaSql += "AND Tiempo_Aprox_Rec <= " + textBox2.Text.ToString();
             }
-
             if(checkBox3.Checked) {
-                if(checkArgumentos) { consultaSql += "AND "; }
-                consultaSql += "Costo_Rec <= " + textBox4.Text.ToString();
-                checkArgumentos = true;
+                consultaSql += "AND Costo_Rec <= " + textBox4.Text.ToString();
             }
-
 
             //Busqueda de Calorias menos de:
             if(checkBox5.Checked) {
@@ -70,16 +60,16 @@ namespace QueComemos {
         }
 
         private void button5_Click(object sender, EventArgs e) {
+
             try {
                 string nombre = this.dataGridView1.CurrentRow.Cells[0].Value.ToString();
-
                 ventPadre.setConsulta(nombre);
                 ventPadre.Show();
                 this.Dispose();
 
-            } catch {
+           } catch {
                 MessageBox.Show("Seleccione al menos una receta");
-            }
+           }
         }
 
         private void checkBox5_CheckedChanged(object sender, EventArgs e) {

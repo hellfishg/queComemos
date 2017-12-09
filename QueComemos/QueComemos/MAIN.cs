@@ -19,7 +19,6 @@ namespace QueComemos {
 
         public MenuPrincipal() {
             InitializeComponent();
-
         }
 
         private void agregarPerfiles() {
@@ -40,7 +39,6 @@ namespace QueComemos {
                 pERFILLOGINToolStripMenuItem.DropDownItems.Insert(i, item);
             }
         }
-
 
         private void pERFILLOGINToolStripMenuItem_DropDownItemClicked(object sender, ToolStripItemClickedEventArgs e) {
             //Establece el perfil cuando se hace click en el.
@@ -73,7 +71,6 @@ namespace QueComemos {
             label1.Text = "ANONIMO";
             label2.Text = "NO CONECTADO";
             pictureBox1.Image = null;
-
         }
 
         private void MenuPrincipal_VisibleChanged(object sender, EventArgs e) {
@@ -120,6 +117,10 @@ namespace QueComemos {
             MAIN_CARGAR cargar_form = new MAIN_CARGAR(this);
             this.Hide();
             cargar_form.Show();
+        }
+
+        private void MenuPrincipal_FormClosing(object sender, FormClosingEventArgs e) {
+            this.Dispose();
         }
 
     }
