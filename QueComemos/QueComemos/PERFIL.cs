@@ -14,6 +14,7 @@ namespace QueComemos {
 
         BASE_DATOS SQL = new BASE_DATOS();
         MenuPrincipal ventPadre;
+        
         string login;
         string IDperfil;
         string URLImagen;
@@ -36,41 +37,47 @@ namespace QueComemos {
             this.login = login;
             this.URLImagen = URLImagen;
 
-            tabPage9.AutoScroll = true;
-
+            this.buscarIdPerfil();
             this.cargarPerfil();
-            this.cargarGraFicoMacronutrientes();
-            this.cargarPesoAnual(IDperfil);
-            this.cargarPesoDeceado(65);//cambiar cuando este la opcion de pesoD.
         }
 
         private void cargarPerfil(){
             //Carga el contenido del perfil desde el login pasado por el main.
-
             label1.Text = login;
-
             Image avatar = Image.FromFile(URLImagen);
             pictureBox1.Image = avatar;
 
             fecha = DateTime.Today.ToShortDateString();
 
-            this.cargarDias();
-            this.cargarPeso();
+            //Actualizar el peso de la ultima fecha.
+            DataTable dtPerfil = SQL.devolverTablaDataSet("EXEC PROC_PESO_FECHA " + IDperfil, "PesoHistorico");
+            DataRow fila = dtPerfil.Rows[0];
+            textBox1.Text = fila[1].ToString();
+            string fechaPeso = fila[0].ToString();
+            string[] fechaSinHora = fechaPeso.Split(' ');
+            label2.Text = fechaSinHora[0];
 
+            
+            this.cargarSemanaComidas();
+            this.cargarPeso();
+            this.cargarGraFicoMacronutrientes();
+            tabPage9.AutoScroll = true; //Permite al grafico de dias extenderse.
+            this.cargarPesoAnual(IDperfil);
+            this.cargarPesoDeseado(65);//cambiar cuando este la opcion de pesoD.
         }
 
-        private void cargarDias() {
-            //Carga la semana de comidas.
-            
+        private void buscarIdPerfil() {
             //Buscar el Id del perfil:
             DataTable dtPerfil = SQL.devolverTablaDataSet("SELECT IdPerfil_P FROM Perfiles WHERE Nombre_P LIKE '" + login + "%'", "Lunes");
             DataRow fila = dtPerfil.Rows[0];
             IDperfil = fila[0].ToString();
+        }
 
-            //////////////////////////
+        private void cargarSemanaComidas() {
+            //Carga la semana de comidas.
+
             //busca cual es el dia lunes de esta semana.
             int restarDias = 0;
-
             switch(DateTime.Today.DayOfWeek.ToString()) {
                 
             case "Monday":
@@ -104,19 +111,18 @@ namespace QueComemos {
 
             DateTime dya = DateTime.Today.AddDays(restarDias);
             string dia = dya.ToShortDateString();
+            ////////////////////////////
+            //Limpiar tabs nombres por "BUSCAR FECHA":
+            tabPage1.Text = "Lunes";
+            tabPage2.Text = "Martes";
+            tabPage3.Text = "Miercoles";
+            tabPage4.Text = "Jueves";
+            tabPage5.Text = "Viernes";
+            tabPage6.Text = "Sabado";
+            tabPage7.Text = "Domingo";
 
             //////////////////////////
-            //Actualizar el peso de la ultima fecha.
-            dtPerfil = SQL.devolverTablaDataSet("EXEC PROC_PESO_FECHA "+ IDperfil,"PesoHistorico");
-            fila = dtPerfil.Rows[0];
-            textBox1.Text = fila[1].ToString();
-            string fechaPeso = fila[0].ToString();
-            string[] fechaSinHora = fechaPeso.Split(' ');
-            label2.Text = fechaSinHora[0];            
-
-            //////////////////////////
-
-            //LUNES:
+             //LUNES:
             
             dtLunes = SQL.devolverTablaDataSet("EXEC PROC_FECHA_REC "+ IDperfil +",'"+ dia +"'", "Lunes");
             dataGridView1.DataSource = dtLunes;
@@ -163,7 +169,6 @@ namespace QueComemos {
             dtDomingo = SQL.devolverTablaDataSet("EXEC PROC_FECHA_REC " + IDperfil + ",'" + dia + "'", "Domingo");
             dataGridView7.DataSource = dtDomingo;
             tabPage7.Text += " " + dia;
-
         }
 
         private void cargarPeso() {
@@ -269,17 +274,19 @@ namespace QueComemos {
             chart2.DataBind();
         }
 
-        private void cargarPesoDeceado(int pesoD) {
+        private void cargarPesoDeseado(int pesoD) {
             int indexMax = dt.Rows.Count;
 
             DateTime inicio = Convert.ToDateTime(dt.Rows[0][0].ToString());
             DateTime final = Convert.ToDateTime(dt.Rows[indexMax - 1][0].ToString());
 
+            chart2.Series["Peso Ideal"].Points.Clear();
             chart2.Series["Peso Ideal"].Points.AddXY(inicio, pesoD);
             chart2.Series["Peso Ideal"].Points.AddXY(final, pesoD);
             chart2.DataBind();
-        }
 
+            textBox3.Text = pesoD.ToString();
+        }
 
         private void button1_Click(object sender, EventArgs e) {
             //Actualizar el peso del texBox1.
@@ -300,6 +307,78 @@ namespace QueComemos {
 
         private void button2_Click(object sender, EventArgs e) {
             //Editar perfil.
+        }
+
+        private void button3_Click(object sender, EventArgs e) {
+            //Buscar un fecha de semana especifica.
+
+            try {
+                string diaSelc = textBox2.Text.ToString();
+                DateTime dia = DateTime.Parse(diaSelc);
+
+                //Primer Dia:
+                DataTable Dia1 = SQL.devolverTablaDataSet("EXEC PROC_FECHA_REC " + IDperfil + ",'" + dia.ToString() + "'", "Dia1");
+                dataGridView1.DataSource = Dia1;
+                dtLunes = Dia1;
+                tabPage1.Text =  dia.ToShortDateString();
+                
+                //Segundo Dia:
+                dia= dia.AddDays(1);
+                DataTable Dia2 = SQL.devolverTablaDataSet("EXEC PROC_FECHA_REC " + IDperfil + ",'" + dia.ToString() + "'", "Dia2");
+                dataGridView2.DataSource = Dia2;
+                dtMartes = Dia2;
+                tabPage2.Text = dia.ToShortDateString();
+
+                //Tercer Dia:
+                dia = dia.AddDays(1);
+                DataTable Dia3 = SQL.devolverTablaDataSet("EXEC PROC_FECHA_REC " + IDperfil + ",'" + dia.ToString() + "'", "Dia3");
+                dataGridView3.DataSource = Dia3;
+                dtMiercoles = Dia3;
+                tabPage3.Text = dia.ToShortDateString();
+
+                //Cuarto Dia:
+                dia = dia.AddDays(1);
+                DataTable Dia4 = SQL.devolverTablaDataSet("EXEC PROC_FECHA_REC " + IDperfil + ",'" + dia.ToString() + "'", "Dia4");
+                dataGridView4.DataSource = Dia4;
+                dtJueves = Dia4;
+                tabPage4.Text = dia.ToShortDateString();
+
+                //Quinto Dia:
+                dia = dia.AddDays(1);
+                DataTable Dia5 = SQL.devolverTablaDataSet("EXEC PROC_FECHA_REC " + IDperfil + ",'" + dia.ToString() + "'", "Dia5");
+                dataGridView5.DataSource = Dia5;
+                dtViernes = Dia5;
+                tabPage5.Text = dia.ToShortDateString();
+
+                //Sexto Dia:
+                dia = dia.AddDays(1);
+                DataTable Dia6 = SQL.devolverTablaDataSet("EXEC PROC_FECHA_REC " + IDperfil + ",'" + dia.ToString() + "'", "Dia6");
+                dataGridView6.DataSource = Dia6;
+                dtSabado = Dia6;
+                tabPage6.Text = dia.ToShortDateString();
+
+                //Septimo Dia:
+                dia = dia.AddDays(1);
+                DataTable Dia7 = SQL.devolverTablaDataSet("EXEC PROC_FECHA_REC " + IDperfil + ",'" + dia.ToString() + "'", "Dia7");
+                dataGridView7.DataSource = Dia7;
+                dtDomingo = Dia7;
+                tabPage7.Text = dia.ToShortDateString();
+                
+                cargarGraFicoMacronutrientes();
+
+            } catch {
+                MessageBox.Show("Ingrese una Fecha Valida!");
+            }
+        }
+
+        private void button4_Click(object sender, EventArgs e) {
+            cargarPerfil();
+        }
+
+        private void button5_Click(object sender, EventArgs e) {
+            //Seleccionar el peso ideal.
+
+            cargarPesoDeseado( Convert.ToInt32( textBox3.Text.ToString()));
         }
         
     }
