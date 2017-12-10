@@ -248,14 +248,14 @@ GO
 -----------------------------------------------------------------------------------------
 --PesosHistoricos
 INSERT INTO PesosHistoricos (IdPerfil_PH, Fecha_PH , Peso_PH)
-SELECT 1, '16-07-2017', 75 UNION
-SELECT 1, '17-07-2017', 70 UNION
-SELECT 1, '18-07-2017', 72 UNION
-SELECT 1, '19-07-2017', 75 UNION
-SELECT 1, '20-07-2017', 80 UNION
-SELECT 2, '16-07-2017', 40 UNION
-SELECT 2, '17-07-2017', 50 UNION
-SELECT 2, '18-07-2017', 65 
+SELECT 1, '06-11-2017', 75 UNION
+SELECT 1, '14-11-2017', 70 UNION
+SELECT 1, '20-11-2017', 72 UNION
+SELECT 1, '28-11-2017', 75 UNION
+SELECT 1, '04-12-2017', 80 UNION
+SELECT 2, '13-12-2017', 40 UNION
+SELECT 2, '27-11-2017', 50 UNION
+SELECT 2, '11-12-2017', 65 
 GO
 -----------------------------------------------------------------------------------------
 --Procedimientos:
@@ -393,7 +393,7 @@ SELECT  Fecha_PH , Peso_PH, IdPesoH_PH, IdPerfil_PH FROM PesosHistoricos
 WHERE IdPerfil_PH = @IdPerfil_P
 ORDER BY Fecha_PH DESC
 GO
-----------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------
 --Buscar el ID del ingrediente.
 CREATE procedure PROC_Ing
 @Nom_Ing VARCHAR(50)
@@ -401,7 +401,7 @@ AS
 SELECT IdIngrediente_Ing FROM Ingredientes
 WHERE Nombre_Ing = @Nom_Ing
 GO
------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------
 CREATE procedure PROC_REC_4
 @Nombre VARCHAR(50)
 AS
@@ -410,4 +410,13 @@ INNER JOIN RecetaXIngrediente ON IdReceta_RXI = IdReceta_Rec
 INNER JOIN Ingredientes	ON IdIngrediente_Ing = IdIngrediente_RXI
 WHERE Nombre_Rec = @Nombre AND Estado_Rec = 1
 GO
------------------------------------------------------------------------------------------
+---------------------------------------------------------------------------------------------
+CREATE procedure PROC_PESO_ANUAL
+@ID int
+AS
+SELECT Fecha_PH AS Fecha, Peso_PH AS Peso
+FROM PesosHistoricos
+Where IdPerfil_PH = @ID
+ORDER BY Fecha_PH ASC
+GO
+---------------------------------------------------------------------------------------------

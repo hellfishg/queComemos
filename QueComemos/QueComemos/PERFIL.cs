@@ -27,15 +27,21 @@ namespace QueComemos {
         DataTable dtSabado;
         DataTable dtDomingo;
 
+        DataTable dt;
+
         public PERFIL(MenuPrincipal ventPadre, string login, string URLImagen) {
             InitializeComponent();
 
             this.ventPadre = ventPadre;
             this.login = login;
             this.URLImagen = URLImagen;
-           
+
+            tabPage9.AutoScroll = true;
+
             this.cargarPerfil();
-            this.cargarGrafico1();
+            this.cargarGraFicoMacronutrientes();
+            this.cargarPesoAnual(IDperfil);
+            this.cargarPesoDeceado(65);//cambiar cuando este la opcion de pesoD.
         }
 
         private void cargarPerfil(){
@@ -180,7 +186,7 @@ namespace QueComemos {
             this.cargarPeso();
         }
 
-        private void cargarGrafico1() {
+        private void cargarGraFicoMacronutrientes() {
 
             try {
                 DataTable dt = new DataTable();
@@ -253,6 +259,28 @@ namespace QueComemos {
             }
         }
 
+        private void cargarPesoAnual(string id) {
+            string consultaSQL = "EXEC PROC_PESO_ANUAL " + id;
+            dt = SQL.devolverTablaDataSet(consultaSQL, "Peso Historico");
+
+            chart2.DataSource = dt;
+            chart2.Series["Peso Historico"].XValueMember = "Fecha";
+            chart2.Series["Peso Historico"].YValueMembers = "Peso";
+            chart2.DataBind();
+        }
+
+        private void cargarPesoDeceado(int pesoD) {
+            int indexMax = dt.Rows.Count;
+
+            DateTime inicio = Convert.ToDateTime(dt.Rows[0][0].ToString());
+            DateTime final = Convert.ToDateTime(dt.Rows[indexMax - 1][0].ToString());
+
+            chart2.Series["Peso Ideal"].Points.AddXY(inicio, pesoD);
+            chart2.Series["Peso Ideal"].Points.AddXY(final, pesoD);
+            chart2.DataBind();
+        }
+
+
         private void button1_Click(object sender, EventArgs e) {
             //Actualizar el peso del texBox1.
             this.actualizarUltimoPeso();
@@ -266,13 +294,13 @@ namespace QueComemos {
         }
 
         private void tabControl1_MouseClick(object sender, MouseEventArgs e) {
-            this.cargarGrafico1();
+            this.cargarGraFicoMacronutrientes();
 
         }
 
         private void button2_Click(object sender, EventArgs e) {
             //Editar perfil.
         }
-
+        
     }
 }

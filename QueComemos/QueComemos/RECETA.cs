@@ -66,7 +66,6 @@ namespace QueComemos {
             label7.Text = fila["Porciones_Rec"].ToString();
             Image file = Image.FromFile(fila["URLImagen_Rec"].ToString());
             pictureBox1.Image = file;
-            
 
             //Cargar ingredientes:
             i++;
