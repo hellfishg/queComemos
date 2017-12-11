@@ -119,8 +119,9 @@
             // aCERCADEQueComemosToolStripMenuItem
             // 
             this.aCERCADEQueComemosToolStripMenuItem.Name = "aCERCADEQueComemosToolStripMenuItem";
-            this.aCERCADEQueComemosToolStripMenuItem.Size = new System.Drawing.Size(214, 22);
-            this.aCERCADEQueComemosToolStripMenuItem.Text = "ACERCA DE queComemos";
+            this.aCERCADEQueComemosToolStripMenuItem.Size = new System.Drawing.Size(174, 22);
+            this.aCERCADEQueComemosToolStripMenuItem.Text = "Manual De Usuario";
+            this.aCERCADEQueComemosToolStripMenuItem.Click += new System.EventHandler(this.aCERCADEQueComemosToolStripMenuItem_Click);
             // 
             // label1
             // 

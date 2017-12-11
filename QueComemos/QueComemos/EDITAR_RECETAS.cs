@@ -187,7 +187,7 @@ namespace QueComemos {
         
         private void guardarReceta() {
             //Guarda la receta en la base de datos.
-
+            
             //Actualizar receta:
             String sql = "Update Recetas set ";
             sql += " IdTipo1_Rec=" + obtenerTipo(comboBox1.SelectedItem.ToString()) + ",";

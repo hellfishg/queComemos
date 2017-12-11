@@ -182,7 +182,12 @@ SELECT 4 , 2 , 'Aceite' , 15 , 125.86 , 0.14 , 0 , 13.99 , 'Mililitros' UNION
 SELECT 4 , 2 , 'Sal' , 0.5 , 0 , 0 , 0 , 0 , 'Gramos' UNION
 SELECT 4 , 2 , 'Lechuga' , 1 , 19.6 , 1.37 , 1.40 , 0.60 , 'Unidades' UNION
 SELECT 4 , 1 , 'Salsa de soja' , 15 , 9.86 , 1.31 , 1.01 , 0.02 , 'Mililitros' UNION
-SELECT 4 , 2 , 'Jugo de limon' , 15 , 21 , 0.4, 6.5 , 0.3 , 'Mililitros'
+SELECT 4 , 2 , 'Jugo de limon' , 15 , 21 , 0.4 , 6.5 , 0.3 , 'Mililitros' UNION
+SELECT 4 , 2 , 'Frutillas' , 100 , 32 , 0.6 , 7.7 , 0.3 , 'Gramos' UNION
+SELECT 4 , 2 , 'Banana' , 1 , 117 , 2 , 31 , 0 , 'Unidades' UNION
+SELECT 4 , 2 , 'Pera' , 1 , 49.4 , 0.4 , 10.6 , 0.1 , 'Unidades' UNION
+SELECT 4 , 2 , 'Manzana' , 1 , 54.8 , 0.3 , 11.4 , 0.4 , 'Unidades' UNION
+SELECT 4 , 2 , 'Jugo de naranja' , 100 , 56 , 0.9 , 13 , 0.3 , 'Mililitros'
 GO
 -----------------------------------------------------------------------------------------
 --Recetas:
@@ -191,34 +196,41 @@ INSERT INTO Recetas (IdTipo1_Rec, IdTipo2_Rec, Nombre_Rec, Descripcion_Rec,
 SELECT 3 , 1 , 'Ensalada de pollo' , 'Cortar algo..' , 'C:\HellDocs\queComemos\QueComemos\QueComemos\imagenes\EnsaPollo.jpg' , 30 , 3 , 70 UNION
 SELECT 3 , 2 , 'Pollo con papas al horno', 'Meter el pollo al horno..' , 'C:\HellDocs\queComemos\QueComemos\QueComemos\imagenes\PolloAlHorno.jpg' , 60 , 4 , 60 UNION
 SELECT 3 , 1 , 'Sopa de calabaza' , 'Hervir la calabaza...' , 'C:\HellDocs\queComemos\QueComemos\QueComemos\imagenes\sopaCalabaza.jpg' , 40 , 3 , 40 UNION
-SELECT 3 , 1 , 'Tarta de jamon y queso' , 'Colocar la pascualina...', 'C:\HellDocs\queComemos\QueComemos\QueComemos\imagenes\TartaJQ.jpg' , 30 , 2 , 90
+SELECT 3 , 1 , 'Tarta de jamon y queso' , 'Colocar la pascualina...', 'C:\HellDocs\queComemos\QueComemos\QueComemos\imagenes\TartaJQ.jpg' , 30 , 2 , 90 UNION
+SELECT 4 , 2 , 'Ensalada de frutas' , 'Pelar y picar la fruta...' , 'C:\HellDocs\queComemos\QueComemos\QueComemos\imagenes\ensaladaFrutas.jpg' , 20 , 2 , 40
 GO
 -----------------------------------------------------------------------------------------
 INSERT INTO RecetaXIngrediente (IdReceta_RXI, IdIngrediente_RXI, Cantidad_RXI)
 --Ensalada de pollo:
 SELECT 1 , 3 , 0.25 UNION
-SELECT 1 , 12 , 1 UNION
-SELECT 1 , 15 , 3 UNION
-SELECT 1 , 18 , 20 UNION
-SELECT 1 , 16 , 3 UNION
+SELECT 1 , 15 , 1 UNION
+SELECT 1 , 20 , 3 UNION
+SELECT 1 , 23 , 20 UNION
+SELECT 1 , 21 , 3 UNION
 SELECT 1 , 5 , 10 UNION
-SELECT 1 , 11 , 10 UNION
+SELECT 1 , 13 , 10 UNION
 --Sopa de calabaza:
-SELECT 2 , 9 , 1 UNION
-SELECT 2 , 18 , 100 UNION
+SELECT 2 , 10 , 1 UNION
+SELECT 2 , 23 , 100 UNION
 SELECT 2 , 4 , 50 UNION
 SELECT 2 , 1 , 2 UNION
-SELECT 2 , 16 , 3 UNION
+SELECT 2 , 21 , 3 UNION
 --Tarta de jamon y queso:
 SELECT 3 , 2 , 150 UNION
-SELECT 3 , 17 , 200 UNION
-SELECT 3 , 16 , 3 UNION
+SELECT 3 , 22 , 200 UNION
+SELECT 3 , 21 , 3 UNION
 SELECT 3 , 6 , 1 UNION
 --Pollo con papas al horno:
-SELECT 4 , 13 ,  4 UNION
+SELECT 4 , 17 ,  4 UNION
 SELECT 4 , 3 , 1 UNION
 SELECT 4 , 7 , 20 UNION
-SELECT 4 , 14 , 1 
+SELECT 4 , 19 , 1 UNION
+--Ensalada de frutas:
+SELECT 5 , 9 , 1 UNION
+SELECT 5 , 12 , 100 UNION
+SELECT 5 , 14 , 100 UNION
+SELECT 5 , 16 , 1 UNION
+SELECT 5 , 18 , 1 
 ------------------------
 GO
 -----------------------------------------------------------------------------------------
@@ -231,19 +243,18 @@ SELECT 'Dietetica Tomillo' , 'Malaver 4567' , '15:00 a 19:00' , '4-713-9812' , '
 GO
 -----------------------------------------------------------------------------------------
 --IngredientesxComercios
+--1 = DIETETICA 2 = PIZZERIA 3 = COTO 4 = CHINO
 INSERT INTO IngredientexComercio (IdComercio_IXC, IdIngrediente_IXC, Costo_IXC)
-SELECT 1, 1, 5 UNION
-SELECT 1, 2, 10 UNION
-SELECT 1, 3, 20 UNION
-SELECT 2, 3, 330 UNION
-SELECT 2, 4, 12 UNION
-SELECT 2, 5, 1 UNION
-SELECT 3, 5, 32 UNION
-SELECT 3, 7, 56 UNION
-SELECT 1, 6, 89 UNION 
-SELECT 4, 4, 32 UNION
-SELECT 4, 7, 56 UNION
-SELECT 4, 6, 89 
+SELECT 1, 5, 35 UNION
+SELECT 1, 13, 30 UNION
+SELECT 1, 7, 55 UNION
+SELECT 3, 10, 18 UNION
+SELECT 3, 20, 30 UNION
+SELECT 3, 8, 10 UNION
+SELECT 3, 6, 30 UNION 
+SELECT 4, 1, 15 UNION
+SELECT 4, 4, 20 UNION
+SELECT 4, 22, 50 
 GO
 -----------------------------------------------------------------------------------------
 --PesosHistoricos
@@ -253,7 +264,7 @@ SELECT 1, '14-11-2017', 70 UNION
 SELECT 1, '20-11-2017', 72 UNION
 SELECT 1, '28-11-2017', 75 UNION
 SELECT 1, '04-12-2017', 80 UNION
-SELECT 2, '13-12-2017', 40 UNION
+SELECT 2, '03-12-2017', 40 UNION
 SELECT 2, '27-11-2017', 50 UNION
 SELECT 2, '11-12-2017', 65 
 GO
@@ -418,5 +429,15 @@ SELECT Fecha_PH AS Fecha, Peso_PH AS Peso
 FROM PesosHistoricos
 Where IdPerfil_PH = @ID
 ORDER BY Fecha_PH ASC
+GO
+---------------------------------------------------------------------------------------------
+--Busca Receta por fecha y le agrega la fecha y la ordena:
+CREATE procedure PROC_FECHA_PERF2
+@ID  int
+AS
+SELECT Nombre_Rec AS Receta, IdFecha_RXF AS 'Fecha de la ingesta' 
+FROM RecetaXFecha
+INNER JOIN Recetas ON IdReceta_RXF = IdReceta_Rec
+WHERE IdPerfil_RXF = @ID ORDER BY IdFecha_RXF ASC
 GO
 ---------------------------------------------------------------------------------------------

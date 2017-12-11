@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.IO;
 
 namespace QueComemos {
     public partial class MenuPrincipal : Form {
@@ -63,6 +64,13 @@ namespace QueComemos {
             label2.Text = "CONECTADO";
 
             login = e.ClickedItem.Text;
+        }
+
+        private void Manual() {
+
+            string pathsManual = "C:\\HellDocs\\queComemos\\QueComemos\\Manual.pdf";
+            string pdfPath = Path.Combine(Application.StartupPath, pathsManual );
+            System.Diagnostics.Process.Start(pdfPath);
         }
 
         private void lOGINOUTToolStripMenuItem_Click(object sender, EventArgs e) {
@@ -123,5 +131,8 @@ namespace QueComemos {
             this.Dispose();
         }
 
+        private void aCERCADEQueComemosToolStripMenuItem_Click(object sender, EventArgs e) {
+            this.Manual();
+        }
     }
 }

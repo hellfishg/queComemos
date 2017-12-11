@@ -29,3 +29,5 @@ C:\HellDocs\queComemos\QueComemos\QueComemos\obj\Debug\QueComemos.RECETA.resourc
 C:\HellDocs\queComemos\QueComemos\QueComemos\obj\Debug\QueComemos.csproj.GenerateResource.Cache
 C:\HellDocs\queComemos\QueComemos\QueComemos\obj\Debug\QueComemos.exe
 C:\HellDocs\queComemos\QueComemos\QueComemos\obj\Debug\QueComemos.pdb
+C:\HellDocs\queComemos\QueComemos\QueComemos\obj\Debug\QueComemos.csprojResolveAssemblyReference.cache
+C:\HellDocs\queComemos\QueComemos\QueComemos\obj\Debug\QueComemos.EDITAR_PERFIL.resources

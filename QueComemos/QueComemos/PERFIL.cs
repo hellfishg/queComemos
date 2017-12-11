@@ -180,6 +180,8 @@ namespace QueComemos {
             string fechaPeso = fila[0].ToString();
             string[] fechaSinHora = fechaPeso.Split(' ');
             label2.Text = fechaSinHora[0];
+            this.cargarPesoAnual(IDperfil);
+            this.cargarPesoDeseado(65);
         }
 
         private void actualizarUltimoPeso() {
@@ -297,7 +299,6 @@ namespace QueComemos {
         private void PERFIL_FormClosing(object sender, FormClosingEventArgs e) {
             ventPadre.Show();
             this.Dispose();
-
         }
 
         private void tabControl1_MouseClick(object sender, MouseEventArgs e) {
@@ -379,6 +380,13 @@ namespace QueComemos {
             //Seleccionar el peso ideal.
 
             cargarPesoDeseado( Convert.ToInt32( textBox3.Text.ToString()));
+        }
+
+        private void button2_Click_1(object sender, EventArgs e) {
+            //Ir editar_perfil:
+            EDITAR_PERFIL editar = new EDITAR_PERFIL(ventPadre, IDperfil);
+            editar.Show();
+            this.Hide();
         }
         
     }
